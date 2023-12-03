@@ -9,7 +9,6 @@ from sqlalchemy import create_engine,text
 def extract_db_connection_info(file_path):
     # 获取当前文件所在的目录
     current_directory = os.path.dirname(__file__)
-    
     # 构建绝对路径
     absolute_file_path = os.path.join(current_directory, file_path)
     with open(absolute_file_path, 'r') as file:
