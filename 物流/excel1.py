@@ -6,7 +6,6 @@ import pandas as pd
 from tkinter import filedialog
 import json, os
 from sqlalchemy import create_engine,text
-
 def extract_db_connection_info(file_path):
     # 获取当前文件所在的目录
     current_directory = os.path.dirname(__file__)
