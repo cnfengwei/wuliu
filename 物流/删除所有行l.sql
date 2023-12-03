@@ -1,0 +1,1 @@
+delete from jd_bill  -- WHERE 运输任务号 = 'TJ23083013365643'
