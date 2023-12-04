@@ -22,7 +22,15 @@ class connect_db():
             sys.exit()
 
         self.my_cursor = self.my_connector.cursor()
-    
+        
+    def get_connector(self):
+        return self.my_connector
+
+    def get_cursor(self):
+        return self.my_cursor
+
+
+
     def conn_close(self):
         self.my_cursor.close()
         self.my_connector.close()

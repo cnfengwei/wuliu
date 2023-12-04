@@ -89,15 +89,21 @@ class MainWindow(QMainWindow):
 
 
     def on_savebtn_togggled(self):
-        self.conn= connect_db().conn_db()
-        self.cursor =connect_db().conn_db().my_cursor
+        # 创建连接对象
+        db_connector = connect_db()
+        # 连接数据库
+        db_connector.conn_db()
+
+        # 获取连接对象和游标
+        connector = db_connector.get_connector()
+        cursor = db_connector.get_cursor()
      
 
        
         
         # 从数据库中检索数据
-        self.cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='jdbill'")
-        table_exists = self.cursor.fetchone() is not None
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='jdbill'")
+        table_exists = cursor.fetchone() is not None
         print(str(table_exists))
         if not table_exists:
             print("Error: Table 'jdbill' does not exist.")
@@ -105,8 +111,8 @@ class MainWindow(QMainWindow):
             return
         
 
-        self.cursor.close()
-        self.conn.close()
+        cursor.close()
+        db_connector.conn_close()
 
         
     # def on_orders_btn_1_toggled(self):
