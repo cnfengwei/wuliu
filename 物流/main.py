@@ -1,9 +1,9 @@
-
+import sqlite3
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton,QFileDialog,QTableWidgetItem
 from PyQt6.QtCore import pyqtSlot, QFile, QTextStream
 from ui.sidebar_ui import Ui_MainWindow
 import pandas as pd
-
+from sql_calss import connect_db
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -89,7 +89,26 @@ class MainWindow(QMainWindow):
 
 
     def on_savebtn_togggled(self):
-        print("保存数据")
+        self.conn= connect_db().conn_db()
+        self.cursor =connect_db().conn_db().my_cursor
+     
+
+       
+        
+        # 从数据库中检索数据
+        self.cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='jdbill'")
+        table_exists = self.cursor.fetchone() is not None
+        print(str(table_exists))
+        if not table_exists:
+            print("Error: Table 'jdbill' does not exist.")
+            self.conn_close()
+            return
+        
+
+        self.cursor.close()
+        self.conn.close()
+
+        
     # def on_orders_btn_1_toggled(self):
     #     self.ui.stackedWidget.setCurrentIndex(2)
 
