@@ -2,7 +2,7 @@ import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton
 from PyQt6.QtCore import pyqtSlot, QFile, QTextStream
 
-from sidebar_ui import Ui_MainWindow
+from ui.sidebar_ui import Ui_MainWindow
 
 
 class MainWindow(QMainWindow):
@@ -15,6 +15,7 @@ class MainWindow(QMainWindow):
         self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.home_btn_2.setChecked(True)
+       
 
     ## Function for searching
     def on_search_btn_clicked(self):
@@ -46,29 +47,34 @@ class MainWindow(QMainWindow):
     def on_home_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(0)
 
-    def on_dashborad_btn_1_toggled(self):
+    # def on_dashborad_btn_1_toggled(self):
+    #     self.ui.stackedWidget.setCurrentIndex(1)
+
+    # # def on_dashborad_btn_2_toggled(self):
+    # #     self.ui.stackedWidget.setCurrentIndex(1)
+
+    def on_import_data_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(1)
+          
+    def on_import_data_btn_toggled(self):
+        print('导入数据')
+    # def on_orders_btn_1_toggled(self):
+    #     self.ui.stackedWidget.setCurrentIndex(2)
 
-    def on_dashborad_btn_2_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(1)
+    # def on_orders_btn_2_toggled(self):
+    #     self.ui.stackedWidget.setCurrentIndex(2)
 
-    def on_orders_btn_1_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(2)
+    # def on_products_btn_1_toggled(self):
+    #     self.ui.stackedWidget.setCurrentIndex(3)
 
-    def on_orders_btn_2_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(2)
+    # def on_products_btn_2_toggled(self, ):
+    #     self.ui.stackedWidget.setCurrentIndex(3)
 
-    def on_products_btn_1_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(3)
+    # def on_customers_btn_1_toggled(self):
+    #     self.ui.stackedWidget.setCurrentIndex(4)
 
-    def on_products_btn_2_toggled(self, ):
-        self.ui.stackedWidget.setCurrentIndex(3)
-
-    def on_customers_btn_1_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(4)
-
-    def on_customers_btn_2_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(4)
+    # def on_customers_btn_2_toggled(self):
+    #     self.ui.stackedWidget.setCurrentIndex(4)
 
 
 # if __name__ == "__main__":
