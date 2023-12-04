@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.home_btn_2.setChecked(True)
         self.ui.import_data_btn.clicked.connect(self.on_import_data_btn_toggled)
-        self.ui.savebtn.clicked.connect(self.on_savebtn_togggled)
+        self.ui.savebtn.clicked.connect(self.on_savebtn_toggled)
         
        
        
@@ -73,23 +73,28 @@ class MainWindow(QMainWindow):
             excel_path = selected_files[0]
             return excel_path
         else:
-            excel_path = ""
+            return None
             
     def on_import_data_btn_toggled(self):
         excel_file_path = self.open_file_dialog()
+        print(str(excel_file_path))
+        if excel_file_path == None:
+            return
+        else:
         # 读取Excel文件到DataFrame
-        df = pd.read_excel(excel_file_path)
-        self.ui.tableWidget_2.setRowCount(df.shape[0])
-        self.ui.tableWidget_2.setColumnCount(df.shape[1])
-        for i in range(df.shape[0]):
-            for j in range(df.shape[1]):
-                item = QTableWidgetItem(str(df.iloc[i, j]))
-                self.ui.tableWidget_2.setItem(i, j, item)
+            df = pd.read_excel(excel_file_path)
+            self.ui.tableWidget_2.setRowCount(df.shape[0])
+            self.ui.tableWidget_2.setColumnCount(df.shape[1])
+            for i in range(df.shape[0]):
+                for j in range(df.shape[1]):
+                    item = QTableWidgetItem(str(df.iloc[i, j]))
+                    self.ui.tableWidget_2.setItem(i, j, item)
         
 
 
-    def on_savebtn_togggled(self):
+    def on_savebtn_toggled(self):
         # 创建连接对象
+        
         db_connector = connect_db()
         # 连接数据库
         db_connector.conn_db()
@@ -108,20 +113,19 @@ class MainWindow(QMainWindow):
         # 获取当前表中的所有运输任务号
         cursor.execute("SELECT 运输任务号 FROM jdbill")
         existing_task_numbers = set(row[0] for row in cursor.fetchall())
+        i=0
         # 插入数据
         for row in range(self.ui.tableWidget_2.rowCount()):
             task_number = self.ui.tableWidget_2.item(row, 0).text()  # 假设任务单号是第一列
             if task_number not in existing_task_numbers:
                 # 只插入不存在的任务单号
                 values = [self.ui.tableWidget_2.item(row, col).text() for col in range(self.ui.tableWidget_2.columnCount())]
-                # cursor.execute(f"INSERT INTO jdbill VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", values)
-                # 获取数据的数量
-                data_count = len(values[0])
-
-                # 打印数据的数量
-                print(f"数据有 {data_count} 条记录")
+                cursor.execute("INSERT INTO jdbill VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)", values)
+                i += 1
                 
-
+        connector.commit()      
+        
+        print(str(i))
         cursor.close()
         db_connector.conn_close()
 
