@@ -113,10 +113,14 @@ class MainWindow(QMainWindow):
             task_number = self.ui.tableWidget_2.item(row, 0).text()  # 假设任务单号是第一列
             if task_number not in existing_task_numbers:
                 # 只插入不存在的任务单号
-                values = [self.table_widget.item(row, col).text() for col in range(self.table_widget.columnCount())]
+                values = [self.ui.tableWidget_2.item(row, col).text() for col in range(self.ui.tableWidget_2.columnCount())]
                 # cursor.execute(f"INSERT INTO jdbill VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", values)
-                print(values)
+                # 获取数据的数量
+                data_count = len(values[0])
 
+                # 打印数据的数量
+                print(f"数据有 {data_count} 条记录")
+                
 
         cursor.close()
         db_connector.conn_close()
