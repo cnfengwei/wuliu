@@ -1,8 +1,8 @@
-import sys
-from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton
-from PyQt6.QtCore import pyqtSlot, QFile, QTextStream
 
+from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton,QFileDialog,QTableWidgetItem
+from PyQt6.QtCore import pyqtSlot, QFile, QTextStream
 from ui.sidebar_ui import Ui_MainWindow
+import pandas as pd
 
 
 class MainWindow(QMainWindow):
@@ -15,6 +15,10 @@ class MainWindow(QMainWindow):
         self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.home_btn_2.setChecked(True)
+        self.ui.import_data_btn.clicked.connect(self.on_import_data_btn_toggled)
+        self.ui.savebtn.clicked.connect(self.on_savebtn_togggled)
+        
+       
        
 
     ## Function for searching
@@ -23,7 +27,7 @@ class MainWindow(QMainWindow):
         search_text = self.ui.search_input.text().strip()
         if search_text:
             self.ui.label_9.setText(search_text)
-
+    
     ## Function for changing page to user page
     def on_user_btn_clicked(self):
         self.ui.stackedWidget.setCurrentIndex(6)
@@ -55,9 +59,37 @@ class MainWindow(QMainWindow):
 
     def on_import_data_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(1)
-          
+    
+    def open_file_dialog(self):
+        # 显示文件选择对话框
+        file_dialog = QFileDialog()
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFile)
+        file_dialog.setNameFilter("Excel Files (*.xlsx *.xls)")
+        # file_dialog.setOptions(options)
+
+        if file_dialog.exec() == QFileDialog.DialogCode.Accepted:
+            # 获取所选文件的路径
+            selected_files = file_dialog.selectedFiles()
+            excel_path = selected_files[0]
+            return excel_path
+        else:
+            excel_path = ""
+            
     def on_import_data_btn_toggled(self):
-        print('导入数据')
+        excel_file_path = self.open_file_dialog()
+        # 读取Excel文件到DataFrame
+        df = pd.read_excel(excel_file_path)
+        self.ui.tableWidget_2.setRowCount(df.shape[0])
+        self.ui.tableWidget_2.setColumnCount(df.shape[1])
+        for i in range(df.shape[0]):
+            for j in range(df.shape[1]):
+                item = QTableWidgetItem(str(df.iloc[i, j]))
+                self.ui.tableWidget_2.setItem(i, j, item)
+        
+
+
+    def on_savebtn_togggled(self):
+        print("保存数据")
     # def on_orders_btn_1_toggled(self):
     #     self.ui.stackedWidget.setCurrentIndex(2)
 

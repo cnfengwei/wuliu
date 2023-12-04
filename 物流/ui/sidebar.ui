@@ -363,7 +363,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>6</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -419,32 +419,37 @@
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>三方单号</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>始发网点</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>目的网点</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>车牌号</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>计费车型</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>三方司机</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>核实司机</string>
               </property>
              </column>
             </widget>
