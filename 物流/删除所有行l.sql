@@ -1,1 +1,3 @@
-delete from jd_bill  -- WHERE 运输任务号 = 'TJ23083013365643'
+-- database: wuliu.db
+DELETE FROM jdbill
+WHERE date("任务结束时间") > date('2023-08-05');

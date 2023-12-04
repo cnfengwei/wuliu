@@ -1,5 +1,5 @@
 import sqlite3
-from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton,QFileDialog,QTableWidgetItem
+from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton,QFileDialog,QTableWidgetItem,QMessageBox
 from PyQt6.QtCore import pyqtSlot, QFile, QTextStream
 from ui.sidebar_ui import Ui_MainWindow
 import pandas as pd
@@ -59,6 +59,7 @@ class MainWindow(QMainWindow):
 
     def on_import_data_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(1)
+        self.ui.tableWidget_2.setRowCount(0)
     
     def open_file_dialog(self):
         # 显示文件选择对话框
@@ -77,7 +78,6 @@ class MainWindow(QMainWindow):
             
     def on_import_data_btn_toggled(self):
         excel_file_path = self.open_file_dialog()
-        print(str(excel_file_path))
         if excel_file_path == None:
             return
         else:
@@ -114,18 +114,23 @@ class MainWindow(QMainWindow):
         cursor.execute("SELECT 运输任务号 FROM jdbill")
         existing_task_numbers = set(row[0] for row in cursor.fetchall())
         i=0
-        # 插入数据
-        for row in range(self.ui.tableWidget_2.rowCount()):
-            task_number = self.ui.tableWidget_2.item(row, 0).text()  # 假设任务单号是第一列
-            if task_number not in existing_task_numbers:
-                # 只插入不存在的任务单号
-                values = [self.ui.tableWidget_2.item(row, col).text() for col in range(self.ui.tableWidget_2.columnCount())]
-                cursor.execute("INSERT INTO jdbill VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)", values)
-                i += 1
-                
-        connector.commit()      
-        
-        print(str(i))
+        try:
+            # 插入数据
+            for row in range(self.ui.tableWidget_2.rowCount()):
+                task_number = self.ui.tableWidget_2.item(row, 0).text()  # 假设任务单号是第一列
+                if task_number not in existing_task_numbers:
+                    # 只插入不存在的任务单号
+                    values = [self.ui.tableWidget_2.item(row, col).text() for col in range(self.ui.tableWidget_2.columnCount())]
+                    cursor.execute("INSERT INTO jdbill VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)", values)
+                    i += 1
+                    
+            connector.commit() 
+               
+        except Exception as e:
+           QMessageBox.warning(self,'更新失败',str(e))
+        msg=QMessageBox()
+        msg.setText('更新数据'+str(i)+'记录')  
+        msg.exec() 
         cursor.close()
         db_connector.conn_close()
 
