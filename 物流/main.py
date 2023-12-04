@@ -97,19 +97,26 @@ class MainWindow(QMainWindow):
         # 获取连接对象和游标
         connector = db_connector.get_connector()
         cursor = db_connector.get_cursor()
-     
 
-       
-        
         # 从数据库中检索数据
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='jdbill'")
         table_exists = cursor.fetchone() is not None
-        print(str(table_exists))
         if not table_exists:
             print("Error: Table 'jdbill' does not exist.")
             self.conn_close()
             return
-        
+        # 获取当前表中的所有运输任务号
+        cursor.execute("SELECT 运输任务号 FROM jdbill")
+        existing_task_numbers = set(row[0] for row in cursor.fetchall())
+        # 插入数据
+        for row in range(self.ui.tableWidget_2.rowCount()):
+            task_number = self.ui.tableWidget_2.item(row, 0).text()  # 假设任务单号是第一列
+            if task_number not in existing_task_numbers:
+                # 只插入不存在的任务单号
+                values = [self.table_widget.item(row, col).text() for col in range(self.table_widget.columnCount())]
+                # cursor.execute(f"INSERT INTO jdbill VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", values)
+                print(values)
+
 
         cursor.close()
         db_connector.conn_close()
