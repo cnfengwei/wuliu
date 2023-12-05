@@ -61,9 +61,9 @@ class connect_db():
         # 连接数据库
         self.conn_db()
         # 查询数据库中的users表数据
-        self.my_cursor.execute("SELECT * FROM ?", users)
+        self.my_cursor.execute("SELECT * FROM {}".format(users))
         data = self.my_cursor.fetchall()
-
+        print(data)
         # 关闭数据库连接
         self.conn_close()
 
@@ -74,3 +74,4 @@ class connect_db():
             for j in range(len(data[0])):
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
+        

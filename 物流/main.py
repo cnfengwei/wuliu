@@ -31,8 +31,8 @@ class MainWindow(QMainWindow):
     
     ## 改变页面到用户页面
     def on_user_btn_clicked(self):
-        
-        
+        print('ok')
+        self.ui.stackedWidget.setCurrentIndex(6)
         self.mydb.import_userdata(self.ui.tableWidget,'users')
 
     ## Change QPushButton Checkable status when stackedWidget index changed
@@ -41,7 +41,7 @@ class MainWindow(QMainWindow):
         #             + self.ui.full_menu_widget.findChildren(QPushButton)
         cur_index=self.ui.stackedWidget.currentIndex()
         
-        print(str(cur_index))
+        
         # for btn in btn_list:
         #     if index in [5, 6]:
         #         btn.setAutoExclusive(False)
