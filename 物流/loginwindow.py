@@ -1,6 +1,6 @@
 from PyQt6.uic import loadUi
 from PyQt6.QtWidgets import QDialog,QMessageBox
-from sql_calss import connect_db
+from sql_class import connect_db
 
 
 # 登录窗口

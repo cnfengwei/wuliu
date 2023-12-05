@@ -1,9 +1,10 @@
-import sqlite3
+
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton,QFileDialog,QTableWidgetItem,QMessageBox
 from PyQt6.QtCore import pyqtSlot, QFile, QTextStream
 from ui.sidebar_ui import Ui_MainWindow
 import pandas as pd
-from sql_calss import connect_db
+from sql_class import connect_db
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -11,7 +12,7 @@ class MainWindow(QMainWindow):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
+        self.mydb = connect_db()
         self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.home_btn_2.setChecked(True)
@@ -28,41 +29,37 @@ class MainWindow(QMainWindow):
         if search_text:
             self.ui.label_9.setText(search_text)
     
-    ## Function for changing page to user page
+    ## 改变页面到用户页面
     def on_user_btn_clicked(self):
-        self.ui.stackedWidget.setCurrentIndex(6)
+        
+        
+        self.mydb.import_userdata(self.ui.tableWidget,'users')
 
     ## Change QPushButton Checkable status when stackedWidget index changed
     def on_stackedWidget_currentChanged(self, index):
-        btn_list = self.ui.icon_only_widget.findChildren(QPushButton) \
-                    + self.ui.full_menu_widget.findChildren(QPushButton)
+        # btn_list = self.ui.icon_only_widget.findChildren(QPushButton) \
+        #             + self.ui.full_menu_widget.findChildren(QPushButton)
+        cur_index=self.ui.stackedWidget.currentIndex()
         
-        for btn in btn_list:
-            if index in [5, 6]:
-                btn.setAutoExclusive(False)
-                btn.setChecked(False)
-            else:
-                btn.setAutoExclusive(True)
-            
-    ## functions for changing menu page
-    def on_home_btn_1_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(0)
-    
+        print(str(cur_index))
+        # for btn in btn_list:
+        #     if index in [5, 6]:
+        #         btn.setAutoExclusive(False)
+        #         btn.setChecked(False)
+        #     else:
+        #         btn.setAutoExclusive(True)  
+  
+    #当home_btn_2被点击
     def on_home_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(0)
-
-    # def on_dashborad_btn_1_toggled(self):
-    #     self.ui.stackedWidget.setCurrentIndex(1)
-
-    # # def on_dashborad_btn_2_toggled(self):
-    # #     self.ui.stackedWidget.setCurrentIndex(1)
-
+        
+    #数据导入按钮被点击
     def on_import_data_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(1)
         self.ui.tableWidget_2.setRowCount(0)
-    
+    # 显示文件选择对话框，并获得excel路径
     def open_file_dialog(self):
-        # 显示文件选择对话框
+        
         file_dialog = QFileDialog()
         file_dialog.setFileMode(QFileDialog.FileMode.ExistingFile)
         file_dialog.setNameFilter("Excel Files (*.xlsx *.xls)")
@@ -75,33 +72,42 @@ class MainWindow(QMainWindow):
             return excel_path
         else:
             return None
-            
+    #将excel中数据导入到tableWidget       
     def on_import_data_btn_toggled(self):
         excel_file_path = self.open_file_dialog()
-        if excel_file_path == None:
+        if excel_file_path is None:
             return
-        else:
-        # 读取Excel文件到DataFrame
+
+        try:
             df = pd.read_excel(excel_file_path)
-            self.ui.tableWidget_2.setRowCount(df.shape[0])
-            self.ui.tableWidget_2.setColumnCount(df.shape[1])
-            for i in range(df.shape[0]):
-                for j in range(df.shape[1]):
-                    item = QTableWidgetItem(str(df.iloc[i, j]))
-                    self.ui.tableWidget_2.setItem(i, j, item)
+        except ValueError as e:
+            error_message = f"导入 Excel 文件出错：{str(e)}"
+            QMessageBox.warning(self, "导入错误", error_message)
+            # 获取错误信息的元组
+            error_args = e.args
+
+            # 打印错误信息
+            print(error_args)
+            return
+        # 读取Excel文件到DataFrame
+        #df = pd.read_excel(excel_file_path)
+        self.ui.tableWidget_2.setRowCount(df.shape[0])
+        self.ui.tableWidget_2.setColumnCount(df.shape[1])
+        for i in range(df.shape[0]):
+            for j in range(df.shape[1]):
+                item = QTableWidgetItem(str(df.iloc[i, j]))
+                self.ui.tableWidget_2.setItem(i, j, item)
         
 
-
+    #导入在tablewidget中的数据到数据库
     def on_savebtn_toggled(self):
-        # 创建连接对象
-        
-        db_connector = connect_db()
+       
         # 连接数据库
-        db_connector.conn_db()
+        self.mydb.conn_db()
 
         # 获取连接对象和游标
-        connector = db_connector.get_connector()
-        cursor = db_connector.get_cursor()
+        connector = self.mydb.get_connector()
+        cursor = self.mydb.get_cursor()
 
         # 从数据库中检索数据
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='jdbill'")
@@ -132,14 +138,13 @@ class MainWindow(QMainWindow):
         msg.setText('更新数据'+str(i)+'记录')  
         msg.exec() 
         cursor.close()
-        db_connector.conn_close()
+        self.mydb.conn_close()
 
         
-    # def on_orders_btn_1_toggled(self):
-    #     self.ui.stackedWidget.setCurrentIndex(2)
 
-    # def on_orders_btn_2_toggled(self):
-    #     self.ui.stackedWidget.setCurrentIndex(2)
+
+    def on_orders_btn_2_toggled(self):
+        self.ui.stackedWidget.setCurrentIndex(2)
 
     # def on_products_btn_1_toggled(self):
     #     self.ui.stackedWidget.setCurrentIndex(3)
@@ -154,25 +159,7 @@ class MainWindow(QMainWindow):
     #     self.ui.stackedWidget.setCurrentIndex(4)
 
 
-# if __name__ == "__main__":
-#     app = QApplication(sys.argv)
 
-#     ## loading style file
-#     # with open("style.qss", "r") as style_file:
-#     #     style_str = style_file.read()
-#     # app.setStyleSheet(style_str)
-
-#     ## loading style file, Example 2
-#     style_file = QFile("style.qss")
-#     style_file.open(QFile.ReadOnly | QFile.Text)
-#     style_stream = QTextStream(style_file)
-#     app.setStyleSheet(style_stream.readAll())
-
-
-#     window = MainWindow()
-#     window.show()
-
-#     sys.exit(app.exec())
 
 
 
