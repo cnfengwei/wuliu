@@ -16,12 +16,7 @@ class MainWindow(QMainWindow):
         self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.home_btn_2.setChecked(True)
-        self.ui.import_data_btn.clicked.connect(self.on_import_data_btn_toggled)
-        self.ui.savebtn.clicked.connect(self.on_savebtn_toggled)
-        
-       
-       
-
+   
     ## Function for searching
     def on_search_btn_clicked(self):
         self.ui.stackedWidget.setCurrentIndex(5)
@@ -144,6 +139,8 @@ class MainWindow(QMainWindow):
     def on_orders_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(2)
 
+    def on_user_add_btn_toggled(self):
+        print('ok')
     # def on_products_btn_1_toggled(self):
     #     self.ui.stackedWidget.setCurrentIndex(3)
 

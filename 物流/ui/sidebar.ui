@@ -363,7 +363,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>6</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -391,12 +391,24 @@
              <property name="text">
               <string>从文件导入数据</string>
              </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
             </widget>
            </item>
            <item row="1" column="1">
             <widget class="QPushButton" name="savebtn">
              <property name="text">
               <string>保存数据到数据库</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
@@ -539,12 +551,24 @@
              <property name="text">
               <string>新增</string>
              </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
             </widget>
            </item>
            <item row="1" column="1">
             <widget class="QPushButton" name="user_del_btn">
              <property name="text">
               <string>删除</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
@@ -553,10 +577,19 @@
              <property name="text">
               <string>保存</string>
              </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
             </widget>
            </item>
            <item row="0" column="0" colspan="3">
             <widget class="QTableWidget" name="table_users">
+             <property name="editTriggers">
+              <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+             </property>
              <column>
               <property name="text">
                <string notr="true">id</string>
@@ -598,7 +631,7 @@
   <include location="../resource.qrc"/>
   <include location="../resource.qrc"/>
   <include location="../resource.qrc"/>
-  <include location="../../../../../.designer/resource.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections>
   <connection>
