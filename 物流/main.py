@@ -29,9 +29,9 @@ class MainWindow(QMainWindow):
         if search_text:
             self.ui.label_9.setText(search_text)
     
-    ## 改变页面到用户页面
+    ## 改变页面到用户页面, 并加载数据库中的数据
     def on_user_btn_clicked(self):
-        print('ok')
+        
         self.ui.stackedWidget.setCurrentIndex(6)
         self.mydb.import_userdata(self.ui.table_users,'users')
 
@@ -77,7 +77,6 @@ class MainWindow(QMainWindow):
         excel_file_path = self.open_file_dialog()
         if excel_file_path is None:
             return
-
         try:
             df = pd.read_excel(excel_file_path)
         except ValueError as e:
@@ -97,8 +96,7 @@ class MainWindow(QMainWindow):
             for j in range(df.shape[1]):
                 item = QTableWidgetItem(str(df.iloc[i, j]))
                 self.ui.tableWidget_2.setItem(i, j, item)
-        
-
+    
     #导入在tablewidget中的数据到数据库
     def on_savebtn_toggled(self):
        

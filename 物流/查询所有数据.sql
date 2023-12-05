@@ -1,5 +1,5 @@
 -- database: wuliu.db
 
 
- --SELECT * FROM jdbill WHERE 运输任务号='TJ2308311348800455555'
- SELECT count(*) FROM jdbill
+ SELECT * FROM bill_mount WHERE "任务单号"='TJ23073109995690'
+ -- SELECT count(*) FROM jdbill

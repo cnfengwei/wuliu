@@ -1,3 +1,3 @@
 -- database: wuliu.db
-DELETE FROM jdbill
-WHERE date("任务结束时间") > date('2023-08-03');
+DELETE FROM bill_mount
+ WHERE "任务单号"='TJ23083113488004';

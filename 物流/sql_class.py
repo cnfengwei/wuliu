@@ -63,7 +63,6 @@ class connect_db():
         # 查询数据库中的users表数据
         self.my_cursor.execute("SELECT * FROM {}".format(users))
         data = self.my_cursor.fetchall()
-        print(data)
         # 关闭数据库连接
         self.conn_close()
 
