@@ -33,7 +33,7 @@ class MainWindow(QMainWindow):
     def on_user_btn_clicked(self):
         print('ok')
         self.ui.stackedWidget.setCurrentIndex(6)
-        self.mydb.import_userdata(self.ui.tableWidget,'users')
+        self.mydb.import_userdata(self.ui.table_users,'users')
 
     ## Change QPushButton Checkable status when stackedWidget index changed
     def on_stackedWidget_currentChanged(self, index):
