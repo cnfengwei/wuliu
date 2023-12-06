@@ -101,4 +101,4 @@ class connect_db():
                 tableWidget.setItem(i, j, item)
 
         # 将第一列（索引为 0）设置为不可编辑
-        tableWidget.setColumnEditable(0, False)
+        #tableWidget.setColumnEditable(0, False)
