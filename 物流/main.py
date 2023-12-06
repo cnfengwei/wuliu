@@ -29,6 +29,7 @@ class MainWindow(QMainWindow):
         
         self.ui.stackedWidget.setCurrentIndex(6)
         self.mydb.import_userdata(self.ui.table_users,'users')
+        
 
     ## Change QPushButton Checkable status when stackedWidget index changed
     def on_stackedWidget_currentChanged(self, index):
@@ -140,7 +141,32 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentIndex(2)
 
     def on_user_add_btn_toggled(self):
-        print('ok')
+        rowCount = self.ui.table_users.rowCount()
+        self.ui.table_users.insertRow(rowCount)
+        for column in range(self.ui.table_users.columnCount()):
+            self.ui.table_users.setItem(rowCount, column, QTableWidgetItem(None))
+    
+    def on_user_del_btn_toggled(self):
+        row = self.ui.table_users.currentRow()
+        if row >= 0:
+            self.ui.table_users.removeRow(row)
+
+    def on_user_save_btn_toggled(self):
+        data = []
+        for row in range(self.ui.table_users.rowCount()):
+            data.append({
+                "id": self.ui.table_users.item(row, 0).text(),
+                "username": self.ui.table_users.item(row, 1).text(),
+                "password": self.ui.table_users.item(row, 1).text(),
+                "qx": self.ui.table_users.item(row, 1).text(),
+                "memo": self.ui.table_users.item(row, 1).text(),
+            })
+        print(data)
+        for user in data:
+            if user["id"] is None:
+                print('add')
+            else:
+                print('update')
     # def on_products_btn_1_toggled(self):
     #     self.ui.stackedWidget.setCurrentIndex(3)
 

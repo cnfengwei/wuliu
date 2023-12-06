@@ -1,6 +1,6 @@
 import sqlite3
 import sys
-from PyQt6.QtWidgets import QMessageBox,QTableWidgetItem
+from PyQt6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget
 
 
 #数据库连接的模块，用于数据库的连接和数据查询，更新和删除等sql语句执行
@@ -57,20 +57,48 @@ class connect_db():
         self.tabeldata = tabeldata
 
         self.conn_close()
-    def import_userdata(self,tableWidget,users):
-        # 连接数据库
+    def import_userdata(self,tableWidget: QTableWidget,users):
+           
+        # # 连接数据库
+        # self.conn_db()
+        # # Clear table widget
+        # tableWidget.clear()
+        # # 查询数据库中的users表数据
+        # self.my_cursor.execute("SELECT * FROM {}".format(users))
+        # data = self.my_cursor.fetchall()
+        # # 关闭数据库连接
+        # self.conn_close()
+
+        # # 将数据填入tableWidget中
+        # tableWidget.setRowCount(len(data))
+        # tableWidget.setColumnCount(len(data[0]))
+        # for i in range(len(data)):
+        #     for j in range(len(data[0])):
+        #         item = QTableWidgetItem(str(data[i][j]))
+        #         tableWidget.setItem(i, j, item)
+        
+         # 连接数据库
         self.conn_db()
-        # 查询数据库中的users表数据
+
+        # 查询用户表
         self.my_cursor.execute("SELECT * FROM {}".format(users))
         data = self.my_cursor.fetchall()
+
         # 关闭数据库连接
         self.conn_close()
 
-        # 将数据填入tableWidget中
+        # 清除 table widget
+        tableWidget.clear()
+
+        # 设置 table rowCount 和 columnCount
         tableWidget.setRowCount(len(data))
         tableWidget.setColumnCount(len(data[0]))
+
+        # 将数据填充到 table widget
         for i in range(len(data)):
             for j in range(len(data[0])):
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
-        
+
+        # 将第一列（索引为 0）设置为不可编辑
+        tableWidget.setColumnEditable(0, False)

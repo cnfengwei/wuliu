@@ -110,7 +110,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../icon/home-4-32.ico</normaloff>../icon/home-4-32.ico</iconset>
+             <normaloff>../icon/activity-feed-32.ico</normaloff>../icon/activity-feed-32.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -178,8 +178,7 @@
             <string>Products</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../icon/product-32.ico</normaloff>../icon/product-32.ico</iconset>
+            <iconset theme="accessories-text-editor"/>
            </property>
            <property name="iconSize">
             <size>
@@ -202,7 +201,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../icon/group-32.ico</normaloff>../icon/group-32.ico</iconset>
+             <normaloff>../home-4-32.ico</normaloff>../home-4-32.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -326,8 +325,7 @@
                <string/>
               </property>
               <property name="icon">
-               <iconset>
-                <normaloff>../icon/search-13-48.ico</normaloff>../icon/search-13-48.ico</iconset>
+               <iconset theme="accessories-dictionary"/>
               </property>
              </widget>
             </item>
@@ -363,7 +361,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -559,17 +557,48 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="user_del_btn">
-             <property name="text">
-              <string>删除</string>
+           <item row="0" column="0" colspan="3">
+            <widget class="QTableWidget" name="table_users">
+             <property name="cursor" stdset="0">
+              <cursorShape>IBeamCursor</cursorShape>
              </property>
-             <property name="checkable">
+             <property name="editTriggers">
+              <set>QAbstractItemView::AllEditTriggers</set>
+             </property>
+             <property name="alternatingRowColors">
               <bool>true</bool>
              </property>
-             <property name="autoExclusive">
-              <bool>false</bool>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
              </property>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string notr="true">序号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>用户名</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>密码</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string comment="0" extracomment="0">权限</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string comment="0">备注</string>
+              </property>
+             </column>
             </widget>
            </item>
            <item row="1" column="2">
@@ -585,36 +614,17 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="0" colspan="3">
-            <widget class="QTableWidget" name="table_users">
-             <property name="editTriggers">
-              <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="user_del_btn">
+             <property name="text">
+              <string>删除</string>
              </property>
-             <column>
-              <property name="text">
-               <string notr="true">id</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>用户名</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>密码</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>权限</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>备注</string>
-              </property>
-             </column>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
+             </property>
             </widget>
            </item>
           </layout>
@@ -627,12 +637,7 @@
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="../resource.qrc"/>
-  <include location="../resource.qrc"/>
-  <include location="../resource.qrc"/>
-  <include location="../resource.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>exit_btn_2</sender>
