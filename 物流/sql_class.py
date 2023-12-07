@@ -1,7 +1,7 @@
 import sqlite3
 import sys
-from PyQt6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget
-
+from PySide6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget
+from PySide6.QtCore import Qt
 
 #数据库连接的模块，用于数据库的连接和数据查询，更新和删除等sql语句执行
 class connect_db():
@@ -17,7 +17,6 @@ class connect_db():
     def conn_db (self):
         try:
             self.my_connector = sqlite3.connect('wuliu.db')
-        
         except Exception as e:
             QMessageBox.warning(self, "数据库链接失败", str(e))
             sys.exit()
@@ -29,13 +28,11 @@ class connect_db():
 
     def get_cursor(self):
         return self.my_cursor
-
-
-
+    #数据库关闭
     def conn_close(self):
         self.my_cursor.close()
         self.my_connector.close()
-
+    #登录检查
     def check_login(self,user_name,password):
         self.username = user_name
         self.password = password
@@ -57,29 +54,9 @@ class connect_db():
         self.tabeldata = tabeldata
 
         self.conn_close()
+    #用户列表输入数据
     def import_userdata(self,tableWidget: QTableWidget,users):
-           
-        # # 连接数据库
-        # self.conn_db()
-        # # Clear table widget
-        # tableWidget.clear()
-        # # 查询数据库中的users表数据
-        # self.my_cursor.execute("SELECT * FROM {}".format(users))
-        # data = self.my_cursor.fetchall()
-        # # 关闭数据库连接
-        # self.conn_close()
-
-        # # 将数据填入tableWidget中
-        # tableWidget.setRowCount(len(data))
-        # tableWidget.setColumnCount(len(data[0]))
-        # for i in range(len(data)):
-        #     for j in range(len(data[0])):
-        #         item = QTableWidgetItem(str(data[i][j]))
-        #         tableWidget.setItem(i, j, item)
-        
-         # 连接数据库
         self.conn_db()
-
         # 查询用户表
         self.my_cursor.execute("SELECT * FROM {}".format(users))
         data = self.my_cursor.fetchall()
@@ -99,6 +76,8 @@ class connect_db():
             for j in range(len(data[0])):
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
-
         # 将第一列（索引为 0）设置为不可编辑
-        #tableWidget.setColumnEditable(0, False)
+        for i in range(len(data)):
+            item = QTableWidgetItem(str(data[i][0]))
+            item.setFlags(item.flags() ^ Qt.ItemIsEditable)  # 设置第一列为不可编辑
+            tableWidget.setItem(i, 0, item)

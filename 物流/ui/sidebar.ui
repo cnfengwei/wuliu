@@ -109,8 +109,8 @@
             <string>Home</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../icon/activity-feed-32.ico</normaloff>../icon/activity-feed-32.ico</iconset>
+            <iconset resource="../resource.qrc">
+             <normaloff>:/ico/icon/home-4-32.ico</normaloff>:/ico/icon/home-4-32.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -178,7 +178,8 @@
             <string>Products</string>
            </property>
            <property name="icon">
-            <iconset theme="accessories-text-editor"/>
+            <iconset resource="../resource.qrc">
+             <normaloff>:/ico/icon/product-32.ico</normaloff>:/ico/icon/product-32.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -200,8 +201,8 @@
             <string>Customers</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../home-4-32.ico</normaloff>../home-4-32.ico</iconset>
+            <iconset resource="../resource.qrc">
+             <normaloff>:/ico/icon/menu-4-32.ico</normaloff>:/ico/icon/menu-4-32.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -637,7 +638,9 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resource.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>exit_btn_2</sender>

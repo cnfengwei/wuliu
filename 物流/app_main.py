@@ -1,8 +1,8 @@
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 import sys
 from loginwindow import LoginWindow
 from main import MainWindow
-from PyQt5.QtCore import pyqtSlot, QFile, QTextStream
+from PySide6.QtCore import Slot, QFile, QTextStream
 
 
 
@@ -23,8 +23,8 @@ if __name__ == '__main__':
     style_stream = QTextStream(style_file)
     app.setStyleSheet(style_stream.readAll())
 
-    #window = LoginWindow(main_window)
-    #window.show()
+    # window = LoginWindow(main_window)
+    # window.show()
     main_window.show()
 
     sys.exit(app.exec())

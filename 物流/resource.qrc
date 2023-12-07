@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="ico">
+  <qresource prefix="icon">
     <file>icon/account-logout-64.ico</file>
     <file>icon/activity-feed-32.ico</file>
     <file>icon/activity-feed-48.ico</file>
