@@ -3,5 +3,8 @@
 =======
 redeme.md
 *.pyc
-物流/.vscode/
->>>>>>> 09fdb71d0489bb34f25ab774bdf572ff125c75be
+.vscode/
+lib/
+Scripts/
+Include/
+pyvenv.cfg

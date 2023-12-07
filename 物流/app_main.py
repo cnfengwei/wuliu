@@ -1,8 +1,8 @@
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 import sys
 from loginwindow import LoginWindow
 from main import MainWindow
-from PyQt5.QtCore import pyqtSlot, QFile, QTextStream
+from PySide6.QtCore import  QFile, QTextStream
 
 
 
