@@ -74,7 +74,11 @@ class Ui_MainWindow(object):
         self.home_btn_2 = QPushButton(self.full_menu_widget)
         self.home_btn_2.setObjectName(u"home_btn_2")
         icon = QIcon()
+<<<<<<< HEAD
         icon.addFile(u":/ico/icon/home-4-32.ico", QSize(), QIcon.Normal, QIcon.Off)
+=======
+        icon.addFile(u"../icon/activity-feed-32.ico", QSize(), QIcon.Normal, QIcon.Off)
+>>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
         self.home_btn_2.setIcon(icon)
         self.home_btn_2.setIconSize(QSize(14, 14))
         self.home_btn_2.setCheckable(True)
@@ -95,9 +99,13 @@ class Ui_MainWindow(object):
 
         self.orders_btn_2 = QPushButton(self.full_menu_widget)
         self.orders_btn_2.setObjectName(u"orders_btn_2")
+<<<<<<< HEAD
         icon2 = QIcon()
         icon2.addFile(u"../icon/activity-feed-32.ico", QSize(), QIcon.Normal, QIcon.Off)
         self.orders_btn_2.setIcon(icon2)
+=======
+        self.orders_btn_2.setIcon(icon)
+>>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
         self.orders_btn_2.setIconSize(QSize(14, 14))
         self.orders_btn_2.setCheckable(True)
         self.orders_btn_2.setAutoExclusive(True)
@@ -106,9 +114,14 @@ class Ui_MainWindow(object):
 
         self.products_btn_2 = QPushButton(self.full_menu_widget)
         self.products_btn_2.setObjectName(u"products_btn_2")
+<<<<<<< HEAD
         icon3 = QIcon()
         icon3.addFile(u":/ico/icon/product-32.ico", QSize(), QIcon.Normal, QIcon.Off)
         self.products_btn_2.setIcon(icon3)
+=======
+        icon2 = QIcon(QIcon.fromTheme(u"accessories-text-editor"))
+        self.products_btn_2.setIcon(icon2)
+>>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
         self.products_btn_2.setIconSize(QSize(14, 14))
         self.products_btn_2.setCheckable(True)
         self.products_btn_2.setAutoExclusive(True)
@@ -117,9 +130,15 @@ class Ui_MainWindow(object):
 
         self.customers_btn_2 = QPushButton(self.full_menu_widget)
         self.customers_btn_2.setObjectName(u"customers_btn_2")
+<<<<<<< HEAD
         icon4 = QIcon()
         icon4.addFile(u":/ico/icon/menu-4-32.ico", QSize(), QIcon.Normal, QIcon.Off)
         self.customers_btn_2.setIcon(icon4)
+=======
+        icon3 = QIcon()
+        icon3.addFile(u"../home-4-32.ico", QSize(), QIcon.Normal, QIcon.Off)
+        self.customers_btn_2.setIcon(icon3)
+>>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
         self.customers_btn_2.setIconSize(QSize(14, 14))
         self.customers_btn_2.setCheckable(True)
         self.customers_btn_2.setAutoExclusive(True)
@@ -135,9 +154,15 @@ class Ui_MainWindow(object):
 
         self.exit_btn_2 = QPushButton(self.full_menu_widget)
         self.exit_btn_2.setObjectName(u"exit_btn_2")
+<<<<<<< HEAD
         icon5 = QIcon()
         icon5.addFile(u"../icon/account-logout-64.ico", QSize(), QIcon.Normal, QIcon.Off)
         self.exit_btn_2.setIcon(icon5)
+=======
+        icon4 = QIcon()
+        icon4.addFile(u"../icon/account-logout-64.ico", QSize(), QIcon.Normal, QIcon.Off)
+        self.exit_btn_2.setIcon(icon4)
+>>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
         self.exit_btn_2.setIconSize(QSize(14, 14))
 
         self.verticalLayout_4.addWidget(self.exit_btn_2)
@@ -172,8 +197,13 @@ class Ui_MainWindow(object):
 
         self.search_btn = QPushButton(self.widget)
         self.search_btn.setObjectName(u"search_btn")
+<<<<<<< HEAD
         icon6 = QIcon(QIcon.fromTheme(u"accessories-dictionary"))
         self.search_btn.setIcon(icon6)
+=======
+        icon5 = QIcon(QIcon.fromTheme(u"accessories-dictionary"))
+        self.search_btn.setIcon(icon5)
+>>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
 
         self.horizontalLayout.addWidget(self.search_btn)
 
@@ -186,9 +216,15 @@ class Ui_MainWindow(object):
 
         self.user_btn = QPushButton(self.widget)
         self.user_btn.setObjectName(u"user_btn")
+<<<<<<< HEAD
         icon7 = QIcon()
         icon7.addFile(u"../icon/user-48.ico", QSize(), QIcon.Normal, QIcon.Off)
         self.user_btn.setIcon(icon7)
+=======
+        icon6 = QIcon()
+        icon6.addFile(u"../icon/user-48.ico", QSize(), QIcon.Normal, QIcon.Off)
+        self.user_btn.setIcon(icon6)
+>>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
 
         self.horizontalLayout_4.addWidget(self.user_btn)
 

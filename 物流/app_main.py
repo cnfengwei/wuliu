@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication
 import sys
 from loginwindow import LoginWindow
 from main import MainWindow
-from PySide6.QtCore import Slot, QFile, QTextStream
+from PySide6.QtCore import  QFile, QTextStream
 
 
 

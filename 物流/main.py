@@ -73,8 +73,7 @@ class MainWindow(QMainWindow):
             return excel_path
         else:
             return None
-    #将excel中数据导入到tableWidget
-    @Slot()     
+    #将excel中数据导入到tableWidget       
     def on_import_data_btn_toggled(self):
         excel_file_path = self.open_file_dialog()
         if excel_file_path is None:
@@ -146,15 +145,13 @@ class MainWindow(QMainWindow):
     @Slot()
     def on_orders_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(2)
-    #点击新增按钮
-    @Slot()
+
     def on_user_add_btn_toggled(self):
         rowCount = self.ui.table_users.rowCount()
         self.ui.table_users.insertRow(rowCount)
         for column in range(self.ui.table_users.columnCount()):
             self.ui.table_users.setItem(rowCount, column, QTableWidgetItem(None))
-    #点击删除按钮
-    @Slot()
+    
     def on_user_del_btn_toggled(self):
         row = self.ui.table_users.currentRow()
         if row >= 0:

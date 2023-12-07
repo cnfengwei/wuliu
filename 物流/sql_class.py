@@ -1,7 +1,11 @@
 import sqlite3
 import sys
 from PySide6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget
+<<<<<<< HEAD
 from PySide6.QtCore import Qt
+=======
+
+>>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
 
 #数据库连接的模块，用于数据库的连接和数据查询，更新和删除等sql语句执行
 class connect_db():

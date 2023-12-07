@@ -4,6 +4,7 @@
 redeme.md
 *.pyc
 .vscode/
+<<<<<<< HEAD
 Scripts/
 lib/
 Include/
@@ -12,3 +13,9 @@ pyvenv.cfg
 物流/.vscode
 物流/icon
 icon/
+=======
+lib/
+Scripts/
+Include/
+pyvenv.cfg
+>>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773

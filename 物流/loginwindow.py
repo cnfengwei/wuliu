@@ -1,4 +1,3 @@
-#from PySide6.uic import loadUi
 from PySide6.QtWidgets import QDialog,QMessageBox
 from sql_class import connect_db
 from ui.loginwindow_ui import Ui_loginwindow
@@ -7,9 +6,10 @@ from ui.loginwindow_ui import Ui_loginwindow
 class LoginWindow(QDialog):
     def __init__(self,main_window):
         super(LoginWindow,self).__init__()
-        #loadUi("./ui/loginwindow.ui", self)
-        self.ui = Ui_loginwindow()
+        
+        self.ui = Ui_LoginWindow()
         self.ui.setupUi(self)
+        
         self.main_window=main_window
         self.mydb = connect_db()
         self.mydb.conn_db()
