@@ -54,18 +54,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.import_data_btn)
 
-        self.bill_edit = QPushButton(self.daohang)
-        self.bill_edit.setObjectName(u"bill_edit")
-        self.bill_edit.setStyleSheet(u"background-color:  rgb(113, 113, 113);\n"
+        self.bill_edit_btn = QPushButton(self.daohang)
+        self.bill_edit_btn.setObjectName(u"bill_edit_btn")
+        self.bill_edit_btn.setStyleSheet(u"background-color:  rgb(113, 113, 113);\n"
 "color:rgb(255, 255, 255);")
         icon1 = QIcon()
         icon1.addFile(u":/icon/icon/product-48.ico", QSize(), QIcon.Normal, QIcon.Off)
-        self.bill_edit.setIcon(icon1)
-        self.bill_edit.setIconSize(QSize(24, 24))
-        self.bill_edit.setCheckable(True)
-        self.bill_edit.setAutoExclusive(True)
+        self.bill_edit_btn.setIcon(icon1)
+        self.bill_edit_btn.setIconSize(QSize(24, 24))
+        self.bill_edit_btn.setCheckable(True)
+        self.bill_edit_btn.setAutoExclusive(True)
 
-        self.verticalLayout.addWidget(self.bill_edit)
+        self.verticalLayout.addWidget(self.bill_edit_btn)
 
         self.bill_sch_btn = QPushButton(self.daohang)
         self.bill_sch_btn.setObjectName(u"bill_sch_btn")
@@ -76,6 +76,7 @@ class Ui_MainWindow(object):
         self.bill_sch_btn.setIcon(icon2)
         self.bill_sch_btn.setIconSize(QSize(24, 24))
         self.bill_sch_btn.setCheckable(True)
+        self.bill_sch_btn.setChecked(True)
         self.bill_sch_btn.setAutoExclusive(True)
 
         self.verticalLayout.addWidget(self.bill_sch_btn)
@@ -345,6 +346,10 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.exit_btn.clicked.connect(MainWindow.close)
+        self.bill_sch_btn.toggled.connect(MainWindow.on_bill_serach_btn_toggled)
+        self.user_btn.toggled.connect(MainWindow.on_user_btn_clicked)
+        self.import_data_btn.toggled.connect(MainWindow.on_import_data_btn_toggled)
+        self.bill_edit_btn.toggled.connect(MainWindow.on_bill_edit_btn_toggled)
 
         self.pushButton_8.setDefault(True)
         self.stackedWidget.setCurrentIndex(1)
@@ -356,7 +361,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.import_data_btn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165\u6570\u636e", None))
-        self.bill_edit.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u5355\u7f16\u8f91", None))
+        self.bill_edit_btn.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u5355\u7f16\u8f91", None))
         self.bill_sch_btn.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u5355\u67e5\u8be2", None))
         self.user_btn.setText(QCoreApplication.translate("MainWindow", u"\u7528\u6237\u7ba1\u7406", None))
         self.exit_btn.setText(QCoreApplication.translate("MainWindow", u"EXIT", None))

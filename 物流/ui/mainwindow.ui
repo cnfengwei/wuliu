@@ -60,7 +60,7 @@ color:rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="bill_edit">
+          <widget class="QPushButton" name="bill_edit_btn">
            <property name="styleSheet">
             <string notr="true">background-color:  rgb(113, 113, 113);
 color:rgb(255, 255, 255);</string>
@@ -106,6 +106,9 @@ color:rgb(255, 255, 255);</string>
             </size>
            </property>
            <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
             <bool>true</bool>
            </property>
            <property name="autoExclusive">
@@ -578,6 +581,70 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>bill_sch_btn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_bill_serach_btn_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>user_btn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_user_btn_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>import_data_btn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_import_data_btn_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bill_edit_btn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_bill_edit_btn_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">
@@ -596,4 +663,10 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
    <bool>true</bool>
   </property>
  </designerdata>
+ <slots>
+  <slot>on_bill_edit_btn_toggled()</slot>
+  <slot>on_bill_serach_btn_toggled()</slot>
+  <slot>on_user_btn_clicked()</slot>
+  <slot>on_import_data_btn_toggled()</slot>
+ </slots>
 </ui>

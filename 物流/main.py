@@ -15,13 +15,13 @@ class MainWindow(QMainWindow):
         self.mydb = connect_db()
         # self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
-        #self.ui.home_btn_2.setChecked(True)
+    
     
     ## 改变页面到用户页面, 并加载数据库中的数据
     @Slot()
     def on_user_btn_clicked(self):
-        
-        self.ui.stackedWidget.setCurrentIndex(6)
+        print('user_btn')
+        self.ui.stackedWidget.setCurrentIndex(5)
         self.mydb.import_userdata(self.ui.table_users,'users')
         
     ## Change QPushButton Checkable status when stackedWidget index changed
@@ -39,18 +39,13 @@ class MainWindow(QMainWindow):
         #     else:
         #         btn.setAutoExclusive(True)  
   
-    #当home_btn_2被点击
-    @Slot()
-    def on_home_btn_2_toggled(self):
-        print('home')
-        self.ui.stackedWidget.setCurrentIndex(0)
-        
+
     #数据导入按钮被点击
     @Slot()
     def on_import_data_btn_toggled(self):
         print('import')
-        self.ui.stackedWidget.setCurrentIndex(1)
-        self.ui.tableWidget_2.setRowCount(0)
+        self.ui.stackedWidget.setCurrentIndex(4)
+        self.ui.tableWidget.setRowCount(0)
     # 显示文件选择对话框，并获得excel路径
     @Slot()
     def open_file_dialog(self):
@@ -68,7 +63,7 @@ class MainWindow(QMainWindow):
         else:
             return None
     #将excel中数据导入到tableWidget       
-    def on_import_data_btn_toggled(self):
+    def on_import_exceldata_btn_toggled(self):
         excel_file_path = self.open_file_dialog()
         if excel_file_path is None:
             return
@@ -138,8 +133,8 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def on_bill_edit_btn_toggled(self):
-        prin('billedit')
-        self.ui.stackedWidget.setCurrentIndex(2)
+        print('billedit')
+        self.ui.stackedWidget.setCurrentIndex(3)
 
     def on_user_add_btn_toggled(self):
         rowCount = self.ui.table_users.rowCount()
@@ -171,7 +166,7 @@ class MainWindow(QMainWindow):
     @Slot()
     def on_bill_serach_btn_toggled(self):
         print('bill_serach')
-        self.ui.stackedWidget.setCurrentIndex(3)
+        self.ui.stackedWidget.setCurrentIndex(2)
 
     # def on_products_btn_2_toggled(self, ):
     #     self.ui.stackedWidget.setCurrentIndex(3)
