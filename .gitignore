@@ -1,25 +1,20 @@
-<<<<<<< HEAD
+
 *.pyc
-=======
 redeme.md
 *.pyc
 .vscode/
-<<<<<<< HEAD
+
 Scripts/
 lib/
 Include/
 pyvenv.cfg
 物流/__pycache__/
 物流/.vscode
-物流/icon
-icon/
-=======
+
+
+
 lib/
 Scripts/
 Include/
 pyvenv.cfg
-<<<<<<< HEAD
-icon/
-=======
->>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
->>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
+
