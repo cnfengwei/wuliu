@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icon/huoche.png</file>
+    <file>icon/plus.png</file>
+    <file>icon/tick.png</file>
+    <file>icon/notebook.png</file>
     <file>icon/account-logout-64.ico</file>
     <file>icon/activity-feed-32.ico</file>
     <file>icon/activity-feed-48.ico</file>
