@@ -14,8 +14,9 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.mydb = connect_db()
         self.ui.icon_only_widget.hide()
-        self.ui.stackedWidget.setCurrentIndex(0)
+        # self.ui.stackedWidget.setCurrentIndex(6)
         self.ui.home_btn_2.setChecked(True)
+        
    
     ## Function for searching
     @Slot()
