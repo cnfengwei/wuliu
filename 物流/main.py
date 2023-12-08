@@ -14,23 +14,25 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.mydb = connect_db()
         # self.ui.icon_only_widget.hide()
+
         self.ui.stackedWidget.setCurrentIndex(0)
+        self.ui.import_exceldata_btn.clicked.connect(self.import_exceldata_btn_toggled)
     
     
     ## 改变页面到用户页面, 并加载数据库中的数据
-    @Slot()
+    
     def on_user_btn_clicked(self):
-        print('user_btn')
+        
         self.ui.stackedWidget.setCurrentIndex(5)
         self.mydb.import_userdata(self.ui.table_users,'users')
         
     ## Change QPushButton Checkable status when stackedWidget index changed
-    @Slot()
+    
     def on_stackedWidget_currentChanged(self):
         # btn_list = self.ui.icon_only_widget.findChildren(QPushButton) \
         #             + self.ui.full_menu_widget.findChildren(QPushButton)
         cur_index=self.ui.stackedWidget.currentIndex()
-        print(cur_index)
+        
         
         # for btn in btn_list:
         #     if index in [5, 6]:
@@ -41,13 +43,10 @@ class MainWindow(QMainWindow):
   
 
     #数据导入按钮被点击
-    @Slot()
     def on_import_data_btn_toggled(self):
-        print('import')
         self.ui.stackedWidget.setCurrentIndex(4)
-        self.ui.tableWidget.setRowCount(0)
+        
     # 显示文件选择对话框，并获得excel路径
-    @Slot()
     def open_file_dialog(self):
         
         file_dialog = QFileDialog()
@@ -63,7 +62,7 @@ class MainWindow(QMainWindow):
         else:
             return None
     #将excel中数据导入到tableWidget       
-    def on_import_exceldata_btn_toggled(self):
+    def import_exceldata_btn_toggled(self):
         excel_file_path = self.open_file_dialog()
         if excel_file_path is None:
             return
@@ -80,15 +79,14 @@ class MainWindow(QMainWindow):
             return
         # 读取Excel文件到DataFrame
         #df = pd.read_excel(excel_file_path)
-        self.ui.tableWidget_2.setRowCount(df.shape[0])
-        self.ui.tableWidget_2.setColumnCount(df.shape[1])
+        self.ui.table_import_exceldata.setRowCount(df.shape[0])
+        self.ui.table_import_exceldata.setColumnCount(df.shape[1])
         for i in range(df.shape[0]):
             for j in range(df.shape[1]):
                 item = QTableWidgetItem(str(df.iloc[i, j]))
-                self.ui.tableWidget_2.setItem(i, j, item)
+                self.ui.table_import_exceldata.setItem(i, j, item)
     
     #导入在tablewidget中的数据到数据库
-    @Slot()
     def on_savebtn_toggled(self):
        
         # 连接数据库
@@ -111,11 +109,11 @@ class MainWindow(QMainWindow):
         i=0
         try:
             # 插入数据
-            for row in range(self.ui.tableWidget_2.rowCount()):
-                task_number = self.ui.tableWidget_2.item(row, 0).text()  # 假设任务单号是第一列
+            for row in range(self.ui.table_import_exceldata.rowCount()):
+                task_number = self.ui.table_import_exceldata.item(row, 0).text()  # 假设任务单号是第一列
                 if task_number not in existing_task_numbers:
                     # 只插入不存在的任务单号
-                    values = [self.ui.tableWidget_2.item(row, col).text() for col in range(self.ui.tableWidget_2.columnCount())]
+                    values = [self.ui.table_import_exceldata.item(row, col).text() for col in range(self.ui.table_import_exceldata.columnCount())]
                     cursor.execute("INSERT INTO jdbill VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)", values)
                     i += 1
                     
@@ -130,10 +128,7 @@ class MainWindow(QMainWindow):
         self.mydb.conn_close()
 
         
-
-    @Slot()
     def on_bill_edit_btn_toggled(self):
-        print('billedit')
         self.ui.stackedWidget.setCurrentIndex(3)
 
     def on_user_add_btn_toggled(self):
@@ -146,7 +141,7 @@ class MainWindow(QMainWindow):
         row = self.ui.table_users.currentRow()
         if row >= 0:
             self.ui.table_users.removeRow(row)
-    @Slot()
+    
     def on_user_save_btn_toggled(self):
         data = []
         for row in range(self.ui.table_users.rowCount()):
@@ -163,19 +158,12 @@ class MainWindow(QMainWindow):
                 print('add')
             else:
                 print('update')
-    @Slot()
+    
     def on_bill_serach_btn_toggled(self):
-        print('bill_serach')
+       
         self.ui.stackedWidget.setCurrentIndex(2)
 
-    # def on_products_btn_2_toggled(self, ):
-    #     self.ui.stackedWidget.setCurrentIndex(3)
 
-    # def on_customers_btn_1_toggled(self):
-    #     self.ui.stackedWidget.setCurrentIndex(4)
-
-    # def on_customers_btn_2_toggled(self):
-    #     self.ui.stackedWidget.setCurrentIndex(4)
 
 
 

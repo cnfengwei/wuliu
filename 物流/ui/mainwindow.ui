@@ -87,7 +87,7 @@ color:rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="bill_sch_btn">
+          <widget class="QPushButton" name="bill_serach_btn">
            <property name="styleSheet">
             <string notr="true">background-color:  rgb(113, 113, 113);
 color:rgb(255, 255, 255);</string>
@@ -106,9 +106,6 @@ color:rgb(255, 255, 255);</string>
             </size>
            </property>
            <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
             <bool>true</bool>
            </property>
            <property name="autoExclusive">
@@ -213,13 +210,13 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
           <bool>false</bool>
          </property>
          <property name="autoDefault">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="default">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="flat">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -379,19 +376,11 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page_3"/>
          <widget class="QWidget" name="page_4">
-          <layout class="QGridLayout" name="gridLayout_9">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_5">
-             <property name="text">
-              <string>importdata</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <layout class="QGridLayout" name="gridLayout_9"/>
          </widget>
          <widget class="QWidget" name="bill_serach_page">
           <layout class="QGridLayout" name="gridLayout_7">
@@ -418,7 +407,10 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
          <widget class="QWidget" name="import_data_page">
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="0" column="0" colspan="2">
-            <widget class="QTableWidget" name="tableWidget">
+            <widget class="QTableWidget" name="table_import_exceldata">
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
              <column>
               <property name="text">
                <string>任务运输号</string>
@@ -426,32 +418,47 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>任务开始时间</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>任务结束时间</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>三方单号</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>始发网点</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>目的网点</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>新建列</string>
+               <string>车牌号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>计费车型</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>三方司机姓名</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>核实司机</string>
               </property>
              </column>
             </widget>
@@ -461,12 +468,18 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
              <property name="text">
               <string>导入EXCEL数据</string>
              </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
             </widget>
            </item>
            <item row="1" column="1">
             <widget class="QPushButton" name="save_btn">
              <property name="text">
               <string>保存数据</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -574,22 +587,6 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
     <hint type="sourcelabel">
      <x>64</x>
      <y>650</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>513</x>
-     <y>353</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>bill_sch_btn</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>on_bill_serach_btn_toggled()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>64</x>
-     <y>166</y>
     </hint>
     <hint type="destinationlabel">
      <x>513</x>
