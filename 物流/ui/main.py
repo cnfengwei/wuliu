@@ -1,6 +1,6 @@
 
-from PySide6.QtWidgets import QMainWindow,QFileDialog,QTableWidgetItem,QMessageBox
-from PySide6.QtCore import Slot
+from PySide6.QtWidgets import QMainWindow, QApplication, QPushButton,QFileDialog,QTableWidgetItem,QMessageBox
+from PySide6.QtCore import Slot, QFile, QTextStream
 from ui.sidebar_ui import Ui_MainWindow
 import pandas as pd
 from sql_class import connect_db
@@ -33,7 +33,6 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentIndex(6)
         self.mydb.import_userdata(self.ui.table_users,'users')
         
-
     ## Change QPushButton Checkable status when stackedWidget index changed
     @Slot()
     def on_stackedWidget_currentChanged(self):
@@ -75,8 +74,7 @@ class MainWindow(QMainWindow):
             return excel_path
         else:
             return None
-    #将excel中数据导入到tableWidget 
-    @Slot()      
+    #将excel中数据导入到tableWidget       
     def on_import_data_btn_toggled(self):
         excel_file_path = self.open_file_dialog()
         if excel_file_path is None:
@@ -148,13 +146,13 @@ class MainWindow(QMainWindow):
     @Slot()
     def on_orders_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(2)
-    @Slot()
+
     def on_user_add_btn_toggled(self):
         rowCount = self.ui.table_users.rowCount()
         self.ui.table_users.insertRow(rowCount)
         for column in range(self.ui.table_users.columnCount()):
             self.ui.table_users.setItem(rowCount, column, QTableWidgetItem(None))
-    @Slot()
+    
     def on_user_del_btn_toggled(self):
         row = self.ui.table_users.currentRow()
         if row >= 0:
@@ -172,7 +170,7 @@ class MainWindow(QMainWindow):
             })
         print(data)
         for user in data:
-            if user["id"] is None:
+            if user["id"] == '':
                 print('add')
             else:
                 print('update')

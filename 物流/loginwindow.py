@@ -1,4 +1,3 @@
-
 from PySide6.QtWidgets import QDialog,QMessageBox
 from sql_class import connect_db
 from ui.loginwindow_ui import Ui_loginwindow

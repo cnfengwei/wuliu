@@ -128,8 +128,13 @@ background-color: rgb(102, 102, 102);</string>
             <string>Home</string>
            </property>
            <property name="icon">
+<<<<<<< HEAD
             <iconset>
              <normaloff>:/icon/icon/home-4-48.ico</normaloff>:/icon/icon/home-4-48.ico</iconset>
+=======
+            <iconset resource="../resource.qrc">
+             <normaloff>:/ico/icon/home-4-32.ico</normaloff>:/ico/icon/home-4-32.ico</iconset>
+>>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
            </property>
            <property name="iconSize">
             <size>
@@ -209,8 +214,13 @@ background-color: rgb(102, 102, 102);</string>
             <string>订单查询</string>
            </property>
            <property name="icon">
+<<<<<<< HEAD
             <iconset resource="../source.qrc">
              <normaloff>:/ico/icon/product-48.ico</normaloff>:/ico/icon/product-48.ico</iconset>
+=======
+            <iconset resource="../resource.qrc">
+             <normaloff>:/ico/icon/product-32.ico</normaloff>:/ico/icon/product-32.ico</iconset>
+>>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
            </property>
            <property name="iconSize">
             <size>
@@ -236,8 +246,13 @@ background-color: rgb(102, 102, 102);</string>
             <string>用户管理</string>
            </property>
            <property name="icon">
+<<<<<<< HEAD
             <iconset resource="../source.qrc">
              <normaloff>:/ico/icon/group-48.ico</normaloff>:/ico/icon/group-48.ico</iconset>
+=======
+            <iconset resource="../resource.qrc">
+             <normaloff>:/ico/icon/menu-4-32.ico</normaloff>:/ico/icon/menu-4-32.ico</iconset>
+>>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
            </property>
            <property name="iconSize">
             <size>
@@ -689,7 +704,11 @@ color: rgb(255, 255, 255);</string>
   </widget>
  </widget>
  <resources>
+<<<<<<< HEAD
   <include location="../source.qrc"/>
+=======
+  <include location="../resource.qrc"/>
+>>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
  </resources>
  <connections>
   <connection>
