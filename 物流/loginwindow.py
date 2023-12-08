@@ -7,7 +7,7 @@ class LoginWindow(QDialog):
     def __init__(self,main_window):
         super(LoginWindow,self).__init__()
         
-        self.ui = Ui_LoginWindow()
+        self.ui = Ui_loginwindow()
         self.ui.setupUi(self)
         
         self.main_window=main_window

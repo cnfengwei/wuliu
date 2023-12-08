@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
@@ -32,6 +35,9 @@
     </property>
     <item row="0" column="0">
      <widget class="QWidget" name="icon_only_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <property name="spacing">
         <number>0</number>
@@ -53,6 +59,9 @@
     </item>
     <item row="0" column="1">
      <widget class="QWidget" name="full_menu_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color:#313a46;</string>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -77,7 +86,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>../icon/Logo.png</pixmap>
+            <pixmap>../../../../../.designer/icon/Logo.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -88,11 +97,11 @@
           <widget class="QLabel" name="logo_label_3">
            <property name="font">
             <font>
-             <pointsize>15</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
-            <string>Sidebar</string>
+            <string>导航栏</string>
            </property>
           </widget>
          </item>
@@ -105,17 +114,32 @@
          </property>
          <item>
           <widget class="QPushButton" name="home_btn_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>50</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(102, 102, 102);</string>
+           </property>
            <property name="text">
             <string>Home</string>
            </property>
            <property name="icon">
+<<<<<<< HEAD
+            <iconset>
+             <normaloff>:/icon/icon/home-4-48.ico</normaloff>:/icon/icon/home-4-48.ico</iconset>
+=======
             <iconset resource="../resource.qrc">
              <normaloff>:/ico/icon/home-4-32.ico</normaloff>:/ico/icon/home-4-32.ico</iconset>
+>>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>24</width>
+             <height>24</height>
             </size>
            </property>
            <property name="checkable">
@@ -128,17 +152,21 @@
          </item>
          <item>
           <widget class="QPushButton" name="import_data_btn_2">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(102, 102, 102);</string>
+           </property>
            <property name="text">
             <string>数据导入</string>
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../icon/dashboard-5-32.ico</normaloff>../icon/dashboard-5-32.ico</iconset>
+             <normaloff>:/新前缀/close-window-64.ico</normaloff>:/新前缀/close-window-64.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>24</width>
+             <height>24</height>
             </size>
            </property>
            <property name="checkable">
@@ -151,17 +179,21 @@
          </item>
          <item>
           <widget class="QPushButton" name="orders_btn_2">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(102, 102, 102);</string>
+           </property>
            <property name="text">
-            <string>Orders</string>
+            <string>订单修改</string>
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../icon/activity-feed-32.ico</normaloff>../icon/activity-feed-32.ico</iconset>
+             <normaloff>../../icon/home-4-48.ico</normaloff>../../icon/home-4-48.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>24</width>
+             <height>24</height>
             </size>
            </property>
            <property name="checkable">
@@ -174,17 +206,26 @@
          </item>
          <item>
           <widget class="QPushButton" name="products_btn_2">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(102, 102, 102);</string>
+           </property>
            <property name="text">
-            <string>Products</string>
+            <string>订单查询</string>
            </property>
            <property name="icon">
+<<<<<<< HEAD
+            <iconset resource="../source.qrc">
+             <normaloff>:/ico/icon/product-48.ico</normaloff>:/ico/icon/product-48.ico</iconset>
+=======
             <iconset resource="../resource.qrc">
              <normaloff>:/ico/icon/product-32.ico</normaloff>:/ico/icon/product-32.ico</iconset>
+>>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>24</width>
+             <height>24</height>
             </size>
            </property>
            <property name="checkable">
@@ -197,17 +238,26 @@
          </item>
          <item>
           <widget class="QPushButton" name="customers_btn_2">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(102, 102, 102);</string>
+           </property>
            <property name="text">
-            <string>Customers</string>
+            <string>用户管理</string>
            </property>
            <property name="icon">
+<<<<<<< HEAD
+            <iconset resource="../source.qrc">
+             <normaloff>:/ico/icon/group-48.ico</normaloff>:/ico/icon/group-48.ico</iconset>
+=======
             <iconset resource="../resource.qrc">
              <normaloff>:/ico/icon/menu-4-32.ico</normaloff>:/ico/icon/menu-4-32.ico</iconset>
+>>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>24</width>
+             <height>24</height>
             </size>
            </property>
            <property name="checkable">
@@ -235,12 +285,17 @@
        </item>
        <item>
         <widget class="QPushButton" name="exit_btn_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(102, 102, 102);
+color: rgb(255, 255, 255);</string>
+         </property>
          <property name="text">
           <string>Exit</string>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../icon/account-logout-64.ico</normaloff>../icon/account-logout-64.ico</iconset>
+           <normaloff>../../icon/account-logout-64.ico</normaloff>
+           <normalon>../../icon/activity-feed-48.ico</normalon>../../icon/account-logout-64.ico</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -314,19 +369,37 @@
              <number>10</number>
             </property>
             <item>
-             <widget class="QLineEdit" name="search_input">
-              <property name="placeholderText">
-               <string>Search...</string>
+             <widget class="QPushButton" name="user_btn">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>注销</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>:/icon/icon/user-48.ico</normaloff>:/icon/icon/user-48.ico</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="search_btn">
-              <property name="text">
-               <string/>
+             <widget class="QLabel" name="label">
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+               </font>
               </property>
-              <property name="icon">
-               <iconset theme="accessories-dictionary"/>
+              <property name="text">
+               <string>用户</string>
               </property>
              </widget>
             </item>
@@ -344,17 +417,6 @@
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="user_btn">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>../icon/user-48.ico</normaloff>../icon/user-48.ico</iconset>
-            </property>
-           </widget>
           </item>
          </layout>
         </widget>
@@ -564,7 +626,7 @@
               <cursorShape>IBeamCursor</cursorShape>
              </property>
              <property name="editTriggers">
-              <set>QAbstractItemView::AllEditTriggers</set>
+              <set>QAbstractItemView::NoEditTriggers</set>
              </property>
              <property name="alternatingRowColors">
               <bool>true</bool>
@@ -593,6 +655,9 @@
              <column>
               <property name="text">
                <string comment="0" extracomment="0">权限</string>
+              </property>
+              <property name="whatsThis">
+               <string>管理数据权限</string>
               </property>
              </column>
              <column>
@@ -639,7 +704,11 @@
   </widget>
  </widget>
  <resources>
+<<<<<<< HEAD
+  <include location="../source.qrc"/>
+=======
   <include location="../resource.qrc"/>
+>>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
  </resources>
  <connections>
   <connection>

@@ -5,7 +5,10 @@ from PySide6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget
 from PySide6.QtCore import Qt
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4c00aa4de6d7d619850aac699d4dd4bad085dc0c
 
 #数据库连接的模块，用于数据库的连接和数据查询，更新和删除等sql语句执行
 class connect_db():
@@ -60,16 +63,14 @@ class connect_db():
         self.conn_close()
     #用户列表输入数据
     def import_userdata(self,tableWidget: QTableWidget,users):
+
+
         self.conn_db()
         # 查询用户表
         self.my_cursor.execute("SELECT * FROM {}".format(users))
         data = self.my_cursor.fetchall()
-
         # 关闭数据库连接
         self.conn_close()
-
-        # 清除 table widget
-        tableWidget.clear()
 
         # 设置 table rowCount 和 columnCount
         tableWidget.setRowCount(len(data))
@@ -81,7 +82,18 @@ class connect_db():
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
         # 将第一列（索引为 0）设置为不可编辑
+
+
+        for i in range(len(data)):
+            item = QTableWidgetItem(str(data[i][0]))
+            
+            item.setFlags(item.flags() ^ Qt.ItemIsEditable)  # 设置第一列为不可编辑
+            tableWidget.setItem(i, 0, item)
+        #     tableWidget.repaint()
+            
+
         for i in range(len(data)):
             item = QTableWidgetItem(str(data[i][0]))
             item.setFlags(item.flags() ^ Qt.ItemIsEditable)  # 设置第一列为不可编辑
             tableWidget.setItem(i, 0, item)
+
