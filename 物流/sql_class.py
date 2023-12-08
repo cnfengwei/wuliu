@@ -1,16 +1,10 @@
 import sqlite3
 import sys
 from PySide6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget
-<<<<<<< HEAD
+
 from PySide6.QtCore import Qt
 
-=======
-<<<<<<< HEAD
-from PySide6.QtCore import Qt
-=======
->>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
 
->>>>>>> 4157cdd1f53ca4ab02ca02d0b4bc9ab9347e6773
 
 #数据库连接的模块，用于数据库的连接和数据查询，更新和删除等sql语句执行
 class connect_db():
@@ -65,10 +59,8 @@ class connect_db():
         self.conn_close()
     #用户列表输入数据
     def import_userdata(self,tableWidget: QTableWidget,users):
-<<<<<<< HEAD
-        # 连接数据库
-=======
->>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
+
+
         self.conn_db()
         # 查询用户表
         self.my_cursor.execute("SELECT * FROM {}".format(users))
@@ -86,7 +78,7 @@ class connect_db():
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
         # 将第一列（索引为 0）设置为不可编辑
-<<<<<<< HEAD
+
 
         for i in range(len(data)):
             item = QTableWidgetItem(str(data[i][0]))
@@ -95,9 +87,9 @@ class connect_db():
             tableWidget.setItem(i, 0, item)
         #     tableWidget.repaint()
             
-=======
+
         for i in range(len(data)):
             item = QTableWidgetItem(str(data[i][0]))
             item.setFlags(item.flags() ^ Qt.ItemIsEditable)  # 设置第一列为不可编辑
             tableWidget.setItem(i, 0, item)
->>>>>>> 5ee6fcfb1ebcff8e19627164c3adcb3766f8718c
+
