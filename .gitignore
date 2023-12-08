@@ -10,7 +10,7 @@ Include/
 pyvenv.cfg
 物流/__pycache__/
 物流/.vscode
-
+icon/
 
 
 lib/

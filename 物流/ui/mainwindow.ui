@@ -33,24 +33,7 @@
        <item row="2" column="0">
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QPushButton" name="pushButton_6">
-           <property name="styleSheet">
-            <string notr="true">background-color:  rgb(113, 113, 113);
-color:rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string>PushButton</string>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_7">
+          <widget class="QPushButton" name="import_data_btn">
            <property name="styleSheet">
             <string notr="true">background-color:  rgb(113, 113, 113);
 color:rgb(255, 255, 255);</string>
@@ -60,7 +43,7 @@ color:rgb(255, 255, 255);</string>
            </property>
            <property name="icon">
             <iconset resource="../source.qrc">
-             <normaloff>:/ico/icon/notebook.png</normaloff>:/ico/icon/notebook.png</iconset>
+             <normaloff>:/icon/icon/notebook.png</normaloff>:/icon/icon/notebook.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -77,7 +60,7 @@ color:rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="bill_edit">
            <property name="styleSheet">
             <string notr="true">background-color:  rgb(113, 113, 113);
 color:rgb(255, 255, 255);</string>
@@ -87,7 +70,7 @@ color:rgb(255, 255, 255);</string>
            </property>
            <property name="icon">
             <iconset resource="../source.qrc">
-             <normaloff>:/ico/icon/product-48.ico</normaloff>:/ico/icon/product-48.ico</iconset>
+             <normaloff>:/icon/icon/product-48.ico</normaloff>:/icon/icon/product-48.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -104,7 +87,7 @@ color:rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="bill_sch_btn">
            <property name="styleSheet">
             <string notr="true">background-color:  rgb(113, 113, 113);
 color:rgb(255, 255, 255);</string>
@@ -114,7 +97,7 @@ color:rgb(255, 255, 255);</string>
            </property>
            <property name="icon">
             <iconset resource="../source.qrc">
-             <normaloff>:/ico/icon/activity-feed-48.ico</normaloff>:/ico/icon/activity-feed-48.ico</iconset>
+             <normaloff>:/icon/icon/activity-feed-48.ico</normaloff>:/icon/icon/activity-feed-48.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -131,7 +114,7 @@ color:rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="user_btn">
            <property name="styleSheet">
             <string notr="true">background-color:  rgb(113, 113, 113);
 color:rgb(255, 255, 255);</string>
@@ -141,7 +124,7 @@ color:rgb(255, 255, 255);</string>
            </property>
            <property name="icon">
             <iconset resource="../source.qrc">
-             <normaloff>:/ico/icon/group-48.ico</normaloff>:/ico/icon/group-48.ico</iconset>
+             <normaloff>:/icon/icon/group-48.ico</normaloff>:/icon/icon/group-48.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -171,19 +154,28 @@ color:rgb(255, 255, 255);</string>
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_5">
+          <widget class="QPushButton" name="exit_btn">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
            <property name="text">
             <string>EXIT</string>
            </property>
            <property name="icon">
             <iconset resource="../source.qrc">
-             <normaloff>:/ico/icon/arrow-180.png</normaloff>:/ico/icon/arrow-180.png</iconset>
+             <normaloff>:/icon/icon/account-logout-64.ico</normaloff>:/icon/icon/account-logout-64.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
              <width>24</width>
              <height>24</height>
             </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -206,7 +198,7 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
          </property>
          <property name="icon">
           <iconset resource="../source.qrc">
-           <normaloff>:/ico/icon/780.jpg</normaloff>:/ico/icon/780.jpg</iconset>
+           <normaloff>:/icon/icon/huoche.png</normaloff>:/icon/icon/huoche.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -276,7 +268,7 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
            </property>
            <property name="icon">
             <iconset resource="../source.qrc">
-             <normaloff>:/ico/icon/user.png</normaloff>:/ico/icon/user.png</iconset>
+             <normaloff>:/icon/icon/arrow-180.png</normaloff>:/icon/icon/arrow-180.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -344,7 +336,7 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
             <enum>QLCDNumber::Filled</enum>
            </property>
            <property name="value" stdset="0">
-            <double>5.200000000000000</double>
+            <double>5.000000000000000</double>
            </property>
            <property name="intValue" stdset="0">
             <number>5</number>
@@ -383,31 +375,57 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
-         <widget class="QWidget" name="page">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>5</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="sizeIncrement">
-           <size>
-            <width>0</width>
-            <height>10</height>
-           </size>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_5">
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <widget class="QWidget" name="page_3"/>
+         <widget class="QWidget" name="page_4">
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>importdata</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="bill_serach_page">
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>billserach</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_6">
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="0">
+            <widget class="QLabel" name="bill_edit_page">
+             <property name="text">
+              <string>billedit</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="import_data_page">
+          <layout class="QGridLayout" name="gridLayout_6">
            <item row="0" column="0" colspan="2">
             <widget class="QTableWidget" name="tableWidget">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(85, 255, 255);</string>
-             </property>
+             <column>
+              <property name="text">
+               <string>任务运输号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>新建列</string>
+              </property>
+             </column>
              <column>
               <property name="text">
                <string>新建列</string>
@@ -436,9 +454,77 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
             </widget>
            </item>
            <item row="1" column="0">
+            <widget class="QPushButton" name="import_exceldata_btn">
+             <property name="text">
+              <string>导入EXCEL数据</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="save_btn">
+             <property name="text">
+              <string>保存数据</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_users">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>5</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>10</height>
+           </size>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0" colspan="2">
+            <widget class="QTableWidget" name="table_users">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(85, 255, 255);</string>
+             </property>
+             <column>
+              <property name="text">
+               <string>序号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>用户名</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>密码</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>权限</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>备注</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item row="1" column="0">
             <widget class="QPushButton" name="pushButton_10">
              <property name="text">
-              <string>PushButton</string>
+              <string>新增</string>
              </property>
             </widget>
            </item>
@@ -457,33 +543,11 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
               </size>
              </property>
              <property name="text">
-              <string>PushButton</string>
+              <string>删除</string>
              </property>
             </widget>
            </item>
           </layout>
-         </widget>
-         <widget class="QWidget" name="page_3"/>
-         <widget class="QWidget" name="page_4"/>
-         <widget class="QWidget" name="page_5"/>
-         <widget class="QWidget" name="page_6"/>
-         <widget class="QWidget" name="page_2">
-          <widget class="QLabel" name="label_2">
-           <property name="geometry">
-            <rect>
-             <x>110</x>
-             <y>70</y>
-             <width>461</width>
-             <height>211</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 170, 127);</string>
-           </property>
-           <property name="text">
-            <string>TextLabel</string>
-           </property>
-          </widget>
          </widget>
         </widget>
        </item>
@@ -497,5 +561,39 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
  <resources>
   <include location="../source.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>exit_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>650</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
 </ui>

@@ -1,7 +1,7 @@
 
 from PySide6.QtWidgets import QMainWindow, QApplication, QPushButton,QFileDialog,QTableWidgetItem,QMessageBox
-from PySide6.QtCore import Slot, QFile, QTextStream
-from ui.sidebar_ui import Ui_MainWindow
+from PySide6.QtCore import Slot
+from ui.mainwindow_ui import Ui_MainWindow
 import pandas as pd
 from sql_class import connect_db
 
@@ -13,18 +13,9 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.mydb = connect_db()
-        self.ui.icon_only_widget.hide()
-        # self.ui.stackedWidget.setCurrentIndex(6)
-        self.ui.home_btn_2.setChecked(True)
-        
-   
-    ## Function for searching
-    @Slot()
-    def on_search_btn_clicked(self):
-        self.ui.stackedWidget.setCurrentIndex(5)
-        search_text = self.ui.search_input.text().strip()
-        if search_text:
-            self.ui.label_9.setText(search_text)
+        # self.ui.icon_only_widget.hide()
+        self.ui.stackedWidget.setCurrentIndex(0)
+        #self.ui.home_btn_2.setChecked(True)
     
     ## 改变页面到用户页面, 并加载数据库中的数据
     @Slot()
@@ -51,11 +42,13 @@ class MainWindow(QMainWindow):
     #当home_btn_2被点击
     @Slot()
     def on_home_btn_2_toggled(self):
+        print('home')
         self.ui.stackedWidget.setCurrentIndex(0)
         
     #数据导入按钮被点击
     @Slot()
-    def on_import_data_btn_2_toggled(self):
+    def on_import_data_btn_toggled(self):
+        print('import')
         self.ui.stackedWidget.setCurrentIndex(1)
         self.ui.tableWidget_2.setRowCount(0)
     # 显示文件选择对话框，并获得excel路径
@@ -144,7 +137,8 @@ class MainWindow(QMainWindow):
         
 
     @Slot()
-    def on_orders_btn_2_toggled(self):
+    def on_bill_edit_btn_toggled(self):
+        prin('billedit')
         self.ui.stackedWidget.setCurrentIndex(2)
 
     def on_user_add_btn_toggled(self):
@@ -174,8 +168,10 @@ class MainWindow(QMainWindow):
                 print('add')
             else:
                 print('update')
-    # def on_products_btn_1_toggled(self):
-    #     self.ui.stackedWidget.setCurrentIndex(3)
+    @Slot()
+    def on_bill_serach_btn_toggled(self):
+        print('bill_serach')
+        self.ui.stackedWidget.setCurrentIndex(3)
 
     # def on_products_btn_2_toggled(self, ):
     #     self.ui.stackedWidget.setCurrentIndex(3)

@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QApplication
 import sys
 from loginwindow import LoginWindow
-from ui.main import MainWindow
+from main import MainWindow
 from PySide6.QtCore import  QFile, QTextStream
 
 
