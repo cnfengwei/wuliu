@@ -378,11 +378,10 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
          <property name="currentIndex">
           <number>4</number>
          </property>
-         <widget class="QWidget" name="page_3"/>
          <widget class="QWidget" name="page_4">
           <layout class="QGridLayout" name="gridLayout_9"/>
          </widget>
-         <widget class="QWidget" name="bill_serach_page">
+         <widget class="QWidget" name="page1_bill_serach">
           <layout class="QGridLayout" name="gridLayout_7">
            <item row="0" column="0">
             <widget class="QLabel" name="label_4">
@@ -393,10 +392,10 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_6">
+         <widget class="QWidget" name="page2_bill_edit">
           <layout class="QGridLayout" name="gridLayout_8">
            <item row="0" column="0">
-            <widget class="QLabel" name="bill_edit_page">
+            <widget class="QLabel" name="bill_edit_tab">
              <property name="text">
               <string>billedit</string>
              </property>
@@ -404,7 +403,7 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="import_data_page">
+         <widget class="QWidget" name="page3_import_data">
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="0" column="0" colspan="2">
             <widget class="QTableWidget" name="table_import_exceldata">
@@ -485,7 +484,7 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_users">
+         <widget class="QWidget" name="page4_users">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
             <horstretch>5</horstretch>
@@ -499,7 +498,26 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
            </size>
           </property>
           <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="0" colspan="2">
+           <item row="1" column="2">
+            <widget class="QPushButton" name="del_user_btn">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>14</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>15</width>
+               <height>14</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>删除</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="3">
             <widget class="QTableWidget" name="table_users">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -508,8 +526,17 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
               </sizepolicy>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(85, 255, 255);</string>
+              <string notr="true"/>
              </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
              <column>
               <property name="text">
                <string>序号</string>
@@ -538,28 +565,22 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QPushButton" name="pushButton_10">
+            <widget class="QPushButton" name="add_user_btn">
              <property name="text">
               <string>新增</string>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QPushButton" name="pushButton_9">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>14</height>
-              </size>
-             </property>
-             <property name="baseSize">
-              <size>
-               <width>15</width>
-               <height>14</height>
-              </size>
-             </property>
+            <widget class="QPushButton" name="user_edit_btn">
              <property name="text">
-              <string>删除</string>
+              <string>修改</string>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
@@ -635,6 +656,22 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
     <hint type="sourcelabel">
      <x>64</x>
      <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bill_serach_btn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_bill_serach_btn_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>166</y>
     </hint>
     <hint type="destinationlabel">
      <x>513</x>

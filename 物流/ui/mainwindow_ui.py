@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QHeaderView, QLCDNumber, QLabel, QMainWindow,
-    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QStatusBar, QTableWidget, QTableWidgetItem, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLCDNumber, QLabel,
+    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
+    QStackedWidget, QStatusBar, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget)
 import source_rc
 
 class Ui_MainWindow(object):
@@ -217,39 +217,36 @@ class Ui_MainWindow(object):
         self.stackedWidget = QStackedWidget(self.main)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
-        self.page_3 = QWidget()
-        self.page_3.setObjectName(u"page_3")
-        self.stackedWidget.addWidget(self.page_3)
         self.page_4 = QWidget()
         self.page_4.setObjectName(u"page_4")
         self.gridLayout_9 = QGridLayout(self.page_4)
         self.gridLayout_9.setObjectName(u"gridLayout_9")
         self.stackedWidget.addWidget(self.page_4)
-        self.bill_serach_page = QWidget()
-        self.bill_serach_page.setObjectName(u"bill_serach_page")
-        self.gridLayout_7 = QGridLayout(self.bill_serach_page)
+        self.page1_bill_serach = QWidget()
+        self.page1_bill_serach.setObjectName(u"page1_bill_serach")
+        self.gridLayout_7 = QGridLayout(self.page1_bill_serach)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.label_4 = QLabel(self.bill_serach_page)
+        self.label_4 = QLabel(self.page1_bill_serach)
         self.label_4.setObjectName(u"label_4")
 
         self.gridLayout_7.addWidget(self.label_4, 0, 0, 1, 1)
 
-        self.stackedWidget.addWidget(self.bill_serach_page)
-        self.page_6 = QWidget()
-        self.page_6.setObjectName(u"page_6")
-        self.gridLayout_8 = QGridLayout(self.page_6)
+        self.stackedWidget.addWidget(self.page1_bill_serach)
+        self.page2_bill_edit = QWidget()
+        self.page2_bill_edit.setObjectName(u"page2_bill_edit")
+        self.gridLayout_8 = QGridLayout(self.page2_bill_edit)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.bill_edit_page = QLabel(self.page_6)
-        self.bill_edit_page.setObjectName(u"bill_edit_page")
+        self.bill_edit_tab = QLabel(self.page2_bill_edit)
+        self.bill_edit_tab.setObjectName(u"bill_edit_tab")
 
-        self.gridLayout_8.addWidget(self.bill_edit_page, 0, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.bill_edit_tab, 0, 0, 1, 1)
 
-        self.stackedWidget.addWidget(self.page_6)
-        self.import_data_page = QWidget()
-        self.import_data_page.setObjectName(u"import_data_page")
-        self.gridLayout_6 = QGridLayout(self.import_data_page)
+        self.stackedWidget.addWidget(self.page2_bill_edit)
+        self.page3_import_data = QWidget()
+        self.page3_import_data.setObjectName(u"page3_import_data")
+        self.gridLayout_6 = QGridLayout(self.page3_import_data)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.table_import_exceldata = QTableWidget(self.import_data_page)
+        self.table_import_exceldata = QTableWidget(self.page3_import_data)
         if (self.table_import_exceldata.columnCount() < 10):
             self.table_import_exceldata.setColumnCount(10)
         __qtablewidgetitem = QTableWidgetItem()
@@ -277,30 +274,37 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.table_import_exceldata, 0, 0, 1, 2)
 
-        self.import_exceldata_btn = QPushButton(self.import_data_page)
+        self.import_exceldata_btn = QPushButton(self.page3_import_data)
         self.import_exceldata_btn.setObjectName(u"import_exceldata_btn")
         self.import_exceldata_btn.setCheckable(False)
 
         self.gridLayout_6.addWidget(self.import_exceldata_btn, 1, 0, 1, 1)
 
-        self.save_btn = QPushButton(self.import_data_page)
+        self.save_btn = QPushButton(self.page3_import_data)
         self.save_btn.setObjectName(u"save_btn")
         self.save_btn.setCheckable(True)
 
         self.gridLayout_6.addWidget(self.save_btn, 1, 1, 1, 1)
 
-        self.stackedWidget.addWidget(self.import_data_page)
-        self.page_users = QWidget()
-        self.page_users.setObjectName(u"page_users")
+        self.stackedWidget.addWidget(self.page3_import_data)
+        self.page4_users = QWidget()
+        self.page4_users.setObjectName(u"page4_users")
         sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy3.setHorizontalStretch(5)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.page_users.sizePolicy().hasHeightForWidth())
-        self.page_users.setSizePolicy(sizePolicy3)
-        self.page_users.setSizeIncrement(QSize(0, 10))
-        self.gridLayout_5 = QGridLayout(self.page_users)
+        sizePolicy3.setHeightForWidth(self.page4_users.sizePolicy().hasHeightForWidth())
+        self.page4_users.setSizePolicy(sizePolicy3)
+        self.page4_users.setSizeIncrement(QSize(0, 10))
+        self.gridLayout_5 = QGridLayout(self.page4_users)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.table_users = QTableWidget(self.page_users)
+        self.del_user_btn = QPushButton(self.page4_users)
+        self.del_user_btn.setObjectName(u"del_user_btn")
+        self.del_user_btn.setMinimumSize(QSize(0, 14))
+        self.del_user_btn.setBaseSize(QSize(15, 14))
+
+        self.gridLayout_5.addWidget(self.del_user_btn, 1, 2, 1, 1)
+
+        self.table_users = QTableWidget(self.page4_users)
         if (self.table_users.columnCount() < 5):
             self.table_users.setColumnCount(5)
         __qtablewidgetitem10 = QTableWidgetItem()
@@ -319,23 +323,26 @@ class Ui_MainWindow(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.table_users.sizePolicy().hasHeightForWidth())
         self.table_users.setSizePolicy(sizePolicy4)
-        self.table_users.setStyleSheet(u"background-color: rgb(85, 255, 255);")
+        self.table_users.setStyleSheet(u"")
+        self.table_users.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.table_users.setAlternatingRowColors(True)
+        self.table_users.verticalHeader().setVisible(False)
 
-        self.gridLayout_5.addWidget(self.table_users, 0, 0, 1, 2)
+        self.gridLayout_5.addWidget(self.table_users, 0, 0, 1, 3)
 
-        self.pushButton_10 = QPushButton(self.page_users)
-        self.pushButton_10.setObjectName(u"pushButton_10")
+        self.add_user_btn = QPushButton(self.page4_users)
+        self.add_user_btn.setObjectName(u"add_user_btn")
+        self.add_user_btn.setCheckable(False)
 
-        self.gridLayout_5.addWidget(self.pushButton_10, 1, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.add_user_btn, 1, 0, 1, 1)
 
-        self.pushButton_9 = QPushButton(self.page_users)
-        self.pushButton_9.setObjectName(u"pushButton_9")
-        self.pushButton_9.setMinimumSize(QSize(0, 14))
-        self.pushButton_9.setBaseSize(QSize(15, 14))
+        self.user_edit_btn = QPushButton(self.page4_users)
+        self.user_edit_btn.setObjectName(u"user_edit_btn")
+        self.user_edit_btn.setCheckable(False)
 
-        self.gridLayout_5.addWidget(self.pushButton_9, 1, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.user_edit_btn, 1, 1, 1, 1)
 
-        self.stackedWidget.addWidget(self.page_users)
+        self.stackedWidget.addWidget(self.page4_users)
 
         self.gridLayout_2.addWidget(self.stackedWidget, 0, 0, 1, 1)
 
@@ -352,6 +359,7 @@ class Ui_MainWindow(object):
         self.user_btn.toggled.connect(MainWindow.on_user_btn_clicked)
         self.import_data_btn.toggled.connect(MainWindow.on_import_data_btn_toggled)
         self.bill_edit_btn.toggled.connect(MainWindow.on_bill_edit_btn_toggled)
+        self.bill_serach_btn.toggled.connect(MainWindow.on_bill_serach_btn_toggled)
 
         self.pushButton_8.setDefault(False)
         self.stackedWidget.setCurrentIndex(4)
@@ -371,7 +379,7 @@ class Ui_MainWindow(object):
         self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"\u6ce8\u9500", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u7528\u6237", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"billserach", None))
-        self.bill_edit_page.setText(QCoreApplication.translate("MainWindow", u"billedit", None))
+        self.bill_edit_tab.setText(QCoreApplication.translate("MainWindow", u"billedit", None))
         ___qtablewidgetitem = self.table_import_exceldata.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u8fd0\u8f93\u53f7", None));
         ___qtablewidgetitem1 = self.table_import_exceldata.horizontalHeaderItem(1)
@@ -394,6 +402,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"\u6838\u5b9e\u53f8\u673a", None));
         self.import_exceldata_btn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165EXCEL\u6570\u636e", None))
         self.save_btn.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u6570\u636e", None))
+        self.del_user_btn.setText(QCoreApplication.translate("MainWindow", u"\u5220\u9664", None))
         ___qtablewidgetitem10 = self.table_users.horizontalHeaderItem(0)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"\u5e8f\u53f7", None));
         ___qtablewidgetitem11 = self.table_users.horizontalHeaderItem(1)
@@ -404,7 +413,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"\u6743\u9650", None));
         ___qtablewidgetitem14 = self.table_users.horizontalHeaderItem(4)
         ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"\u5907\u6ce8", None));
-        self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u589e", None))
-        self.pushButton_9.setText(QCoreApplication.translate("MainWindow", u"\u5220\u9664", None))
+        self.add_user_btn.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u589e", None))
+        self.user_edit_btn.setText(QCoreApplication.translate("MainWindow", u"\u4fee\u6539", None))
     # retranslateUi
 

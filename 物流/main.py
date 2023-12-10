@@ -17,43 +17,27 @@ class MainWindow(QMainWindow):
 
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.import_exceldata_btn.clicked.connect(self.import_exceldata_btn_toggled)
-    
-    
-    ## 改变页面到用户页面, 并加载数据库中的数据
-    
+        self.ui.add_user_btn.clicked.connect(self.add_user_btn_clicked)
+        
+    ## 改变页面到用户页面, 并加载数据库中表users的数据 
     def on_user_btn_clicked(self):
         
-        self.ui.stackedWidget.setCurrentIndex(5)
+        self.ui.stackedWidget.setCurrentIndex(4)
         self.mydb.import_userdata(self.ui.table_users,'users')
         
-    ## Change QPushButton Checkable status when stackedWidget index changed
+    # def on_stackedWidget_currentChanged(self):
+      
+    #     cur_index=self.ui.stackedWidget.currentIndex()
     
-    def on_stackedWidget_currentChanged(self):
-        # btn_list = self.ui.icon_only_widget.findChildren(QPushButton) \
-        #             + self.ui.full_menu_widget.findChildren(QPushButton)
-        cur_index=self.ui.stackedWidget.currentIndex()
-        
-        
-        # for btn in btn_list:
-        #     if index in [5, 6]:
-        #         btn.setAutoExclusive(False)
-        #         btn.setChecked(False)
-        #     else:
-        #         btn.setAutoExclusive(True)  
-  
-
-    #数据导入按钮被点击
+    #导入数据按钮激活，并且切换到导入数据的索引页
     def on_import_data_btn_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(4)
+        self.ui.stackedWidget.setCurrentIndex(3)
         
     # 显示文件选择对话框，并获得excel路径
     def open_file_dialog(self):
-        
         file_dialog = QFileDialog()
         file_dialog.setFileMode(QFileDialog.FileMode.ExistingFile)
         file_dialog.setNameFilter("Excel Files (*.xlsx *.xls)")
-        # file_dialog.setOptions(options)
-
         if file_dialog.exec() == QFileDialog.DialogCode.Accepted:
             # 获取所选文件的路径
             selected_files = file_dialog.selectedFiles()
@@ -61,6 +45,7 @@ class MainWindow(QMainWindow):
             return excel_path
         else:
             return None
+
     #将excel中数据导入到tableWidget       
     def import_exceldata_btn_toggled(self):
         excel_file_path = self.open_file_dialog()
@@ -78,7 +63,7 @@ class MainWindow(QMainWindow):
             print(error_args)
             return
         # 读取Excel文件到DataFrame
-        #df = pd.read_excel(excel_file_path)
+        df = pd.read_excel(excel_file_path)
         self.ui.table_import_exceldata.setRowCount(df.shape[0])
         self.ui.table_import_exceldata.setColumnCount(df.shape[1])
         for i in range(df.shape[0]):
@@ -126,18 +111,15 @@ class MainWindow(QMainWindow):
         msg.exec() 
         cursor.close()
         self.mydb.conn_close()
-
-        
+   
     def on_bill_edit_btn_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(3)
-
-    def on_user_add_btn_toggled(self):
-        rowCount = self.ui.table_users.rowCount()
-        self.ui.table_users.insertRow(rowCount)
-        for column in range(self.ui.table_users.columnCount()):
-            self.ui.table_users.setItem(rowCount, column, QTableWidgetItem(None))
+        self.ui.stackedWidget.setCurrentIndex(2)
     
-    def on_user_del_btn_toggled(self):
+    #用户新增按钮激活   
+    def add_user_btn_clicked(self):
+        print('add')
+    
+    def user_del_btn_clicked(self):
         row = self.ui.table_users.currentRow()
         if row >= 0:
             self.ui.table_users.removeRow(row)
@@ -152,7 +134,6 @@ class MainWindow(QMainWindow):
                 "qx": self.ui.table_users.item(row, 1).text(),
                 "memo": self.ui.table_users.item(row, 1).text(),
             })
-        print(data)
         for user in data:
             if user["id"] == '':
                 print('add')
@@ -160,8 +141,8 @@ class MainWindow(QMainWindow):
                 print('update')
     
     def on_bill_serach_btn_toggled(self):
-       
-        self.ui.stackedWidget.setCurrentIndex(2)
+        print('serach')
+        self.ui.stackedWidget.setCurrentIndex(1)
 
 
 
