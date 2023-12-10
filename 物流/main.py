@@ -4,7 +4,7 @@ from PySide6.QtCore import Slot
 from ui.mainwindow_ui import Ui_MainWindow
 import pandas as pd
 from sql_class import connect_db
-
+from userwindow import userwindow
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -13,12 +13,12 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.mydb = connect_db()
-        # self.ui.icon_only_widget.hide()
+        self.userwindow = userwindow()
 
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.import_exceldata_btn.clicked.connect(self.import_exceldata_btn_toggled)
         self.ui.add_user_btn.clicked.connect(self.add_user_btn_clicked)
-        
+        self.ui.reload_btn.clicked.connect(self.on_user_btn_clicked)
     ## 改变页面到用户页面, 并加载数据库中表users的数据 
     def on_user_btn_clicked(self):
         
@@ -117,8 +117,10 @@ class MainWindow(QMainWindow):
     
     #用户新增按钮激活   
     def add_user_btn_clicked(self):
-        print('add')
+        
+        self.userwindow.show()
     
+    #用户删除
     def user_del_btn_clicked(self):
         row = self.ui.table_users.currentRow()
         if row >= 0:
@@ -141,7 +143,7 @@ class MainWindow(QMainWindow):
                 print('update')
     
     def on_bill_serach_btn_toggled(self):
-        print('serach')
+        
         self.ui.stackedWidget.setCurrentIndex(1)
 
 

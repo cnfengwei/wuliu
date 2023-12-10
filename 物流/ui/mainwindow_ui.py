@@ -297,12 +297,11 @@ class Ui_MainWindow(object):
         self.page4_users.setSizeIncrement(QSize(0, 10))
         self.gridLayout_5 = QGridLayout(self.page4_users)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.del_user_btn = QPushButton(self.page4_users)
-        self.del_user_btn.setObjectName(u"del_user_btn")
-        self.del_user_btn.setMinimumSize(QSize(0, 14))
-        self.del_user_btn.setBaseSize(QSize(15, 14))
+        self.user_edit_btn = QPushButton(self.page4_users)
+        self.user_edit_btn.setObjectName(u"user_edit_btn")
+        self.user_edit_btn.setCheckable(False)
 
-        self.gridLayout_5.addWidget(self.del_user_btn, 1, 2, 1, 1)
+        self.gridLayout_5.addWidget(self.user_edit_btn, 1, 1, 1, 1)
 
         self.table_users = QTableWidget(self.page4_users)
         if (self.table_users.columnCount() < 5):
@@ -328,7 +327,7 @@ class Ui_MainWindow(object):
         self.table_users.setAlternatingRowColors(True)
         self.table_users.verticalHeader().setVisible(False)
 
-        self.gridLayout_5.addWidget(self.table_users, 0, 0, 1, 3)
+        self.gridLayout_5.addWidget(self.table_users, 0, 0, 1, 4)
 
         self.add_user_btn = QPushButton(self.page4_users)
         self.add_user_btn.setObjectName(u"add_user_btn")
@@ -336,11 +335,17 @@ class Ui_MainWindow(object):
 
         self.gridLayout_5.addWidget(self.add_user_btn, 1, 0, 1, 1)
 
-        self.user_edit_btn = QPushButton(self.page4_users)
-        self.user_edit_btn.setObjectName(u"user_edit_btn")
-        self.user_edit_btn.setCheckable(False)
+        self.del_user_btn = QPushButton(self.page4_users)
+        self.del_user_btn.setObjectName(u"del_user_btn")
+        self.del_user_btn.setMinimumSize(QSize(0, 14))
+        self.del_user_btn.setBaseSize(QSize(15, 14))
 
-        self.gridLayout_5.addWidget(self.user_edit_btn, 1, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.del_user_btn, 1, 3, 1, 1)
+
+        self.reload_btn = QPushButton(self.page4_users)
+        self.reload_btn.setObjectName(u"reload_btn")
+
+        self.gridLayout_5.addWidget(self.reload_btn, 1, 2, 1, 1)
 
         self.stackedWidget.addWidget(self.page4_users)
 
@@ -402,7 +407,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"\u6838\u5b9e\u53f8\u673a", None));
         self.import_exceldata_btn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165EXCEL\u6570\u636e", None))
         self.save_btn.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u6570\u636e", None))
-        self.del_user_btn.setText(QCoreApplication.translate("MainWindow", u"\u5220\u9664", None))
+        self.user_edit_btn.setText(QCoreApplication.translate("MainWindow", u"\u4fee\u6539", None))
         ___qtablewidgetitem10 = self.table_users.horizontalHeaderItem(0)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"\u5e8f\u53f7", None));
         ___qtablewidgetitem11 = self.table_users.horizontalHeaderItem(1)
@@ -414,6 +419,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem14 = self.table_users.horizontalHeaderItem(4)
         ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"\u5907\u6ce8", None));
         self.add_user_btn.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u589e", None))
-        self.user_edit_btn.setText(QCoreApplication.translate("MainWindow", u"\u4fee\u6539", None))
+        self.del_user_btn.setText(QCoreApplication.translate("MainWindow", u"\u5220\u9664", None))
+        self.reload_btn.setText(QCoreApplication.translate("MainWindow", u"\u5237\u65b0", None))
     # retranslateUi
 

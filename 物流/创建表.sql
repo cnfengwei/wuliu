@@ -1,1 +1,4 @@
-database: wuliu.db
+-- database: wuliu.db
+
+INSERT INTO users ( username, password, qx, memo)
+VALUES ( 'admin', '123456', 1, '管理员');

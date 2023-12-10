@@ -1,9 +1,8 @@
 import sqlite3
 import sys
 from PySide6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget
-
 from PySide6.QtCore import Qt
-
+from tkinter import messagebox
 
 #数据库连接的模块，用于数据库的连接和数据查询，更新和删除等sql语句执行
 class connect_db():
@@ -19,8 +18,10 @@ class connect_db():
     def conn_db (self):
         try:
             self.my_connector = sqlite3.connect('wuliu.db')
+            
         except Exception as e:
-            QMessageBox.warning(self, "数据库链接失败", str(e))
+            messagebox.showerror("数据库链接失败", str(e))
+            print(str(e))
             sys.exit()
 
         self.my_cursor = self.my_connector.cursor()
@@ -67,5 +68,30 @@ class connect_db():
             for j in range(len(data[0])):
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
-        
 
+        
+    
+    def adduser(self,username,password,qx,memo):
+        self.username = username
+        self.password = password
+        self.qx = qx
+        self.memo = memo
+        self.conn_db()
+        query = "select * from users where username = ?"
+        self.my_cursor.execute(query,[self.username])
+        result = self.my_cursor.fetchall()
+        
+        if len(result) > 0 :
+           
+            messagebox.showerror("提示", "已有该用户名存在，请重新输入")
+            return 
+        else:
+            query = "INSERT INTO users (username, password, qx, memo) VALUES (?, ?, ?, ?); "
+            self.my_cursor.execute(query, (self.username, self.password,self.qx,self.memo))
+            self.my_connector.commit()
+            self.conn_close()
+            return 1
+            
+            
+
+        

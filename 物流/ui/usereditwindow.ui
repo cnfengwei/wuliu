@@ -88,7 +88,7 @@
      <string>权限</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="qx">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -137,7 +137,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="password">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -154,7 +154,7 @@
      </font>
     </property>
     <property name="echoMode">
-     <enum>QLineEdit::Password</enum>
+     <enum>QLineEdit::Normal</enum>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -177,7 +177,7 @@
      <string>备注</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="memo">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -207,7 +207,7 @@
      <string>密码</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="username">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -245,10 +245,10 @@
   </widget>
  </widget>
  <tabstops>
-  <tabstop>lineEdit</tabstop>
-  <tabstop>lineEdit_2</tabstop>
-  <tabstop>comboBox</tabstop>
-  <tabstop>textEdit</tabstop>
+  <tabstop>username</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>qx</tabstop>
+  <tabstop>memo</tabstop>
  </tabstops>
  <resources/>
  <connections>
