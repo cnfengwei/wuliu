@@ -18,6 +18,461 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1">
+     <widget class="QFrame" name="main">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QStackedWidget" name="stackedWidget">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="currentIndex">
+          <number>2</number>
+         </property>
+         <widget class="QWidget" name="page_4">
+          <layout class="QGridLayout" name="gridLayout_9"/>
+         </widget>
+         <widget class="QWidget" name="page1_bill_serach">
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>billserach</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page2_bill_edit">
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="0">
+            <widget class="QTableWidget" name="tableWidget">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>200</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <column>
+              <property name="text">
+               <string>运输任务号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>核实司机</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>车牌号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>金额</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>审核</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>付款</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>开始时间</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>三方单号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>三方司机</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>备注</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>查询搜索</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>订单号</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_7">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_4"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>司机姓名</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_2"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>开始日期</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_2">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateEdit" name="dateEdit">
+                <property name="maximumDate">
+                 <date>
+                  <year>2050</year>
+                  <month>1</month>
+                  <day>1</day>
+                 </date>
+                </property>
+                <property name="minimumDate">
+                 <date>
+                  <year>2020</year>
+                  <month>1</month>
+                  <day>1</day>
+                 </date>
+                </property>
+                <property name="calendarPopup">
+                 <bool>false</bool>
+                </property>
+                <property name="date">
+                 <date>
+                  <year>2020</year>
+                  <month>9</month>
+                  <day>15</day>
+                 </date>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>结束日期</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_3">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateEdit" name="dateEdit_2"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>三方单号</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_5">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>车牌号</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_6">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_3"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="text">
+                 <string>搜索</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+             <zorder>checkBox</zorder>
+             <zorder>pushButton</zorder>
+             <zorder>label_2</zorder>
+             <zorder>label_3</zorder>
+             <zorder>lineEdit</zorder>
+             <zorder>dateEdit</zorder>
+             <zorder>dateEdit_2</zorder>
+             <zorder>checkBox_2</zorder>
+             <zorder>checkBox_3</zorder>
+             <zorder>lineEdit_2</zorder>
+             <zorder>label_7</zorder>
+             <zorder>label_8</zorder>
+             <zorder>lineEdit_3</zorder>
+             <zorder>lineEdit_4</zorder>
+             <zorder>checkBox_5</zorder>
+             <zorder>checkBox_6</zorder>
+             <zorder>checkBox_7</zorder>
+             <zorder>label_6</zorder>
+             <zorder>label_5</zorder>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page3_import_data">
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="1" column="0">
+            <widget class="QPushButton" name="import_exceldata_btn">
+             <property name="text">
+              <string>导入EXCEL数据</string>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="save_btn">
+             <property name="text">
+              <string>保存数据</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QTableWidget" name="table_import_exceldata">
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+             <column>
+              <property name="text">
+               <string>任务运输号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>任务开始时间</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>任务结束时间</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>三方单号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>始发网点</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>目的网点</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>车牌号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>计费车型</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>三方司机姓名</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>核实司机</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page4_users">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>5</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="1" column="2">
+            <widget class="QPushButton" name="reload_btn">
+             <property name="text">
+              <string>刷新</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="user_edit_btn">
+             <property name="text">
+              <string>修改</string>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="add_user_btn">
+             <property name="text">
+              <string>新增</string>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="del_user_btn">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>14</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>15</width>
+               <height>14</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>删除</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <widget class="QTableWidget" name="table_users">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>序号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>用户名</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>密码</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>权限</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>备注</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item row="0" column="0" rowspan="2">
      <widget class="QFrame" name="daohang">
       <property name="styleSheet">
@@ -357,243 +812,6 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
           </spacer>
          </item>
         </layout>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QFrame" name="main">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Sunken</enum>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QStackedWidget" name="stackedWidget">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
-         </property>
-         <property name="currentIndex">
-          <number>4</number>
-         </property>
-         <widget class="QWidget" name="page_4">
-          <layout class="QGridLayout" name="gridLayout_9"/>
-         </widget>
-         <widget class="QWidget" name="page1_bill_serach">
-          <layout class="QGridLayout" name="gridLayout_7">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>billserach</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="page2_bill_edit">
-          <layout class="QGridLayout" name="gridLayout_8">
-           <item row="0" column="0">
-            <widget class="QLabel" name="bill_edit_tab">
-             <property name="text">
-              <string>billedit</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="page3_import_data">
-          <layout class="QGridLayout" name="gridLayout_6">
-           <item row="0" column="0" colspan="2">
-            <widget class="QTableWidget" name="table_import_exceldata">
-             <property name="lineWidth">
-              <number>0</number>
-             </property>
-             <column>
-              <property name="text">
-               <string>任务运输号</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>任务开始时间</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>任务结束时间</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>三方单号</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>始发网点</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>目的网点</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>车牌号</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>计费车型</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>三方司机姓名</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>核实司机</string>
-              </property>
-             </column>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QPushButton" name="import_exceldata_btn">
-             <property name="text">
-              <string>导入EXCEL数据</string>
-             </property>
-             <property name="checkable">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="save_btn">
-             <property name="text">
-              <string>保存数据</string>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="page4_users">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>5</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="sizeIncrement">
-           <size>
-            <width>0</width>
-            <height>10</height>
-           </size>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_5">
-           <item row="1" column="1">
-            <widget class="QPushButton" name="user_edit_btn">
-             <property name="text">
-              <string>修改</string>
-             </property>
-             <property name="checkable">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0" colspan="4">
-            <widget class="QTableWidget" name="table_users">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
-             </property>
-             <property name="alternatingRowColors">
-              <bool>true</bool>
-             </property>
-             <attribute name="verticalHeaderVisible">
-              <bool>false</bool>
-             </attribute>
-             <column>
-              <property name="text">
-               <string>序号</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>用户名</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>密码</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>权限</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>备注</string>
-              </property>
-             </column>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QPushButton" name="add_user_btn">
-             <property name="text">
-              <string>新增</string>
-             </property>
-             <property name="checkable">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="3">
-            <widget class="QPushButton" name="del_user_btn">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>14</height>
-              </size>
-             </property>
-             <property name="baseSize">
-              <size>
-               <width>15</width>
-               <height>14</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>删除</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QPushButton" name="reload_btn">
-             <property name="text">
-              <string>刷新</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </widget>
        </item>
       </layout>
      </widget>
