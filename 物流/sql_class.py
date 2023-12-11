@@ -70,7 +70,7 @@ class connect_db():
                 tableWidget.setItem(i, j, item)
 
         
-    
+    #新增用户信息，记录插入到数据库
     def adduser(self,username,password,qx,memo):
         self.username = username
         self.password = password
@@ -80,9 +80,8 @@ class connect_db():
         query = "select * from users where username = ?"
         self.my_cursor.execute(query,[self.username])
         result = self.my_cursor.fetchall()
-        
+        #查询该用户是否存在，如果不存在，插入记录
         if len(result) > 0 :
-           
             messagebox.showerror("提示", "已有该用户名存在，请重新输入")
             return 
         else:
@@ -91,7 +90,32 @@ class connect_db():
             self.my_connector.commit()
             self.conn_close()
             return 1
-            
+    #将修改后的用户信息提交数据库 
+    def updateuser(self,username,password,qx,memo,id):
+        
+        self.id = int(id)
+        self.conn_db()
+        query = "update users SET username = ?,password=?,qx=?,memo=? where id=?"
+        self.my_cursor.execute(query,[username,password,qx,memo,id])
+        
+        
+        if self.my_cursor.rowcount > 0:
+            self.my_connector.commit()
+            return 1
+        else:
+            messagebox.showerror("提示", self.my_connector.Error())
+        self.conn_close()
+
+    #将需要修改的用户信息返回给usewindow
+    def edituser(self,userid):
+        self.userid =int(userid)
+        self.conn_db()
+        query = "select * from users where id = ?"
+        self.my_cursor.execute(query,[self.userid])
+        result = self.my_cursor.fetchall()
+        return result
+
+    #删除选择的用户       
     def deleteuser(self,id):
         
         self.conn_db()

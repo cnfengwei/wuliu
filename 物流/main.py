@@ -4,7 +4,7 @@ from PySide6.QtCore import Slot
 from ui.mainwindow_ui import Ui_MainWindow
 import pandas as pd
 from sql_class import connect_db
-from userwindow import adduser
+from userwindow import adduser,edituser
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -14,6 +14,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.mydb = connect_db()
         self.adduser = adduser()
+        
 
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.import_exceldata_btn.clicked.connect(self.import_exceldata_btn_toggled)
@@ -122,7 +123,7 @@ class MainWindow(QMainWindow):
         
         self.adduser.show()
     
-    #用户删除
+    #用户删除，从sqlclass执行操作
     def user_del_btn_clicked(self):
         row = self.ui.table_users.currentRow()
         id = self.ui.table_users.item(row, 0).text()
@@ -133,10 +134,12 @@ class MainWindow(QMainWindow):
             
            
 
-    
+    #用户修改信息，将选择行的序号传递给userwindow，加载该用户的信息
     def user_edit_btn_clicked(self):
         row = self.ui.table_users.currentRow()
         id = self.ui.table_users.item(row, 0).text()
+        self.edituser=edituser(userid=id)
+        self.edituser.show()
         
     
     def on_bill_serach_btn_toggled(self):
