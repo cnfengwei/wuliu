@@ -13,8 +13,8 @@ if __name__ == '__main__':
 
     main_window = MainWindow()
     # loading style file
-    with open("style.qss", "r") as style_file:
-        style_str = style_file.read()
+    # with open("style.qss", "r") as style_file:
+    #     style_str = style_file.read()
     # app.setStyleSheet(style_str)
     # ## loading style file, Example 2
     # style_file = QFile("style.qss")

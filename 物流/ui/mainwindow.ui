@@ -52,16 +52,28 @@
          <widget class="QWidget" name="page2_bill_edit">
           <layout class="QGridLayout" name="gridLayout_8">
            <item row="0" column="0">
-            <widget class="QTableWidget" name="tableWidget">
+            <widget class="QTableWidget" name="table_bill_edit">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>200</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
              <property name="alternatingRowColors">
               <bool>true</bool>
              </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+             <attribute name="horizontalHeaderCascadingSectionResizes">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+              <bool>true</bool>
+             </attribute>
              <column>
               <property name="text">
                <string>运输任务号</string>
@@ -74,7 +86,22 @@
              </column>
              <column>
               <property name="text">
+               <string>三方司机姓名</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
                <string>车牌号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>始发网点</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>目的网点</string>
               </property>
              </column>
              <column>
@@ -84,27 +111,17 @@
              </column>
              <column>
               <property name="text">
-               <string>审核</string>
+               <string>任务开始时间</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>付款</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>开始时间</string>
+               <string>任务结束时间</string>
               </property>
              </column>
              <column>
               <property name="text">
                <string>三方单号</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>三方司机</string>
               </property>
              </column>
              <column>
@@ -119,24 +136,10 @@
              <property name="title">
               <string>查询搜索</string>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_2">
-              <item>
-               <widget class="QLabel" name="label_2">
-                <property name="text">
-                 <string>订单号</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_7">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit_4"/>
-              </item>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
               <item>
                <widget class="QLabel" name="label_6">
                 <property name="text">
@@ -145,14 +148,14 @@
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="checkBox">
+               <widget class="QCheckBox" name="cb_drivename">
                 <property name="text">
                  <string/>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEdit_2"/>
+               <widget class="QLineEdit" name="drivename"/>
               </item>
               <item>
                <widget class="QLabel" name="label_5">
@@ -162,14 +165,20 @@
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="checkBox_2">
+               <widget class="QCheckBox" name="cb_startdate">
                 <property name="text">
                  <string/>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QDateEdit" name="dateEdit">
+               <widget class="QDateEdit" name="startdate">
+                <property name="accelerated">
+                 <bool>true</bool>
+                </property>
+                <property name="correctionMode">
+                 <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+                </property>
                 <property name="maximumDate">
                  <date>
                   <year>2050</year>
@@ -180,18 +189,21 @@
                 <property name="minimumDate">
                  <date>
                   <year>2020</year>
-                  <month>1</month>
+                  <month>8</month>
                   <day>1</day>
                  </date>
+                </property>
+                <property name="displayFormat">
+                 <string>yyyy-MM-dd</string>
                 </property>
                 <property name="calendarPopup">
                  <bool>false</bool>
                 </property>
                 <property name="date">
                  <date>
-                  <year>2020</year>
-                  <month>9</month>
-                  <day>15</day>
+                  <year>2023</year>
+                  <month>8</month>
+                  <day>1</day>
                  </date>
                 </property>
                </widget>
@@ -204,14 +216,41 @@
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="checkBox_3">
+               <widget class="QCheckBox" name="cb_enddate">
                 <property name="text">
                  <string/>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QDateEdit" name="dateEdit_2"/>
+               <widget class="QDateEdit" name="enddate">
+                <property name="dateTime">
+                 <datetime>
+                  <hour>0</hour>
+                  <minute>0</minute>
+                  <second>0</second>
+                  <year>2023</year>
+                  <month>8</month>
+                  <day>11</day>
+                 </datetime>
+                </property>
+                <property name="minimumDate">
+                 <date>
+                  <year>2020</year>
+                  <month>8</month>
+                  <day>1</day>
+                 </date>
+                </property>
+                <property name="currentSection">
+                 <enum>QDateTimeEdit::YearSection</enum>
+                </property>
+                <property name="displayFormat">
+                 <string>yyyy-MM-dd</string>
+                </property>
+                <property name="timeSpec">
+                 <enum>Qt::UTC</enum>
+                </property>
+               </widget>
               </item>
               <item>
                <widget class="QLabel" name="label_7">
@@ -231,49 +270,60 @@
                <widget class="QLineEdit" name="lineEdit"/>
               </item>
               <item>
-               <widget class="QLabel" name="label_8">
-                <property name="text">
-                 <string>车牌号</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_6">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit_3"/>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton">
-                <property name="text">
-                 <string>搜索</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_2">
+                <item>
+                 <widget class="QPushButton" name="btn_serach">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>搜索</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_bill_update">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>更新&amp;保存</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
-             <zorder>checkBox</zorder>
-             <zorder>pushButton</zorder>
-             <zorder>label_2</zorder>
+             <zorder>cb_drivename</zorder>
+             <zorder>btn_serach</zorder>
              <zorder>label_3</zorder>
              <zorder>lineEdit</zorder>
-             <zorder>dateEdit</zorder>
-             <zorder>dateEdit_2</zorder>
-             <zorder>checkBox_2</zorder>
-             <zorder>checkBox_3</zorder>
-             <zorder>lineEdit_2</zorder>
+             <zorder>startdate</zorder>
+             <zorder>enddate</zorder>
+             <zorder>cb_startdate</zorder>
+             <zorder>cb_enddate</zorder>
+             <zorder>drivename</zorder>
              <zorder>label_7</zorder>
-             <zorder>label_8</zorder>
-             <zorder>lineEdit_3</zorder>
-             <zorder>lineEdit_4</zorder>
              <zorder>checkBox_5</zorder>
-             <zorder>checkBox_6</zorder>
-             <zorder>checkBox_7</zorder>
              <zorder>label_6</zorder>
              <zorder>label_5</zorder>
+             <zorder>btn_bill_update</zorder>
             </widget>
            </item>
           </layout>

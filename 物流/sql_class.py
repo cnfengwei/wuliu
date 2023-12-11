@@ -126,5 +126,53 @@ class connect_db():
         self.conn_close
         messagebox.showinfo("成功","删除记录成功")
 
-
+    def importbilldata(self,tableWidget):
+        self.conn_db()
+        # 查询用户表
+        self.my_cursor.execute("SELECT \"运输任务号\", \"核实司机\", \"三方司机姓名\" ,\"车牌号\",\
+        \"始发网点\",\"目的网点\", \"金额\", \"任务开始时间\", \"任务结束时间\",\"三方单号\", \"备注\" FROM bill_view")
+        data = self.my_cursor.fetchall()
+        # 关闭数据库连接
+        self.conn_close()
         
+        # 设置 table rowCount 和 columnCount
+
+        tableWidget.setRowCount(len(data))
+        tableWidget.setColumnCount(len(data[0]))
+
+        # 将数据填充到 table widget
+        for i in range(len(data)):
+            for j in range(len(data[0])):
+                item = QTableWidgetItem(str(data[i][j]))
+                tableWidget.setItem(i, j, item)
+         
+    def serachbilldata(self,tableWidget,query,drivename,startdate,enddate):
+        self.conn_db()
+        
+        
+        self.my_cursor.execute(query,{'drivename':drivename,'startdate':startdate,'enddate':enddate})
+        data = self.my_cursor.fetchall()
+        # 关闭数据库连接
+        self.conn_close()
+        if data == []:
+            messagebox.showerror("查询结果", "没有符合条件的记录")
+            return
+        #tablewidget.setRowCount(0)
+        # 设置 table rowCount 和 columnCount
+        tableWidget.setRowCount(len(data))
+        tableWidget.setColumnCount(len(data[0]))
+
+        # 将数据填充到 table widget
+        for i in range(len(data)):
+            for j in range(len(data[0])):
+                item = QTableWidgetItem(str(data[i][j]))
+                tableWidget.setItem(i, j, item)
+    
+    def update_billmount(self,data):
+        self.conn_db()
+        for data_row in data:
+            query ="update bill_mount set 金额 = ? where 任务单号 = ?"
+            self.my_cursor.execute(query,(data_row[1],data_row[0]))
+        self.my_connector.commit()
+        messagebox.showerror("更新", "记录更新成功")
+        self.conn_close()

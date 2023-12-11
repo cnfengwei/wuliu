@@ -5,7 +5,7 @@ from ui.mainwindow_ui import Ui_MainWindow
 import pandas as pd
 from sql_class import connect_db
 from userwindow import adduser,edituser
-
+from datetime import date
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -22,6 +22,8 @@ class MainWindow(QMainWindow):
         self.ui.reload_btn.clicked.connect(self.on_user_btn_clicked)
         self.ui.del_user_btn.clicked.connect(self.user_del_btn_clicked)
         self.ui.user_edit_btn.clicked.connect(self.user_edit_btn_clicked)
+        self.ui.btn_serach.clicked.connect(self.btn_serach_clicked)
+        self.ui.btn_bill_update.clicked.connect(self.update_bill_mount)
     ## 改变页面到用户页面, 并加载数据库中表users的数据 
     def on_user_btn_clicked(self):
         
@@ -117,6 +119,7 @@ class MainWindow(QMainWindow):
    
     def on_bill_edit_btn_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(2)
+        self.mydb.importbilldata(self.ui.table_bill_edit)
     
     #用户新增按钮激活   
     def add_user_btn_clicked(self):
@@ -145,8 +148,42 @@ class MainWindow(QMainWindow):
     def on_bill_serach_btn_toggled(self):
         
         self.ui.stackedWidget.setCurrentIndex(1)
+    
+    def btn_serach_clicked(self):
+        
+        query = "SELECT \"运输任务号\", \"核实司机\", \"三方司机姓名\" ,\"车牌号\",\
+        \"始发网点\",\"目的网点\", \"金额\", \"任务开始时间\", \"任务结束时间\",\"三方单号\", \"备注\" FROM bill_view where \
+        CASE WHEN :drivename <> '' THEN  核实司机= :drivename ELSE 1=1 END \
+         AND CASE WHEN :startdate <> '' THEN 任务开始时间 >= :startdate ELSE 1=1 END \
+          AND CASE WHEN :enddate <> '' THEN 任务开始时间 <= :enddate ELSE 1=1 END  "
+         
+         
+        # ******日期格式必须为yyyy-mm-dd，yyyy-m-d和yyyy/m/d数据库搜索不到记录******
+        if self.ui.cb_drivename.isChecked():
+            drivename = self.ui.drivename.text()
+        else:
+            drivename=""
+        if self.ui.cb_startdate.isChecked():
+            startdate = self.ui.startdate.text()
+        else:
+            startdate=""
+        if self.ui.cb_enddate.isChecked():
+            enddate= self.ui.enddate.text()
 
-
+        else:
+            enddate=""
+        
+        self.mydb.serachbilldata(self.ui.table_bill_edit,query,drivename,startdate,enddate)
+        
+    def update_bill_mount(self):
+        
+        data = []
+        for row in range(self.ui.table_bill_edit.rowCount()):
+            
+            data_col0 = self.ui.table_bill_edit.item(row, 0).text()
+            data_col6 = self.ui.table_bill_edit.item(row, 6).text()
+            data.append((data_col0,data_col6))
+        self.mydb.update_billmount(data)
 
 
 

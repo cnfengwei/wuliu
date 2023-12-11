@@ -15,12 +15,12 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractItemView, QApplication, QCheckBox, QDateEdit,
-    QFrame, QGridLayout, QGroupBox, QHBoxLayout,
-    QHeaderView, QLCDNumber, QLabel, QLineEdit,
-    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
-    QStackedWidget, QStatusBar, QTableWidget, QTableWidgetItem,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QAbstractSpinBox, QApplication, QCheckBox,
+    QDateEdit, QDateTimeEdit, QFrame, QGridLayout,
+    QGroupBox, QHBoxLayout, QHeaderView, QLCDNumber,
+    QLabel, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QSpacerItem, QStackedWidget, QStatusBar,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
 import source_rc
 
 class Ui_MainWindow(object):
@@ -61,161 +61,163 @@ class Ui_MainWindow(object):
         self.page2_bill_edit.setObjectName(u"page2_bill_edit")
         self.gridLayout_8 = QGridLayout(self.page2_bill_edit)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.tableWidget = QTableWidget(self.page2_bill_edit)
-        if (self.tableWidget.columnCount() < 10):
-            self.tableWidget.setColumnCount(10)
+        self.table_bill_edit = QTableWidget(self.page2_bill_edit)
+        if (self.table_bill_edit.columnCount() < 11):
+            self.table_bill_edit.setColumnCount(11)
         __qtablewidgetitem = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        self.table_bill_edit.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        self.table_bill_edit.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        self.table_bill_edit.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        self.table_bill_edit.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(4, __qtablewidgetitem4)
+        self.table_bill_edit.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(5, __qtablewidgetitem5)
+        self.table_bill_edit.setHorizontalHeaderItem(5, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(6, __qtablewidgetitem6)
+        self.table_bill_edit.setHorizontalHeaderItem(6, __qtablewidgetitem6)
         __qtablewidgetitem7 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(7, __qtablewidgetitem7)
+        self.table_bill_edit.setHorizontalHeaderItem(7, __qtablewidgetitem7)
         __qtablewidgetitem8 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(8, __qtablewidgetitem8)
+        self.table_bill_edit.setHorizontalHeaderItem(8, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(9, __qtablewidgetitem9)
-        self.tableWidget.setObjectName(u"tableWidget")
+        self.table_bill_edit.setHorizontalHeaderItem(9, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.table_bill_edit.setHorizontalHeaderItem(10, __qtablewidgetitem10)
+        self.table_bill_edit.setObjectName(u"table_bill_edit")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(200)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
-        self.tableWidget.setSizePolicy(sizePolicy)
-        self.tableWidget.setAlternatingRowColors(True)
+        sizePolicy.setHeightForWidth(self.table_bill_edit.sizePolicy().hasHeightForWidth())
+        self.table_bill_edit.setSizePolicy(sizePolicy)
+        self.table_bill_edit.setAcceptDrops(True)
+        self.table_bill_edit.setAlternatingRowColors(True)
+        self.table_bill_edit.setSortingEnabled(True)
+        self.table_bill_edit.horizontalHeader().setCascadingSectionResizes(True)
+        self.table_bill_edit.verticalHeader().setProperty("showSortIndicator", True)
 
-        self.gridLayout_8.addWidget(self.tableWidget, 0, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.table_bill_edit, 0, 0, 1, 1)
 
         self.groupBox = QGroupBox(self.page2_bill_edit)
         self.groupBox.setObjectName(u"groupBox")
-        self.verticalLayout_2 = QVBoxLayout(self.groupBox)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_2 = QLabel(self.groupBox)
-        self.label_2.setObjectName(u"label_2")
-
-        self.verticalLayout_2.addWidget(self.label_2)
-
-        self.checkBox_7 = QCheckBox(self.groupBox)
-        self.checkBox_7.setObjectName(u"checkBox_7")
-
-        self.verticalLayout_2.addWidget(self.checkBox_7)
-
-        self.lineEdit_4 = QLineEdit(self.groupBox)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
-
-        self.verticalLayout_2.addWidget(self.lineEdit_4)
-
+        self.groupBox.setCheckable(False)
+        self.verticalLayout_3 = QVBoxLayout(self.groupBox)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_6 = QLabel(self.groupBox)
         self.label_6.setObjectName(u"label_6")
 
-        self.verticalLayout_2.addWidget(self.label_6)
+        self.verticalLayout_3.addWidget(self.label_6)
 
-        self.checkBox = QCheckBox(self.groupBox)
-        self.checkBox.setObjectName(u"checkBox")
+        self.cb_drivename = QCheckBox(self.groupBox)
+        self.cb_drivename.setObjectName(u"cb_drivename")
 
-        self.verticalLayout_2.addWidget(self.checkBox)
+        self.verticalLayout_3.addWidget(self.cb_drivename)
 
-        self.lineEdit_2 = QLineEdit(self.groupBox)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.drivename = QLineEdit(self.groupBox)
+        self.drivename.setObjectName(u"drivename")
 
-        self.verticalLayout_2.addWidget(self.lineEdit_2)
+        self.verticalLayout_3.addWidget(self.drivename)
 
         self.label_5 = QLabel(self.groupBox)
         self.label_5.setObjectName(u"label_5")
 
-        self.verticalLayout_2.addWidget(self.label_5)
+        self.verticalLayout_3.addWidget(self.label_5)
 
-        self.checkBox_2 = QCheckBox(self.groupBox)
-        self.checkBox_2.setObjectName(u"checkBox_2")
+        self.cb_startdate = QCheckBox(self.groupBox)
+        self.cb_startdate.setObjectName(u"cb_startdate")
 
-        self.verticalLayout_2.addWidget(self.checkBox_2)
+        self.verticalLayout_3.addWidget(self.cb_startdate)
 
-        self.dateEdit = QDateEdit(self.groupBox)
-        self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setMaximumDate(QDate(2050, 1, 1))
-        self.dateEdit.setMinimumDate(QDate(2020, 1, 1))
-        self.dateEdit.setCalendarPopup(False)
-        self.dateEdit.setDate(QDate(2020, 9, 15))
+        self.startdate = QDateEdit(self.groupBox)
+        self.startdate.setObjectName(u"startdate")
+        self.startdate.setAccelerated(True)
+        self.startdate.setCorrectionMode(QAbstractSpinBox.CorrectToPreviousValue)
+        self.startdate.setMaximumDate(QDate(2050, 1, 1))
+        self.startdate.setMinimumDate(QDate(2020, 8, 1))
+        self.startdate.setCalendarPopup(False)
+        self.startdate.setDate(QDate(2023, 8, 1))
 
-        self.verticalLayout_2.addWidget(self.dateEdit)
+        self.verticalLayout_3.addWidget(self.startdate)
 
         self.label_3 = QLabel(self.groupBox)
         self.label_3.setObjectName(u"label_3")
 
-        self.verticalLayout_2.addWidget(self.label_3)
+        self.verticalLayout_3.addWidget(self.label_3)
 
-        self.checkBox_3 = QCheckBox(self.groupBox)
-        self.checkBox_3.setObjectName(u"checkBox_3")
+        self.cb_enddate = QCheckBox(self.groupBox)
+        self.cb_enddate.setObjectName(u"cb_enddate")
 
-        self.verticalLayout_2.addWidget(self.checkBox_3)
+        self.verticalLayout_3.addWidget(self.cb_enddate)
 
-        self.dateEdit_2 = QDateEdit(self.groupBox)
-        self.dateEdit_2.setObjectName(u"dateEdit_2")
+        self.enddate = QDateEdit(self.groupBox)
+        self.enddate.setObjectName(u"enddate")
+        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 11), QTime(0, 0, 0)))
+        self.enddate.setMinimumDate(QDate(2020, 8, 1))
+        self.enddate.setCurrentSection(QDateTimeEdit.YearSection)
+        self.enddate.setTimeSpec(Qt.UTC)
 
-        self.verticalLayout_2.addWidget(self.dateEdit_2)
+        self.verticalLayout_3.addWidget(self.enddate)
 
         self.label_7 = QLabel(self.groupBox)
         self.label_7.setObjectName(u"label_7")
 
-        self.verticalLayout_2.addWidget(self.label_7)
+        self.verticalLayout_3.addWidget(self.label_7)
 
         self.checkBox_5 = QCheckBox(self.groupBox)
         self.checkBox_5.setObjectName(u"checkBox_5")
 
-        self.verticalLayout_2.addWidget(self.checkBox_5)
+        self.verticalLayout_3.addWidget(self.checkBox_5)
 
         self.lineEdit = QLineEdit(self.groupBox)
         self.lineEdit.setObjectName(u"lineEdit")
 
-        self.verticalLayout_2.addWidget(self.lineEdit)
+        self.verticalLayout_3.addWidget(self.lineEdit)
 
-        self.label_8 = QLabel(self.groupBox)
-        self.label_8.setObjectName(u"label_8")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.btn_serach = QPushButton(self.groupBox)
+        self.btn_serach.setObjectName(u"btn_serach")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Maximum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.btn_serach.sizePolicy().hasHeightForWidth())
+        self.btn_serach.setSizePolicy(sizePolicy1)
+        font = QFont()
+        font.setPointSize(12)
+        self.btn_serach.setFont(font)
 
-        self.verticalLayout_2.addWidget(self.label_8)
+        self.verticalLayout_2.addWidget(self.btn_serach)
 
-        self.checkBox_6 = QCheckBox(self.groupBox)
-        self.checkBox_6.setObjectName(u"checkBox_6")
+        self.btn_bill_update = QPushButton(self.groupBox)
+        self.btn_bill_update.setObjectName(u"btn_bill_update")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.btn_bill_update.sizePolicy().hasHeightForWidth())
+        self.btn_bill_update.setSizePolicy(sizePolicy2)
+        self.btn_bill_update.setFont(font)
 
-        self.verticalLayout_2.addWidget(self.checkBox_6)
+        self.verticalLayout_2.addWidget(self.btn_bill_update)
 
-        self.lineEdit_3 = QLineEdit(self.groupBox)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
 
-        self.verticalLayout_2.addWidget(self.lineEdit_3)
+        self.verticalLayout_3.addLayout(self.verticalLayout_2)
 
-        self.pushButton = QPushButton(self.groupBox)
-        self.pushButton.setObjectName(u"pushButton")
-
-        self.verticalLayout_2.addWidget(self.pushButton)
-
-        self.checkBox.raise_()
-        self.pushButton.raise_()
-        self.label_2.raise_()
+        self.cb_drivename.raise_()
+        self.btn_serach.raise_()
         self.label_3.raise_()
         self.lineEdit.raise_()
-        self.dateEdit.raise_()
-        self.dateEdit_2.raise_()
-        self.checkBox_2.raise_()
-        self.checkBox_3.raise_()
-        self.lineEdit_2.raise_()
+        self.startdate.raise_()
+        self.enddate.raise_()
+        self.cb_startdate.raise_()
+        self.cb_enddate.raise_()
+        self.drivename.raise_()
         self.label_7.raise_()
-        self.label_8.raise_()
-        self.lineEdit_3.raise_()
-        self.lineEdit_4.raise_()
         self.checkBox_5.raise_()
-        self.checkBox_6.raise_()
-        self.checkBox_7.raise_()
         self.label_6.raise_()
         self.label_5.raise_()
+        self.btn_bill_update.raise_()
 
         self.gridLayout_8.addWidget(self.groupBox, 0, 1, 1, 1)
 
@@ -239,26 +241,26 @@ class Ui_MainWindow(object):
         self.table_import_exceldata = QTableWidget(self.page3_import_data)
         if (self.table_import_exceldata.columnCount() < 10):
             self.table_import_exceldata.setColumnCount(10)
-        __qtablewidgetitem10 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(0, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(1, __qtablewidgetitem11)
+        self.table_import_exceldata.setHorizontalHeaderItem(0, __qtablewidgetitem11)
         __qtablewidgetitem12 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(2, __qtablewidgetitem12)
+        self.table_import_exceldata.setHorizontalHeaderItem(1, __qtablewidgetitem12)
         __qtablewidgetitem13 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(3, __qtablewidgetitem13)
+        self.table_import_exceldata.setHorizontalHeaderItem(2, __qtablewidgetitem13)
         __qtablewidgetitem14 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(4, __qtablewidgetitem14)
+        self.table_import_exceldata.setHorizontalHeaderItem(3, __qtablewidgetitem14)
         __qtablewidgetitem15 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(5, __qtablewidgetitem15)
+        self.table_import_exceldata.setHorizontalHeaderItem(4, __qtablewidgetitem15)
         __qtablewidgetitem16 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(6, __qtablewidgetitem16)
+        self.table_import_exceldata.setHorizontalHeaderItem(5, __qtablewidgetitem16)
         __qtablewidgetitem17 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(7, __qtablewidgetitem17)
+        self.table_import_exceldata.setHorizontalHeaderItem(6, __qtablewidgetitem17)
         __qtablewidgetitem18 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(8, __qtablewidgetitem18)
+        self.table_import_exceldata.setHorizontalHeaderItem(7, __qtablewidgetitem18)
         __qtablewidgetitem19 = QTableWidgetItem()
-        self.table_import_exceldata.setHorizontalHeaderItem(9, __qtablewidgetitem19)
+        self.table_import_exceldata.setHorizontalHeaderItem(8, __qtablewidgetitem19)
+        __qtablewidgetitem20 = QTableWidgetItem()
+        self.table_import_exceldata.setHorizontalHeaderItem(9, __qtablewidgetitem20)
         self.table_import_exceldata.setObjectName(u"table_import_exceldata")
         self.table_import_exceldata.setLineWidth(0)
 
@@ -267,11 +269,11 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page3_import_data)
         self.page4_users = QWidget()
         self.page4_users.setObjectName(u"page4_users")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(5)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.page4_users.sizePolicy().hasHeightForWidth())
-        self.page4_users.setSizePolicy(sizePolicy1)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(5)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.page4_users.sizePolicy().hasHeightForWidth())
+        self.page4_users.setSizePolicy(sizePolicy3)
         self.page4_users.setSizeIncrement(QSize(0, 0))
         self.gridLayout_5 = QGridLayout(self.page4_users)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
@@ -302,22 +304,22 @@ class Ui_MainWindow(object):
         self.table_users = QTableWidget(self.page4_users)
         if (self.table_users.columnCount() < 5):
             self.table_users.setColumnCount(5)
-        __qtablewidgetitem20 = QTableWidgetItem()
-        self.table_users.setHorizontalHeaderItem(0, __qtablewidgetitem20)
         __qtablewidgetitem21 = QTableWidgetItem()
-        self.table_users.setHorizontalHeaderItem(1, __qtablewidgetitem21)
+        self.table_users.setHorizontalHeaderItem(0, __qtablewidgetitem21)
         __qtablewidgetitem22 = QTableWidgetItem()
-        self.table_users.setHorizontalHeaderItem(2, __qtablewidgetitem22)
+        self.table_users.setHorizontalHeaderItem(1, __qtablewidgetitem22)
         __qtablewidgetitem23 = QTableWidgetItem()
-        self.table_users.setHorizontalHeaderItem(3, __qtablewidgetitem23)
+        self.table_users.setHorizontalHeaderItem(2, __qtablewidgetitem23)
         __qtablewidgetitem24 = QTableWidgetItem()
-        self.table_users.setHorizontalHeaderItem(4, __qtablewidgetitem24)
+        self.table_users.setHorizontalHeaderItem(3, __qtablewidgetitem24)
+        __qtablewidgetitem25 = QTableWidgetItem()
+        self.table_users.setHorizontalHeaderItem(4, __qtablewidgetitem25)
         self.table_users.setObjectName(u"table_users")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.table_users.sizePolicy().hasHeightForWidth())
-        self.table_users.setSizePolicy(sizePolicy2)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.table_users.sizePolicy().hasHeightForWidth())
+        self.table_users.setSizePolicy(sizePolicy4)
         self.table_users.setStyleSheet(u"")
         self.table_users.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.table_users.setAlternatingRowColors(True)
@@ -430,11 +432,11 @@ class Ui_MainWindow(object):
 
         self.line = QFrame(self.daohang)
         self.line.setObjectName(u"line")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(29)
-        sizePolicy3.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
-        self.line.setSizePolicy(sizePolicy3)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(29)
+        sizePolicy5.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
+        self.line.setSizePolicy(sizePolicy5)
         self.line.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "background-color: rgb(255, 255, 255);")
         self.line.setFrameShape(QFrame.HLine)
@@ -467,22 +469,22 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.top)
         self.label.setObjectName(u"label")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(1)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy4)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy6.setHorizontalStretch(1)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy6)
         self.label.setStyleSheet(u"font: 12pt \"Microsoft YaHei UI\";")
 
         self.horizontalLayout.addWidget(self.label)
 
         self.lcdNumber = QLCDNumber(self.top)
         self.lcdNumber.setObjectName(u"lcdNumber")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy5.setHorizontalStretch(1)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.lcdNumber.sizePolicy().hasHeightForWidth())
-        self.lcdNumber.setSizePolicy(sizePolicy5)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy7.setHorizontalStretch(1)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.lcdNumber.sizePolicy().hasHeightForWidth())
+        self.lcdNumber.setSizePolicy(sizePolicy7)
         self.lcdNumber.setSizeIncrement(QSize(0, 1))
         self.lcdNumber.setStyleSheet(u"color: rgb(114, 255, 250);")
         self.lcdNumber.setFrameShape(QFrame.WinPanel)
@@ -530,76 +532,77 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"billserach", None))
-        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
+        ___qtablewidgetitem = self.table_bill_edit.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u8f93\u4efb\u52a1\u53f7", None));
-        ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
+        ___qtablewidgetitem1 = self.table_bill_edit.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"\u6838\u5b9e\u53f8\u673a", None));
-        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"\u8f66\u724c\u53f7", None));
-        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"\u91d1\u989d", None));
-        ___qtablewidgetitem4 = self.tableWidget.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"\u5ba1\u6838", None));
-        ___qtablewidgetitem5 = self.tableWidget.horizontalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"\u4ed8\u6b3e", None));
-        ___qtablewidgetitem6 = self.tableWidget.horizontalHeaderItem(6)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u59cb\u65f6\u95f4", None));
-        ___qtablewidgetitem7 = self.tableWidget.horizontalHeaderItem(7)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7", None));
-        ___qtablewidgetitem8 = self.tableWidget.horizontalHeaderItem(8)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u53f8\u673a", None));
-        ___qtablewidgetitem9 = self.tableWidget.horizontalHeaderItem(9)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"\u5907\u6ce8", None));
+        ___qtablewidgetitem2 = self.table_bill_edit.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u53f8\u673a\u59d3\u540d", None));
+        ___qtablewidgetitem3 = self.table_bill_edit.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"\u8f66\u724c\u53f7", None));
+        ___qtablewidgetitem4 = self.table_bill_edit.horizontalHeaderItem(4)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"\u59cb\u53d1\u7f51\u70b9", None));
+        ___qtablewidgetitem5 = self.table_bill_edit.horizontalHeaderItem(5)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"\u76ee\u7684\u7f51\u70b9", None));
+        ___qtablewidgetitem6 = self.table_bill_edit.horizontalHeaderItem(6)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"\u91d1\u989d", None));
+        ___qtablewidgetitem7 = self.table_bill_edit.horizontalHeaderItem(7)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u5f00\u59cb\u65f6\u95f4", None));
+        ___qtablewidgetitem8 = self.table_bill_edit.horizontalHeaderItem(8)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u7ed3\u675f\u65f6\u95f4", None));
+        ___qtablewidgetitem9 = self.table_bill_edit.horizontalHeaderItem(9)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7", None));
+        ___qtablewidgetitem10 = self.table_bill_edit.horizontalHeaderItem(10)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"\u5907\u6ce8", None));
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u67e5\u8be2\u641c\u7d22", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u8ba2\u5355\u53f7", None))
-        self.checkBox_7.setText("")
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"\u53f8\u673a\u59d3\u540d", None))
-        self.checkBox.setText("")
+        self.cb_drivename.setText("")
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u59cb\u65e5\u671f", None))
-        self.checkBox_2.setText("")
+        self.cb_startdate.setText("")
+        self.startdate.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy-MM-dd", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u7ed3\u675f\u65e5\u671f", None))
-        self.checkBox_3.setText("")
+        self.cb_enddate.setText("")
+        self.enddate.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy-MM-dd", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7", None))
         self.checkBox_5.setText("")
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"\u8f66\u724c\u53f7", None))
-        self.checkBox_6.setText("")
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22", None))
+        self.btn_serach.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22", None))
+        self.btn_bill_update.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0&\u4fdd\u5b58", None))
         self.import_exceldata_btn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165EXCEL\u6570\u636e", None))
         self.save_btn.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u6570\u636e", None))
-        ___qtablewidgetitem10 = self.table_import_exceldata.horizontalHeaderItem(0)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u8fd0\u8f93\u53f7", None));
-        ___qtablewidgetitem11 = self.table_import_exceldata.horizontalHeaderItem(1)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u5f00\u59cb\u65f6\u95f4", None));
-        ___qtablewidgetitem12 = self.table_import_exceldata.horizontalHeaderItem(2)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u7ed3\u675f\u65f6\u95f4", None));
-        ___qtablewidgetitem13 = self.table_import_exceldata.horizontalHeaderItem(3)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7", None));
-        ___qtablewidgetitem14 = self.table_import_exceldata.horizontalHeaderItem(4)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"\u59cb\u53d1\u7f51\u70b9", None));
-        ___qtablewidgetitem15 = self.table_import_exceldata.horizontalHeaderItem(5)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"\u76ee\u7684\u7f51\u70b9", None));
-        ___qtablewidgetitem16 = self.table_import_exceldata.horizontalHeaderItem(6)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"\u8f66\u724c\u53f7", None));
-        ___qtablewidgetitem17 = self.table_import_exceldata.horizontalHeaderItem(7)
-        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"\u8ba1\u8d39\u8f66\u578b", None));
-        ___qtablewidgetitem18 = self.table_import_exceldata.horizontalHeaderItem(8)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u53f8\u673a\u59d3\u540d", None));
-        ___qtablewidgetitem19 = self.table_import_exceldata.horizontalHeaderItem(9)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"\u6838\u5b9e\u53f8\u673a", None));
+        ___qtablewidgetitem11 = self.table_import_exceldata.horizontalHeaderItem(0)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u8fd0\u8f93\u53f7", None));
+        ___qtablewidgetitem12 = self.table_import_exceldata.horizontalHeaderItem(1)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u5f00\u59cb\u65f6\u95f4", None));
+        ___qtablewidgetitem13 = self.table_import_exceldata.horizontalHeaderItem(2)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u7ed3\u675f\u65f6\u95f4", None));
+        ___qtablewidgetitem14 = self.table_import_exceldata.horizontalHeaderItem(3)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7", None));
+        ___qtablewidgetitem15 = self.table_import_exceldata.horizontalHeaderItem(4)
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"\u59cb\u53d1\u7f51\u70b9", None));
+        ___qtablewidgetitem16 = self.table_import_exceldata.horizontalHeaderItem(5)
+        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"\u76ee\u7684\u7f51\u70b9", None));
+        ___qtablewidgetitem17 = self.table_import_exceldata.horizontalHeaderItem(6)
+        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"\u8f66\u724c\u53f7", None));
+        ___qtablewidgetitem18 = self.table_import_exceldata.horizontalHeaderItem(7)
+        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"\u8ba1\u8d39\u8f66\u578b", None));
+        ___qtablewidgetitem19 = self.table_import_exceldata.horizontalHeaderItem(8)
+        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u53f8\u673a\u59d3\u540d", None));
+        ___qtablewidgetitem20 = self.table_import_exceldata.horizontalHeaderItem(9)
+        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"\u6838\u5b9e\u53f8\u673a", None));
         self.reload_btn.setText(QCoreApplication.translate("MainWindow", u"\u5237\u65b0", None))
         self.user_edit_btn.setText(QCoreApplication.translate("MainWindow", u"\u4fee\u6539", None))
         self.add_user_btn.setText(QCoreApplication.translate("MainWindow", u"\u65b0\u589e", None))
         self.del_user_btn.setText(QCoreApplication.translate("MainWindow", u"\u5220\u9664", None))
-        ___qtablewidgetitem20 = self.table_users.horizontalHeaderItem(0)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"\u5e8f\u53f7", None));
-        ___qtablewidgetitem21 = self.table_users.horizontalHeaderItem(1)
-        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"\u7528\u6237\u540d", None));
-        ___qtablewidgetitem22 = self.table_users.horizontalHeaderItem(2)
-        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"\u5bc6\u7801", None));
-        ___qtablewidgetitem23 = self.table_users.horizontalHeaderItem(3)
-        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"\u6743\u9650", None));
-        ___qtablewidgetitem24 = self.table_users.horizontalHeaderItem(4)
-        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"\u5907\u6ce8", None));
+        ___qtablewidgetitem21 = self.table_users.horizontalHeaderItem(0)
+        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"\u5e8f\u53f7", None));
+        ___qtablewidgetitem22 = self.table_users.horizontalHeaderItem(1)
+        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"\u7528\u6237\u540d", None));
+        ___qtablewidgetitem23 = self.table_users.horizontalHeaderItem(2)
+        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"\u5bc6\u7801", None));
+        ___qtablewidgetitem24 = self.table_users.horizontalHeaderItem(3)
+        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"\u6743\u9650", None));
+        ___qtablewidgetitem25 = self.table_users.horizontalHeaderItem(4)
+        ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"\u5907\u6ce8", None));
         self.import_data_btn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165\u6570\u636e", None))
         self.bill_edit_btn.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u5355\u7f16\u8f91", None))
         self.bill_serach_btn.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u5355\u67e5\u8be2", None))
