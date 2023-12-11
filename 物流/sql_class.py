@@ -92,6 +92,15 @@ class connect_db():
             self.conn_close()
             return 1
             
-            
+    def deleteuser(self,id):
+        
+        self.conn_db()
+        self.id= int(id)
+        query = "DELETE FROM users WHERE id = ?"
+        self.my_cursor.execute(query, [self.id])
+        self.my_connector.commit()
+        self.conn_close
+        messagebox.showinfo("成功","删除记录成功")
+
 
         

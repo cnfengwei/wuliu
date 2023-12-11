@@ -1,9 +1,9 @@
 from ui.usereditwindow_ui import Ui_user_edit_window
 from PySide6.QtWidgets import QDialog,QMessageBox
 from sql_class import connect_db
-class userwindow(QDialog):
+class adduser(QDialog):
     def __init__(self):
-        super(userwindow,self).__init__()
+        super(adduser,self).__init__()
         self.ui = Ui_user_edit_window()
         self.ui.setupUi(self)
         self.mydb = connect_db()
@@ -23,4 +23,11 @@ class userwindow(QDialog):
            
             self.close()
             QMessageBox.information(self,"成功","用户添加成功！")
+
+class edituser(QDialog):
+    def __init__(self):
+        super(edituser,self).__init__()
+        self.ui = Ui_user_edit_window()
+        self.ui.setupUi(self)
+        self.mydb = connect_db()
       

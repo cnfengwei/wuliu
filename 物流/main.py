@@ -4,7 +4,7 @@ from PySide6.QtCore import Slot
 from ui.mainwindow_ui import Ui_MainWindow
 import pandas as pd
 from sql_class import connect_db
-from userwindow import userwindow
+from userwindow import adduser
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -13,12 +13,14 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.mydb = connect_db()
-        self.userwindow = userwindow()
+        self.adduser = adduser()
 
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.import_exceldata_btn.clicked.connect(self.import_exceldata_btn_toggled)
         self.ui.add_user_btn.clicked.connect(self.add_user_btn_clicked)
         self.ui.reload_btn.clicked.connect(self.on_user_btn_clicked)
+        self.ui.del_user_btn.clicked.connect(self.user_del_btn_clicked)
+        self.ui.user_edit_btn.clicked.connect(self.user_edit_btn_clicked)
     ## 改变页面到用户页面, 并加载数据库中表users的数据 
     def on_user_btn_clicked(self):
         
@@ -118,29 +120,24 @@ class MainWindow(QMainWindow):
     #用户新增按钮激活   
     def add_user_btn_clicked(self):
         
-        self.userwindow.show()
+        self.adduser.show()
     
     #用户删除
     def user_del_btn_clicked(self):
         row = self.ui.table_users.currentRow()
+        id = self.ui.table_users.item(row, 0).text()
+        
         if row >= 0:
             self.ui.table_users.removeRow(row)
+            self.mydb.deleteuser(id)
+            
+           
+
     
-    def on_user_save_btn_toggled(self):
-        data = []
-        for row in range(self.ui.table_users.rowCount()):
-            data.append({
-                "id": self.ui.table_users.item(row, 0).text(),
-                "username": self.ui.table_users.item(row, 1).text(),
-                "password": self.ui.table_users.item(row, 1).text(),
-                "qx": self.ui.table_users.item(row, 1).text(),
-                "memo": self.ui.table_users.item(row, 1).text(),
-            })
-        for user in data:
-            if user["id"] == '':
-                print('add')
-            else:
-                print('update')
+    def user_edit_btn_clicked(self):
+        row = self.ui.table_users.currentRow()
+        id = self.ui.table_users.item(row, 0).text()
+        
     
     def on_bill_serach_btn_toggled(self):
         
