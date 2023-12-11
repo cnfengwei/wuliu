@@ -94,6 +94,7 @@ class Ui_MainWindow(object):
         self.table_bill_edit.setSizePolicy(sizePolicy)
         self.table_bill_edit.setAcceptDrops(True)
         self.table_bill_edit.setAlternatingRowColors(True)
+        self.table_bill_edit.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.table_bill_edit.setSortingEnabled(True)
         self.table_bill_edit.horizontalHeader().setCascadingSectionResizes(True)
         self.table_bill_edit.verticalHeader().setProperty("showSortIndicator", True)
@@ -153,7 +154,7 @@ class Ui_MainWindow(object):
 
         self.enddate = QDateEdit(self.groupBox)
         self.enddate.setObjectName(u"enddate")
-        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 11), QTime(0, 0, 0)))
+        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 10), QTime(0, 0, 0)))
         self.enddate.setMinimumDate(QDate(2020, 8, 1))
         self.enddate.setCurrentSection(QDateTimeEdit.YearSection)
         self.enddate.setTimeSpec(Qt.UTC)
@@ -205,7 +206,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addLayout(self.verticalLayout_2)
 
         self.cb_drivename.raise_()
-        self.btn_serach.raise_()
         self.label_3.raise_()
         self.lineEdit.raise_()
         self.startdate.raise_()
@@ -217,7 +217,6 @@ class Ui_MainWindow(object):
         self.checkBox_5.raise_()
         self.label_6.raise_()
         self.label_5.raise_()
-        self.btn_bill_update.raise_()
 
         self.gridLayout_8.addWidget(self.groupBox, 0, 1, 1, 1)
 

@@ -65,6 +65,9 @@
              <property name="alternatingRowColors">
               <bool>true</bool>
              </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
              <property name="sortingEnabled">
               <bool>true</bool>
              </property>
@@ -231,7 +234,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>11</day>
+                  <day>10</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -311,7 +314,6 @@
               </item>
              </layout>
              <zorder>cb_drivename</zorder>
-             <zorder>btn_serach</zorder>
              <zorder>label_3</zorder>
              <zorder>lineEdit</zorder>
              <zorder>startdate</zorder>
@@ -323,7 +325,6 @@
              <zorder>checkBox_5</zorder>
              <zorder>label_6</zorder>
              <zorder>label_5</zorder>
-             <zorder>btn_bill_update</zorder>
             </widget>
            </item>
           </layout>
