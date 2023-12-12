@@ -18,10 +18,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QAbstractSpinBox, QApplication,
     QCheckBox, QDateEdit, QDateTimeEdit, QFrame,
     QGridLayout, QGroupBox, QHBoxLayout, QHeaderView,
-    QLCDNumber, QLabel, QLineEdit, QMainWindow,
-    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QStatusBar, QTableWidget, QTableWidgetItem, QVBoxLayout,
-    QWidget)
+    QLabel, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QSpacerItem, QStackedWidget, QStatusBar,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
 import source_rc
 
 class Ui_MainWindow(object):
@@ -655,28 +654,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.label)
 
-        self.lcdNumber = QLCDNumber(self.top)
-        self.lcdNumber.setObjectName(u"lcdNumber")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy9.setHorizontalStretch(1)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(self.lcdNumber.sizePolicy().hasHeightForWidth())
-        self.lcdNumber.setSizePolicy(sizePolicy9)
-        self.lcdNumber.setSizeIncrement(QSize(0, 1))
-        self.lcdNumber.setStyleSheet(u"color: rgb(114, 255, 250);")
-        self.lcdNumber.setFrameShape(QFrame.WinPanel)
-        self.lcdNumber.setFrameShadow(QFrame.Plain)
-        self.lcdNumber.setLineWidth(4)
-        self.lcdNumber.setMidLineWidth(10)
-        self.lcdNumber.setSmallDecimalPoint(False)
-        self.lcdNumber.setDigitCount(13)
-        self.lcdNumber.setMode(QLCDNumber.Oct)
-        self.lcdNumber.setSegmentStyle(QLCDNumber.Filled)
-        self.lcdNumber.setProperty("value", 5.000000000000000)
-        self.lcdNumber.setProperty("intValue", 5)
-
-        self.horizontalLayout.addWidget(self.lcdNumber)
-
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
@@ -699,7 +676,7 @@ class Ui_MainWindow(object):
         self.bill_edit_btn.toggled.connect(MainWindow.on_bill_edit_btn_toggled)
         self.bill_audits_btn.toggled.connect(MainWindow.on_bill_audits_btn_toggled)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(2)
         self.pushButton_8.setDefault(False)
 
 
@@ -739,7 +716,7 @@ class Ui_MainWindow(object):
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u7ed3\u675f\u65e5\u671f", None))
         self.cb_enddate__audits.setText("")
         self.enddate__audits.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy-MM-dd", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7\uff08\u672a\u4f7f\u7528\uff09", None))
         self.checkBox_6.setText("")
         self.btn_serach_audits.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22", None))
         self.btn_bill_update__audits.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0&\u4fdd\u5b58", None))
@@ -774,7 +751,7 @@ class Ui_MainWindow(object):
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u7ed3\u675f\u65e5\u671f", None))
         self.cb_enddate.setText("")
         self.enddate.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy-MM-dd", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7\uff08\u672a\u4f7f\u7528\uff09", None))
         self.checkBox_5.setText("")
         self.btn_serach.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22", None))
         self.btn_bill_update.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0&\u4fdd\u5b58", None))

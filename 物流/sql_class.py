@@ -124,7 +124,7 @@ class connect_db():
         self.my_cursor.execute(query, [self.id])
         self.my_connector.commit()
         self.conn_close
-        messagebox.showinfo("成功","删除记录成功")
+        
 
     def importbilldata(self,tableWidget):
         self.conn_db()

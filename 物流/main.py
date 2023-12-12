@@ -136,7 +136,7 @@ class MainWindow(QMainWindow):
         if row >= 0:
             self.ui.table_users.removeRow(row)
             self.mydb.deleteuser(id)
-            
+        QMessageBox.information(self,'提示','删除成功')
            
 
     #用户修改信息，将选择行的序号传递给userwindow，加载该用户的信息
