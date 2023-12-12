@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icon/document-text.png</file>
     <file>icon/huoche.png</file>
     <file>icon/plus.png</file>
     <file>icon/tick.png</file>

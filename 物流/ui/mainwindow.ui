@@ -29,11 +29,17 @@
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
         <widget class="QStackedWidget" name="stackedWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page_4">
           <layout class="QGridLayout" name="gridLayout_9"/>
@@ -41,10 +47,345 @@
          <widget class="QWidget" name="page1_bill_serach">
           <layout class="QGridLayout" name="gridLayout_7">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>billserach</string>
+            <widget class="QTableWidget" name="table_bill_audits">
+             <property name="contextMenuPolicy">
+              <enum>Qt::PreventContextMenu</enum>
              </property>
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>true</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+             <property name="sizeAdjustPolicy">
+              <enum>QAbstractScrollArea::AdjustIgnored</enum>
+             </property>
+             <property name="autoScrollMargin">
+              <number>1000</number>
+             </property>
+             <property name="dragEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="dragDropMode">
+              <enum>QAbstractItemView::DropOnly</enum>
+             </property>
+             <property name="defaultDropAction">
+              <enum>Qt::IgnoreAction</enum>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::ExtendedSelection</enum>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectItems</enum>
+             </property>
+             <property name="textElideMode">
+              <enum>Qt::ElideMiddle</enum>
+             </property>
+             <property name="verticalScrollMode">
+              <enum>QAbstractItemView::ScrollPerItem</enum>
+             </property>
+             <property name="horizontalScrollMode">
+              <enum>QAbstractItemView::ScrollPerItem</enum>
+             </property>
+             <property name="showGrid">
+              <bool>true</bool>
+             </property>
+             <property name="gridStyle">
+              <enum>Qt::CustomDashLine</enum>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="cornerButtonEnabled">
+              <bool>true</bool>
+             </property>
+             <attribute name="horizontalHeaderCascadingSectionResizes">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="horizontalHeaderMinimumSectionSize">
+              <number>50</number>
+             </attribute>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>120</number>
+             </attribute>
+             <attribute name="horizontalHeaderHighlightSections">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="horizontalHeaderStretchLastSection">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="verticalHeaderVisible">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="verticalHeaderDefaultSectionSize">
+              <number>30</number>
+             </attribute>
+             <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+              <bool>false</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>任务单号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>核实司机</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>三方司机</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>始发网点</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>目的网点</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>金额</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>审核</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>备注</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>开始时间</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>结束时间</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>三方单号</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QGroupBox" name="groupBox_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>查询搜索</string>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>司机姓名</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="cb_drivename_audits">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="drivename__audits"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>开始日期</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="cb_startdate__audits">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateEdit" name="startdate__audits">
+                <property name="accelerated">
+                 <bool>true</bool>
+                </property>
+                <property name="correctionMode">
+                 <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+                </property>
+                <property name="maximumDate">
+                 <date>
+                  <year>2050</year>
+                  <month>1</month>
+                  <day>1</day>
+                 </date>
+                </property>
+                <property name="minimumDate">
+                 <date>
+                  <year>2020</year>
+                  <month>8</month>
+                  <day>1</day>
+                 </date>
+                </property>
+                <property name="displayFormat">
+                 <string>yyyy-MM-dd</string>
+                </property>
+                <property name="calendarPopup">
+                 <bool>false</bool>
+                </property>
+                <property name="date">
+                 <date>
+                  <year>2023</year>
+                  <month>8</month>
+                  <day>1</day>
+                 </date>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>结束日期</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="cb_enddate__audits">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateEdit" name="enddate__audits">
+                <property name="dateTime">
+                 <datetime>
+                  <hour>0</hour>
+                  <minute>0</minute>
+                  <second>0</second>
+                  <year>2023</year>
+                  <month>8</month>
+                  <day>8</day>
+                 </datetime>
+                </property>
+                <property name="minimumDate">
+                 <date>
+                  <year>2020</year>
+                  <month>8</month>
+                  <day>1</day>
+                 </date>
+                </property>
+                <property name="currentSection">
+                 <enum>QDateTimeEdit::YearSection</enum>
+                </property>
+                <property name="displayFormat">
+                 <string>yyyy-MM-dd</string>
+                </property>
+                <property name="timeSpec">
+                 <enum>Qt::UTC</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_10">
+                <property name="text">
+                 <string>三方单号</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_6">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_2"/>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <widget class="QPushButton" name="btn_serach_audits">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>搜索</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_bill_update__audits">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>更新&amp;保存</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
@@ -73,6 +414,9 @@
              </property>
              <attribute name="horizontalHeaderCascadingSectionResizes">
               <bool>true</bool>
+             </attribute>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>120</number>
              </attribute>
              <attribute name="verticalHeaderShowSortIndicator" stdset="0">
               <bool>true</bool>
@@ -234,7 +578,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>10</day>
+                  <day>9</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -593,13 +937,13 @@ color:rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="bill_serach_btn">
+          <widget class="QPushButton" name="bill_audits_btn">
            <property name="styleSheet">
             <string notr="true">background-color:  rgb(113, 113, 113);
 color:rgb(255, 255, 255);</string>
            </property>
            <property name="text">
-            <string>运单查询</string>
+            <string>运单审核</string>
            </property>
            <property name="icon">
             <iconset resource="../source.qrc">
@@ -616,6 +960,27 @@ color:rgb(255, 255, 255);</string>
            </property>
            <property name="autoExclusive">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="styleSheet">
+            <string notr="true">background-color:  rgb(113, 113, 113);
+color:rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>运单付款</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../source.qrc">
+             <normaloff>:/icon/icon/document-text.png</normaloff>:/icon/icon/document-text.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -940,10 +1305,10 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
    </hints>
   </connection>
   <connection>
-   <sender>bill_serach_btn</sender>
+   <sender>bill_audits_btn</sender>
    <signal>toggled(bool)</signal>
    <receiver>MainWindow</receiver>
-   <slot>on_bill_serach_btn_toggled()</slot>
+   <slot>on_bill_audits_btn_toggled()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>64</x>
@@ -975,7 +1340,7 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
  </designerdata>
  <slots>
   <slot>on_bill_edit_btn_toggled()</slot>
-  <slot>on_bill_serach_btn_toggled()</slot>
+  <slot>on_bill_audits_btn_toggled()</slot>
   <slot>on_user_btn_clicked()</slot>
   <slot>on_import_data_btn_toggled()</slot>
  </slots>

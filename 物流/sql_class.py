@@ -1,6 +1,6 @@
 import sqlite3
 import sys
-from PySide6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget
+from PySide6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget,QCheckBox,QWidget,QHBoxLayout
 from PySide6.QtCore import Qt
 from tkinter import messagebox
 
@@ -145,7 +145,53 @@ class connect_db():
             for j in range(len(data[0])):
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
-         
+
+    def serach_bill_audits(self,tableWidget,query,drivename,startdate,enddate):
+        self.conn_db()
+        
+        
+        self.my_cursor.execute(query,{'drivename':drivename,'startdate':startdate,'enddate':enddate})
+        data = self.my_cursor.fetchall()
+        # 关闭数据库连接
+        self.conn_close()
+        # 设置 table rowCount 和 columnCount
+
+        tableWidget.setRowCount(len(data))
+        tableWidget.setColumnCount(len(data[0]))
+        # 设置第六列为checkbox
+        
+             
+        # 将数据填充到 table widget
+        for i in range(len(data)):
+            for j in range(len(data[0])):
+                if j != 6:
+                    item = QTableWidgetItem(str(data[i][j]))
+                    item.setTextAlignment(Qt.AlignCenter)
+                    tableWidget.setItem(i, j, item)
+                else: 
+                    checkbox = QCheckBox()
+                    checkbox.setChecked(data[i][6])
+                    # 将复选框添加到表格中
+                    
+                    # tableWidget.setCellWidget(i, 6, checkbox)
+                    # tableWidget.setColumnWidth(6, 50)
+                    container_widget = QWidget()
+                    layout = QHBoxLayout(container_widget)
+                    layout.addWidget(checkbox)
+                    layout.setAlignment(Qt.AlignCenter)
+                    layout.setContentsMargins(0, 0, 0, 0)
+                    
+                    # 将容器窗口设置为单元格小部件
+                    tableWidget.setCellWidget(i, 6, container_widget)
+                    
+                    tableWidget.setColumnWidth(6, 50)
+                    
+                    
+
+
+
+                    
+                    
     def serachbilldata(self,tableWidget,query,drivename,startdate,enddate):
         self.conn_db()
         

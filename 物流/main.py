@@ -24,6 +24,8 @@ class MainWindow(QMainWindow):
         self.ui.user_edit_btn.clicked.connect(self.user_edit_btn_clicked)
         self.ui.btn_serach.clicked.connect(self.btn_serach_clicked)
         self.ui.btn_bill_update.clicked.connect(self.update_bill_mount)
+        self.ui.btn_serach_audits.clicked.connect(self.btn_serach_audits_clicked)
+        
     ## 改变页面到用户页面, 并加载数据库中表users的数据 
     def on_user_btn_clicked(self):
         
@@ -144,10 +146,32 @@ class MainWindow(QMainWindow):
         self.edituser=edituser(userid=id)
         self.edituser.show()
         
-    
-    def on_bill_serach_btn_toggled(self):
-        
+    def btn_serach_audits_clicked(self):
+        query = "SELECT \"运输任务号\", \"核实司机\", \"三方司机姓名\" ,\
+        \"始发网点\",\"目的网点\", \"金额\", \"审核\",\"备注\",\"任务开始时间\", \"任务结束时间\",\"三方单号\" FROM bill_view where \
+        CASE WHEN :drivename <> '' THEN  核实司机= :drivename ELSE 1=1 END \
+         AND CASE WHEN :startdate <> '' THEN 任务开始时间 >= :startdate ELSE 1=1 END \
+          AND CASE WHEN :enddate <> '' THEN 任务开始时间 <= :enddate ELSE 1=1 END  "
+        # ******日期格式必须为yyyy-mm-dd，yyyy-m-d和yyyy/m/d数据库搜索不到记录******
+        if self.ui.cb_drivename_audits.isChecked():
+            drivename = self.ui.drivename__audits.text()
+        else:
+            drivename=""
+        if self.ui.cb_startdate__audits.isChecked():
+            startdate = self.ui.startdate__audits.text()
+        else:
+            startdate=""
+        if self.ui.cb_enddate__audits.isChecked():
+            enddate= self.ui.enddate__audits.text()
+
+        else:
+            enddate=""
+
+        self.mydb.serach_bill_audits(self.ui.table_bill_audits,query,drivename,startdate,enddate)
+
+    def on_bill_audits_btn_toggled(self): 
         self.ui.stackedWidget.setCurrentIndex(1)
+        
     
     def btn_serach_clicked(self):
         
