@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.0
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -90,14 +90,14 @@ class Ui_MainWindow(object):
         self.table_bill_audits.setFrameShadow(QFrame.Raised)
         self.table_bill_audits.setLineWidth(0)
         self.table_bill_audits.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
-        self.table_bill_audits.setAutoScrollMargin(1000)
-        self.table_bill_audits.setDragEnabled(True)
-        self.table_bill_audits.setDragDropMode(QAbstractItemView.DropOnly)
+        self.table_bill_audits.setAutoScrollMargin(16)
+        self.table_bill_audits.setDragEnabled(False)
+        self.table_bill_audits.setDragDropMode(QAbstractItemView.NoDragDrop)
         self.table_bill_audits.setDefaultDropAction(Qt.IgnoreAction)
         self.table_bill_audits.setAlternatingRowColors(True)
         self.table_bill_audits.setSelectionMode(QAbstractItemView.ExtendedSelection)
         self.table_bill_audits.setSelectionBehavior(QAbstractItemView.SelectItems)
-        self.table_bill_audits.setTextElideMode(Qt.ElideMiddle)
+        self.table_bill_audits.setTextElideMode(Qt.ElideRight)
         self.table_bill_audits.setVerticalScrollMode(QAbstractItemView.ScrollPerItem)
         self.table_bill_audits.setHorizontalScrollMode(QAbstractItemView.ScrollPerItem)
         self.table_bill_audits.setShowGrid(True)
@@ -175,7 +175,7 @@ class Ui_MainWindow(object):
 
         self.enddate__audits = QDateEdit(self.groupBox_2)
         self.enddate__audits.setObjectName(u"enddate__audits")
-        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 7), QTime(0, 0, 0)))
+        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 6), QTime(0, 0, 0)))
         self.enddate__audits.setMinimumDate(QDate(2020, 8, 1))
         self.enddate__audits.setCurrentSection(QDateTimeEdit.YearSection)
         self.enddate__audits.setTimeSpec(Qt.UTC)
@@ -269,7 +269,7 @@ class Ui_MainWindow(object):
         self.table_bill_edit.setAlternatingRowColors(True)
         self.table_bill_edit.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.table_bill_edit.setSortingEnabled(True)
-        self.table_bill_edit.horizontalHeader().setCascadingSectionResizes(True)
+        self.table_bill_edit.horizontalHeader().setCascadingSectionResizes(False)
         self.table_bill_edit.horizontalHeader().setDefaultSectionSize(120)
         self.table_bill_edit.verticalHeader().setProperty("showSortIndicator", True)
 
@@ -328,7 +328,7 @@ class Ui_MainWindow(object):
 
         self.enddate = QDateEdit(self.groupBox)
         self.enddate.setObjectName(u"enddate")
-        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 8), QTime(0, 0, 0)))
+        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 7), QTime(0, 0, 0)))
         self.enddate.setMinimumDate(QDate(2020, 8, 1))
         self.enddate.setCurrentSection(QDateTimeEdit.YearSection)
         self.enddate.setTimeSpec(Qt.UTC)
@@ -428,6 +428,7 @@ class Ui_MainWindow(object):
         self.table_import_exceldata.setHorizontalHeaderItem(9, __qtablewidgetitem31)
         self.table_import_exceldata.setObjectName(u"table_import_exceldata")
         self.table_import_exceldata.setLineWidth(0)
+        self.table_import_exceldata.horizontalHeader().setDefaultSectionSize(120)
 
         self.gridLayout_6.addWidget(self.table_import_exceldata, 0, 0, 1, 2)
 
@@ -676,7 +677,7 @@ class Ui_MainWindow(object):
         self.bill_edit_btn.toggled.connect(MainWindow.on_bill_edit_btn_toggled)
         self.bill_audits_btn.toggled.connect(MainWindow.on_bill_audits_btn_toggled)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
         self.pushButton_8.setDefault(False)
 
 

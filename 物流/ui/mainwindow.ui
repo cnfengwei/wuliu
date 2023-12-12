@@ -39,7 +39,7 @@
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page_4">
           <layout class="QGridLayout" name="gridLayout_9"/>
@@ -73,13 +73,13 @@
               <enum>QAbstractScrollArea::AdjustIgnored</enum>
              </property>
              <property name="autoScrollMargin">
-              <number>1000</number>
+              <number>16</number>
              </property>
              <property name="dragEnabled">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="dragDropMode">
-              <enum>QAbstractItemView::DropOnly</enum>
+              <enum>QAbstractItemView::NoDragDrop</enum>
              </property>
              <property name="defaultDropAction">
               <enum>Qt::IgnoreAction</enum>
@@ -94,7 +94,7 @@
               <enum>QAbstractItemView::SelectItems</enum>
              </property>
              <property name="textElideMode">
-              <enum>Qt::ElideMiddle</enum>
+              <enum>Qt::ElideRight</enum>
              </property>
              <property name="verticalScrollMode">
               <enum>QAbstractItemView::ScrollPerItem</enum>
@@ -307,7 +307,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>7</day>
+                  <day>6</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -413,7 +413,7 @@
               <bool>true</bool>
              </property>
              <attribute name="horizontalHeaderCascadingSectionResizes">
-              <bool>true</bool>
+              <bool>false</bool>
              </attribute>
              <attribute name="horizontalHeaderDefaultSectionSize">
               <number>120</number>
@@ -578,7 +578,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>8</day>
+                  <day>7</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -700,6 +700,9 @@
              <property name="lineWidth">
               <number>0</number>
              </property>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>120</number>
+             </attribute>
              <column>
               <property name="text">
                <string>任务运输号</string>
@@ -892,7 +895,7 @@ color:rgb(255, 255, 255);</string>
             <string>导入数据</string>
            </property>
            <property name="icon">
-            <iconset resource="../source.qrc">
+            <iconset>
              <normaloff>:/icon/icon/notebook.png</normaloff>:/icon/icon/notebook.png</iconset>
            </property>
            <property name="iconSize">
@@ -919,7 +922,7 @@ color:rgb(255, 255, 255);</string>
             <string>运单编辑</string>
            </property>
            <property name="icon">
-            <iconset resource="../source.qrc">
+            <iconset>
              <normaloff>:/icon/icon/product-48.ico</normaloff>:/icon/icon/product-48.ico</iconset>
            </property>
            <property name="iconSize">
@@ -946,7 +949,7 @@ color:rgb(255, 255, 255);</string>
             <string>运单审核</string>
            </property>
            <property name="icon">
-            <iconset resource="../source.qrc">
+            <iconset>
              <normaloff>:/icon/icon/activity-feed-48.ico</normaloff>:/icon/icon/activity-feed-48.ico</iconset>
            </property>
            <property name="iconSize">
@@ -973,7 +976,7 @@ color:rgb(255, 255, 255);</string>
             <string>运单付款</string>
            </property>
            <property name="icon">
-            <iconset resource="../source.qrc">
+            <iconset>
              <normaloff>:/icon/icon/document-text.png</normaloff>:/icon/icon/document-text.png</iconset>
            </property>
            <property name="iconSize">
@@ -994,7 +997,7 @@ color:rgb(255, 255, 255);</string>
             <string>用户管理</string>
            </property>
            <property name="icon">
-            <iconset resource="../source.qrc">
+            <iconset>
              <normaloff>:/icon/icon/group-48.ico</normaloff>:/icon/icon/group-48.ico</iconset>
            </property>
            <property name="iconSize">
@@ -1033,7 +1036,7 @@ color:rgb(255, 255, 255);</string>
             <string>EXIT</string>
            </property>
            <property name="icon">
-            <iconset resource="../source.qrc">
+            <iconset>
              <normaloff>:/icon/icon/account-logout-64.ico</normaloff>:/icon/icon/account-logout-64.ico</iconset>
            </property>
            <property name="iconSize">
@@ -1068,7 +1071,7 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
           <string>导航栏</string>
          </property>
          <property name="icon">
-          <iconset resource="../source.qrc">
+          <iconset>
            <normaloff>:/icon/icon/huoche.png</normaloff>:/icon/icon/huoche.png</iconset>
          </property>
          <property name="iconSize">
@@ -1138,7 +1141,7 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
             <string>注销</string>
            </property>
            <property name="icon">
-            <iconset resource="../source.qrc">
+            <iconset>
              <normaloff>:/icon/icon/arrow-180.png</normaloff>:/icon/icon/arrow-180.png</iconset>
            </property>
            <property name="iconSize">
