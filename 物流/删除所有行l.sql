@@ -1,3 +1,3 @@
 -- database: wuliu.db
-DELETE FROM bill_mount
- WHERE "任务单号"='TJ23083113488004';
+DELETE FROM jdbill
+ WHERE "任务开始时间">'2023-08-20';

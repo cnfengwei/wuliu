@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.6.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -176,7 +176,7 @@ class Ui_MainWindow(object):
 
         self.enddate__audits = QDateEdit(self.groupBox_2)
         self.enddate__audits.setObjectName(u"enddate__audits")
-        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 8), QTime(0, 0, 0)))
+        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 7), QTime(0, 0, 0)))
         self.enddate__audits.setMinimumDate(QDate(2020, 8, 1))
         self.enddate__audits.setCurrentSection(QDateTimeEdit.YearSection)
         self.enddate__audits.setTimeSpec(Qt.UTC)
@@ -329,7 +329,7 @@ class Ui_MainWindow(object):
 
         self.enddate = QDateEdit(self.groupBox)
         self.enddate.setObjectName(u"enddate")
-        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 9), QTime(0, 0, 0)))
+        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 8), QTime(0, 0, 0)))
         self.enddate.setMinimumDate(QDate(2020, 8, 1))
         self.enddate.setCurrentSection(QDateTimeEdit.YearSection)
         self.enddate.setTimeSpec(Qt.UTC)
@@ -400,7 +400,7 @@ class Ui_MainWindow(object):
 
         self.save_btn = QPushButton(self.page3_import_data)
         self.save_btn.setObjectName(u"save_btn")
-        self.save_btn.setCheckable(True)
+        self.save_btn.setCheckable(False)
 
         self.gridLayout_6.addWidget(self.save_btn, 1, 1, 1, 1)
 
@@ -699,7 +699,7 @@ class Ui_MainWindow(object):
         self.bill_edit_btn.toggled.connect(MainWindow.on_bill_edit_btn_toggled)
         self.bill_audits_btn.toggled.connect(MainWindow.on_bill_audits_btn_toggled)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
         self.pushButton_8.setDefault(False)
 
 

@@ -1,11 +1,10 @@
 
 from PySide6.QtWidgets import QMainWindow, QApplication, QPushButton,QFileDialog,QTableWidgetItem,QMessageBox
-from PySide6.QtCore import Slot
 from ui.mainwindow_ui import Ui_MainWindow
 import pandas as pd
 from sql_class import connect_db
 from userwindow import adduser,edituser
-from datetime import date
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -25,6 +24,7 @@ class MainWindow(QMainWindow):
         self.ui.btn_serach.clicked.connect(self.btn_serach_clicked)
         self.ui.btn_bill_update.clicked.connect(self.update_bill_mount)
         self.ui.btn_serach_audits.clicked.connect(self.btn_serach_audits_clicked)
+        self.ui.save_btn.clicked.connect(self.on_savebtn_toggled)
         
     ## 改变页面到用户页面, 并加载数据库中表users的数据 
     def on_user_btn_clicked(self):
