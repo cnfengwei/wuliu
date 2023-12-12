@@ -175,7 +175,7 @@ class Ui_MainWindow(object):
 
         self.enddate__audits = QDateEdit(self.groupBox_2)
         self.enddate__audits.setObjectName(u"enddate__audits")
-        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 6), QTime(0, 0, 0)))
+        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 5), QTime(0, 0, 0)))
         self.enddate__audits.setMinimumDate(QDate(2020, 8, 1))
         self.enddate__audits.setCurrentSection(QDateTimeEdit.YearSection)
         self.enddate__audits.setTimeSpec(Qt.UTC)
@@ -187,15 +187,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.label_10)
 
-        self.checkBox_6 = QCheckBox(self.groupBox_2)
-        self.checkBox_6.setObjectName(u"checkBox_6")
+        self.cb_audits = QCheckBox(self.groupBox_2)
+        self.cb_audits.setObjectName(u"cb_audits")
+        self.cb_audits.setCheckable(True)
+        self.cb_audits.setChecked(False)
 
-        self.verticalLayout_4.addWidget(self.checkBox_6)
-
-        self.lineEdit_2 = QLineEdit(self.groupBox_2)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-
-        self.verticalLayout_4.addWidget(self.lineEdit_2)
+        self.verticalLayout_4.addWidget(self.cb_audits)
 
         self.verticalLayout_5 = QVBoxLayout()
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -328,7 +325,7 @@ class Ui_MainWindow(object):
 
         self.enddate = QDateEdit(self.groupBox)
         self.enddate.setObjectName(u"enddate")
-        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 7), QTime(0, 0, 0)))
+        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 6), QTime(0, 0, 0)))
         self.enddate.setMinimumDate(QDate(2020, 8, 1))
         self.enddate.setCurrentSection(QDateTimeEdit.YearSection)
         self.enddate.setTimeSpec(Qt.UTC)
@@ -494,6 +491,74 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.table_users, 0, 0, 1, 4)
 
         self.stackedWidget.addWidget(self.page4_users)
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.gridLayout_10 = QGridLayout(self.page)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.table_bill_payedit = QTableWidget(self.page)
+        if (self.table_bill_payedit.columnCount() < 12):
+            self.table_bill_payedit.setColumnCount(12)
+        __qtablewidgetitem37 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(0, __qtablewidgetitem37)
+        __qtablewidgetitem38 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(1, __qtablewidgetitem38)
+        __qtablewidgetitem39 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(2, __qtablewidgetitem39)
+        __qtablewidgetitem40 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(3, __qtablewidgetitem40)
+        __qtablewidgetitem41 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(4, __qtablewidgetitem41)
+        __qtablewidgetitem42 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(5, __qtablewidgetitem42)
+        __qtablewidgetitem43 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(6, __qtablewidgetitem43)
+        __qtablewidgetitem44 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(7, __qtablewidgetitem44)
+        __qtablewidgetitem45 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(8, __qtablewidgetitem45)
+        __qtablewidgetitem46 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(9, __qtablewidgetitem46)
+        __qtablewidgetitem47 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(10, __qtablewidgetitem47)
+        __qtablewidgetitem48 = QTableWidgetItem()
+        self.table_bill_payedit.setHorizontalHeaderItem(11, __qtablewidgetitem48)
+        self.table_bill_payedit.setObjectName(u"table_bill_payedit")
+        self.table_bill_payedit.setContextMenuPolicy(Qt.PreventContextMenu)
+        self.table_bill_payedit.setAcceptDrops(True)
+        self.table_bill_payedit.setLayoutDirection(Qt.RightToLeft)
+        self.table_bill_payedit.setAutoFillBackground(True)
+        self.table_bill_payedit.setStyleSheet(u"")
+        self.table_bill_payedit.setFrameShadow(QFrame.Raised)
+        self.table_bill_payedit.setLineWidth(0)
+        self.table_bill_payedit.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
+        self.table_bill_payedit.setAutoScrollMargin(16)
+        self.table_bill_payedit.setDragEnabled(False)
+        self.table_bill_payedit.setDragDropMode(QAbstractItemView.NoDragDrop)
+        self.table_bill_payedit.setDefaultDropAction(Qt.IgnoreAction)
+        self.table_bill_payedit.setAlternatingRowColors(True)
+        self.table_bill_payedit.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        self.table_bill_payedit.setSelectionBehavior(QAbstractItemView.SelectItems)
+        self.table_bill_payedit.setTextElideMode(Qt.ElideRight)
+        self.table_bill_payedit.setVerticalScrollMode(QAbstractItemView.ScrollPerItem)
+        self.table_bill_payedit.setHorizontalScrollMode(QAbstractItemView.ScrollPerItem)
+        self.table_bill_payedit.setShowGrid(True)
+        self.table_bill_payedit.setGridStyle(Qt.CustomDashLine)
+        self.table_bill_payedit.setSortingEnabled(True)
+        self.table_bill_payedit.setWordWrap(True)
+        self.table_bill_payedit.setCornerButtonEnabled(True)
+        self.table_bill_payedit.horizontalHeader().setCascadingSectionResizes(False)
+        self.table_bill_payedit.horizontalHeader().setMinimumSectionSize(50)
+        self.table_bill_payedit.horizontalHeader().setDefaultSectionSize(120)
+        self.table_bill_payedit.horizontalHeader().setHighlightSections(True)
+        self.table_bill_payedit.horizontalHeader().setProperty("showSortIndicator", True)
+        self.table_bill_payedit.horizontalHeader().setStretchLastSection(False)
+        self.table_bill_payedit.verticalHeader().setVisible(True)
+        self.table_bill_payedit.verticalHeader().setDefaultSectionSize(30)
+        self.table_bill_payedit.verticalHeader().setProperty("showSortIndicator", False)
+
+        self.gridLayout_10.addWidget(self.table_bill_payedit, 0, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.page)
 
         self.gridLayout_2.addWidget(self.stackedWidget, 0, 0, 1, 1)
 
@@ -548,16 +613,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.bill_audits_btn)
 
-        self.pushButton = QPushButton(self.daohang)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setStyleSheet(u"background-color:  rgb(113, 113, 113);\n"
+        self.bill_payedit_btn = QPushButton(self.daohang)
+        self.bill_payedit_btn.setObjectName(u"bill_payedit_btn")
+        self.bill_payedit_btn.setStyleSheet(u"background-color:  rgb(113, 113, 113);\n"
 "color:rgb(255, 255, 255);")
         icon3 = QIcon()
-        icon3.addFile(u":/icon/icon/document-text.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon3)
-        self.pushButton.setIconSize(QSize(24, 24))
+        icon3.addFile(u":/icon/icon/dollar.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.bill_payedit_btn.setIcon(icon3)
+        self.bill_payedit_btn.setIconSize(QSize(24, 24))
+        self.bill_payedit_btn.setCheckable(True)
+        self.bill_payedit_btn.setAutoExclusive(True)
 
-        self.verticalLayout.addWidget(self.pushButton)
+        self.verticalLayout.addWidget(self.bill_payedit_btn)
 
         self.user_btn = QPushButton(self.daohang)
         self.user_btn.setObjectName(u"user_btn")
@@ -580,9 +647,9 @@ class Ui_MainWindow(object):
         self.exit_btn.setObjectName(u"exit_btn")
         self.exit_btn.setStyleSheet(u"color: rgb(255, 255, 255);")
         icon5 = QIcon()
-        icon5.addFile(u":/icon/icon/account-logout-64.ico", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile(u":/icon/icon/exit.png", QSize(), QIcon.Normal, QIcon.Off)
         self.exit_btn.setIcon(icon5)
-        self.exit_btn.setIconSize(QSize(24, 24))
+        self.exit_btn.setIconSize(QSize(32, 32))
         self.exit_btn.setCheckable(True)
         self.exit_btn.setAutoExclusive(True)
 
@@ -627,6 +694,7 @@ class Ui_MainWindow(object):
         self.top = QFrame(self.centralwidget)
         self.top.setObjectName(u"top")
         self.top.setMinimumSize(QSize(559, 0))
+        self.top.setStyleSheet(u"background-color: rgb(100,100, 100);")
         self.top.setFrameShape(QFrame.StyledPanel)
         self.top.setFrameShadow(QFrame.Raised)
         self.gridLayout_3 = QGridLayout(self.top)
@@ -635,10 +703,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.pushButton_4 = QPushButton(self.top)
         self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setStyleSheet(u"background-color: rgb(85, 170, 0);\n"
-"font: 12pt \"Microsoft YaHei UI\";")
+        self.pushButton_4.setStyleSheet(u"background-color: rgb(130,130,130);\n"
+"font: 12pt \"Microsoft YaHei UI\";\n"
+"color: rgb(255, 255, 255);")
         icon7 = QIcon()
-        icon7.addFile(u":/icon/icon/arrow-180.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon7.addFile(u":/icon/icon/logout.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_4.setIcon(icon7)
         self.pushButton_4.setIconSize(QSize(24, 24))
 
@@ -651,7 +720,8 @@ class Ui_MainWindow(object):
         sizePolicy8.setVerticalStretch(0)
         sizePolicy8.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy8)
-        self.label.setStyleSheet(u"font: 12pt \"Microsoft YaHei UI\";")
+        self.label.setStyleSheet(u"font: 12pt \"Microsoft YaHei UI\";\n"
+"color: rgb(255, 255, 255);")
 
         self.horizontalLayout.addWidget(self.label)
 
@@ -676,8 +746,9 @@ class Ui_MainWindow(object):
         self.import_data_btn.toggled.connect(MainWindow.on_import_data_btn_toggled)
         self.bill_edit_btn.toggled.connect(MainWindow.on_bill_edit_btn_toggled)
         self.bill_audits_btn.toggled.connect(MainWindow.on_bill_audits_btn_toggled)
+        self.bill_payedit_btn.toggled.connect(MainWindow.on_bill_payedit_btn_toggled)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(5)
         self.pushButton_8.setDefault(False)
 
 
@@ -717,8 +788,8 @@ class Ui_MainWindow(object):
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u7ed3\u675f\u65e5\u671f", None))
         self.cb_enddate__audits.setText("")
         self.enddate__audits.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy-MM-dd", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7\uff08\u672a\u4f7f\u7528\uff09", None))
-        self.checkBox_6.setText("")
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u5ba1\u6838", None))
+        self.cb_audits.setText("")
         self.btn_serach_audits.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22", None))
         self.btn_bill_update__audits.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0&\u4fdd\u5b58", None))
         ___qtablewidgetitem11 = self.table_bill_edit.horizontalHeaderItem(0)
@@ -792,10 +863,34 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"\u6743\u9650", None));
         ___qtablewidgetitem36 = self.table_users.horizontalHeaderItem(4)
         ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"\u5907\u6ce8", None));
+        ___qtablewidgetitem37 = self.table_bill_payedit.horizontalHeaderItem(0)
+        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"\u4efb\u52a1\u5355\u53f7", None));
+        ___qtablewidgetitem38 = self.table_bill_payedit.horizontalHeaderItem(1)
+        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"\u662f\u5426\u4ed8\u6b3e", None));
+        ___qtablewidgetitem39 = self.table_bill_payedit.horizontalHeaderItem(2)
+        ___qtablewidgetitem39.setText(QCoreApplication.translate("MainWindow", u"\u6838\u5b9e\u53f8\u673a", None));
+        ___qtablewidgetitem40 = self.table_bill_payedit.horizontalHeaderItem(3)
+        ___qtablewidgetitem40.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u53f8\u673a", None));
+        ___qtablewidgetitem41 = self.table_bill_payedit.horizontalHeaderItem(4)
+        ___qtablewidgetitem41.setText(QCoreApplication.translate("MainWindow", u"\u59cb\u53d1\u7f51\u70b9", None));
+        ___qtablewidgetitem42 = self.table_bill_payedit.horizontalHeaderItem(5)
+        ___qtablewidgetitem42.setText(QCoreApplication.translate("MainWindow", u"\u76ee\u7684\u7f51\u70b9", None));
+        ___qtablewidgetitem43 = self.table_bill_payedit.horizontalHeaderItem(6)
+        ___qtablewidgetitem43.setText(QCoreApplication.translate("MainWindow", u"\u91d1\u989d", None));
+        ___qtablewidgetitem44 = self.table_bill_payedit.horizontalHeaderItem(7)
+        ___qtablewidgetitem44.setText(QCoreApplication.translate("MainWindow", u"\u5ba1\u6838", None));
+        ___qtablewidgetitem45 = self.table_bill_payedit.horizontalHeaderItem(8)
+        ___qtablewidgetitem45.setText(QCoreApplication.translate("MainWindow", u"\u5907\u6ce8", None));
+        ___qtablewidgetitem46 = self.table_bill_payedit.horizontalHeaderItem(9)
+        ___qtablewidgetitem46.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u59cb\u65f6\u95f4", None));
+        ___qtablewidgetitem47 = self.table_bill_payedit.horizontalHeaderItem(10)
+        ___qtablewidgetitem47.setText(QCoreApplication.translate("MainWindow", u"\u7ed3\u675f\u65f6\u95f4", None));
+        ___qtablewidgetitem48 = self.table_bill_payedit.horizontalHeaderItem(11)
+        ___qtablewidgetitem48.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7", None));
         self.import_data_btn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165\u6570\u636e", None))
         self.bill_edit_btn.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u5355\u7f16\u8f91", None))
         self.bill_audits_btn.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u5355\u5ba1\u6838", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u5355\u4ed8\u6b3e", None))
+        self.bill_payedit_btn.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u5355\u4ed8\u6b3e", None))
         self.user_btn.setText(QCoreApplication.translate("MainWindow", u"\u7528\u6237\u7ba1\u7406", None))
         self.exit_btn.setText(QCoreApplication.translate("MainWindow", u"EXIT", None))
         self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u822a\u680f", None))

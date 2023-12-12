@@ -39,7 +39,7 @@
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="page_4">
           <layout class="QGridLayout" name="gridLayout_9"/>
@@ -307,7 +307,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>6</day>
+                  <day>5</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -331,19 +331,22 @@
               <item>
                <widget class="QLabel" name="label_10">
                 <property name="text">
-                 <string>三方单号（未使用）</string>
+                 <string>审核</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="checkBox_6">
+               <widget class="QCheckBox" name="cb_audits">
                 <property name="text">
                  <string/>
                 </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
                </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit_2"/>
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -578,7 +581,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>7</day>
+                  <day>6</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -866,6 +869,170 @@
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="page">
+          <layout class="QGridLayout" name="gridLayout_10">
+           <item row="0" column="0">
+            <widget class="QTableWidget" name="table_bill_payedit">
+             <property name="contextMenuPolicy">
+              <enum>Qt::PreventContextMenu</enum>
+             </property>
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::RightToLeft</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>true</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
+             </property>
+             <property name="sizeAdjustPolicy">
+              <enum>QAbstractScrollArea::AdjustIgnored</enum>
+             </property>
+             <property name="autoScrollMargin">
+              <number>16</number>
+             </property>
+             <property name="dragEnabled">
+              <bool>false</bool>
+             </property>
+             <property name="dragDropMode">
+              <enum>QAbstractItemView::NoDragDrop</enum>
+             </property>
+             <property name="defaultDropAction">
+              <enum>Qt::IgnoreAction</enum>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::ExtendedSelection</enum>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectItems</enum>
+             </property>
+             <property name="textElideMode">
+              <enum>Qt::ElideRight</enum>
+             </property>
+             <property name="verticalScrollMode">
+              <enum>QAbstractItemView::ScrollPerItem</enum>
+             </property>
+             <property name="horizontalScrollMode">
+              <enum>QAbstractItemView::ScrollPerItem</enum>
+             </property>
+             <property name="showGrid">
+              <bool>true</bool>
+             </property>
+             <property name="gridStyle">
+              <enum>Qt::CustomDashLine</enum>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="cornerButtonEnabled">
+              <bool>true</bool>
+             </property>
+             <attribute name="horizontalHeaderCascadingSectionResizes">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="horizontalHeaderMinimumSectionSize">
+              <number>50</number>
+             </attribute>
+             <attribute name="horizontalHeaderDefaultSectionSize">
+              <number>120</number>
+             </attribute>
+             <attribute name="horizontalHeaderHighlightSections">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="horizontalHeaderStretchLastSection">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="verticalHeaderVisible">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="verticalHeaderDefaultSectionSize">
+              <number>30</number>
+             </attribute>
+             <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+              <bool>false</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>任务单号</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>是否付款</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>核实司机</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>三方司机</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>始发网点</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>目的网点</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>金额</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>审核</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>备注</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>开始时间</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>结束时间</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>三方单号</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -895,7 +1062,7 @@ color:rgb(255, 255, 255);</string>
             <string>导入数据</string>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../source.qrc">
              <normaloff>:/icon/icon/notebook.png</normaloff>:/icon/icon/notebook.png</iconset>
            </property>
            <property name="iconSize">
@@ -922,7 +1089,7 @@ color:rgb(255, 255, 255);</string>
             <string>运单编辑</string>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../source.qrc">
              <normaloff>:/icon/icon/product-48.ico</normaloff>:/icon/icon/product-48.ico</iconset>
            </property>
            <property name="iconSize">
@@ -949,7 +1116,7 @@ color:rgb(255, 255, 255);</string>
             <string>运单审核</string>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../source.qrc">
              <normaloff>:/icon/icon/activity-feed-48.ico</normaloff>:/icon/icon/activity-feed-48.ico</iconset>
            </property>
            <property name="iconSize">
@@ -967,7 +1134,7 @@ color:rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="bill_payedit_btn">
            <property name="styleSheet">
             <string notr="true">background-color:  rgb(113, 113, 113);
 color:rgb(255, 255, 255);</string>
@@ -976,14 +1143,20 @@ color:rgb(255, 255, 255);</string>
             <string>运单付款</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>:/icon/icon/document-text.png</normaloff>:/icon/icon/document-text.png</iconset>
+            <iconset resource="../source.qrc">
+             <normaloff>:/icon/icon/dollar.png</normaloff>:/icon/icon/dollar.png</iconset>
            </property>
            <property name="iconSize">
             <size>
              <width>24</width>
              <height>24</height>
             </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -997,7 +1170,7 @@ color:rgb(255, 255, 255);</string>
             <string>用户管理</string>
            </property>
            <property name="icon">
-            <iconset>
+            <iconset resource="../source.qrc">
              <normaloff>:/icon/icon/group-48.ico</normaloff>:/icon/icon/group-48.ico</iconset>
            </property>
            <property name="iconSize">
@@ -1036,13 +1209,13 @@ color:rgb(255, 255, 255);</string>
             <string>EXIT</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>:/icon/icon/account-logout-64.ico</normaloff>:/icon/icon/account-logout-64.ico</iconset>
+            <iconset resource="../source.qrc">
+             <normaloff>:/icon/icon/exit.png</normaloff>:/icon/icon/exit.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>24</width>
-             <height>24</height>
+             <width>32</width>
+             <height>32</height>
             </size>
            </property>
            <property name="checkable">
@@ -1071,7 +1244,7 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
           <string>导航栏</string>
          </property>
          <property name="icon">
-          <iconset>
+          <iconset resource="../source.qrc">
            <normaloff>:/icon/icon/huoche.png</normaloff>:/icon/icon/huoche.png</iconset>
          </property>
          <property name="iconSize">
@@ -1122,6 +1295,9 @@ background-color: rgb(255, 255, 255);</string>
         <height>0</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(100,100, 100);</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -1134,15 +1310,16 @@ background-color: rgb(255, 255, 255);</string>
          <item>
           <widget class="QPushButton" name="pushButton_4">
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(85, 170, 0);
-font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
+            <string notr="true">background-color: rgb(130,130,130);
+font: 12pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
             <string>注销</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>:/icon/icon/arrow-180.png</normaloff>:/icon/icon/arrow-180.png</iconset>
+            <iconset resource="../source.qrc">
+             <normaloff>:/icon/icon/logout.png</normaloff>:/icon/icon/logout.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -1161,7 +1338,8 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
             </sizepolicy>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
+            <string notr="true">font: 12pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
             <string>用户</string>
@@ -1274,6 +1452,22 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>bill_payedit_btn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_bill_payedit_btn_toggled()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>57</x>
+     <y>161</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">
@@ -1297,5 +1491,6 @@ font: 12pt &quot;Microsoft YaHei UI&quot;;</string>
   <slot>on_bill_audits_btn_toggled()</slot>
   <slot>on_user_btn_clicked()</slot>
   <slot>on_import_data_btn_toggled()</slot>
+  <slot>on_bill_payedit_btn_toggled()</slot>
  </slots>
 </ui>

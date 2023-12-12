@@ -146,16 +146,18 @@ class connect_db():
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
 
-    def serach_bill_audits(self,tableWidget,query,drivename,startdate,enddate):
+    def serach_bill_audits(self,tableWidget,query,drivename,startdate,enddate,audits):
         self.conn_db()
         
         
-        self.my_cursor.execute(query,{'drivename':drivename,'startdate':startdate,'enddate':enddate})
+        self.my_cursor.execute(query,{'drivename':drivename,'startdate':startdate,'enddate':enddate,'audits':audits})
         data = self.my_cursor.fetchall()
         # 关闭数据库连接
         self.conn_close()
         # 设置 table rowCount 和 columnCount
-
+        if data == []:
+            messagebox.showerror("查询结果", "没有符合条件的记录")
+            return
         tableWidget.setRowCount(len(data))
         tableWidget.setColumnCount(len(data[0]))
         # 设置第六列为checkbox
@@ -172,9 +174,6 @@ class connect_db():
                     checkbox = QCheckBox()
                     checkbox.setChecked(data[i][6])
                     # 将复选框添加到表格中
-                    
-                    # tableWidget.setCellWidget(i, 6, checkbox)
-                    # tableWidget.setColumnWidth(6, 50)
                     container_widget = QWidget()
                     layout = QHBoxLayout(container_widget)
                     layout.addWidget(checkbox)
@@ -213,12 +212,22 @@ class connect_db():
             for j in range(len(data[0])):
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
-    
+
+    def update_billaudits(self,data):
+        self.conn_db()
+        for data_row in data:
+            query ="update bill_mount set 审核 = ? where 任务单号 = ?"
+            self.my_cursor.execute(query,(data_row[1],data_row[0]))
+        self.my_connector.commit()
+        messagebox.showinfo("更新", "记录更新成功")
+        self.conn_close()
+        return 1
+
     def update_billmount(self,data):
         self.conn_db()
         for data_row in data:
             query ="update bill_mount set 金额 = ? where 任务单号 = ?"
             self.my_cursor.execute(query,(data_row[1],data_row[0]))
         self.my_connector.commit()
-        messagebox.showerror("更新", "记录更新成功")
+        messagebox.showinfo("更新", "记录更新成功")
         self.conn_close()

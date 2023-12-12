@@ -1,6 +1,6 @@
 <RCC>
   <qresource prefix="icon">
-    <file>icon/document-text.png</file>
+    <file>icon/dollar.png</file>
     <file>icon/huoche.png</file>
     <file>icon/plus.png</file>
     <file>icon/tick.png</file>
@@ -8,8 +8,9 @@
     <file>icon/account-logout-64.ico</file>
     <file>icon/activity-feed-32.ico</file>
     <file>icon/activity-feed-48.ico</file>
-    <file>icon/arrow-180.png</file>
     <file>icon/group-32.ico</file>
+    <file>icon/exit.png</file>
+    <file>icon/logout.png</file>
     <file>icon/group-48.ico</file>
     <file>icon/home-4-32.ico</file>
     <file>icon/home-4-48.ico</file>
