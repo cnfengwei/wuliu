@@ -47,6 +47,6 @@ class edituser(QDialog):
         memo = self.ui.memo.toPlainText()
         id = int(self.userid)
         if self.mydb.updateuser(username,password,qx,memo,id) == 1 :
-           QMessageBox.information(self,"成功","用户添加成功！")
+           QMessageBox.information(self,"成功","用户更改成功！")
            self.close()
         
