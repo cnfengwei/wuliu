@@ -1,4 +1,5 @@
 
+from tkinter import messagebox
 from PySide6.QtWidgets import QMainWindow, QApplication, QPushButton,QFileDialog,QTableWidgetItem,QMessageBox,QCheckBox
 from ui.mainwindow_ui import Ui_MainWindow
 import pandas as pd
@@ -94,13 +95,13 @@ class MainWindow(QMainWindow):
         # 连接数据库
         self.mydb.conn_db()
         # 获取连接对象和游标
-        connector = self.mydb.get_connector()
-        cursor = self.mydb.get_cursor()
+        connector = self.mydb.my_connector
+        cursor = self.mydb.my_cursor
         # 从数据库中检索数据
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='jdbill'")
         table_exists = cursor.fetchone() is not None
         if not table_exists:
-            print("Error: Table 'jdbill' does not exist.")
+            messagebox.WARNING(self,"错误","表jdbill不存在!")
             self.conn_close()
             return
         # 获取当前表中的所有运输任务号

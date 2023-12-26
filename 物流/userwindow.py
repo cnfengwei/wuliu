@@ -7,7 +7,7 @@ class adduser(QDialog):
         super(adduser,self).__init__()
         self.ui = Ui_user_edit_window()
         self.ui.setupUi(self)
-        self.windowTitle="新增"
+        self.windowTitle="新增" # type: ignore
         self.mydb = connect_db()
         
 
@@ -31,7 +31,7 @@ class edituser(QDialog):
         super(edituser,self).__init__()
         self.ui = Ui_user_edit_window()
         self.ui.setupUi(self)
-        self.windowTitle="修改"
+        self.windowTitle = "修改" # type: ignore
         self.userid=userid
         self.mydb = connect_db()
         result = self.mydb.edituser(self.userid)

@@ -20,17 +20,13 @@ class connect_db():
             self.my_connector = sqlite3.connect('wuliu.db')
             
         except Exception as e:
-            messagebox.showerror("数据库链接失败", str(e))
+            messagebox.showerror(title="数据库链接失败", message=str(e))
             print(str(e))
             sys.exit()
 
         self.my_cursor = self.my_connector.cursor()
         
-    def get_connector(self):
-        return self.my_connector
 
-    def get_cursor(self):
-        return self.my_cursor
     #数据库关闭
     def conn_close(self):
         self.my_cursor.close()
