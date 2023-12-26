@@ -1,3 +1,4 @@
+from gc import enable
 import sqlite3
 import sys
 from PySide6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget,QCheckBox,QWidget,QHBoxLayout
@@ -86,15 +87,13 @@ class connect_db():
             self.my_connector.commit()
             self.conn_close()
             return 1
+    
     #将修改后的用户信息提交数据库 
     def updateuser(self,username,password,qx,memo,id):
-        
         self.id = int(id)
         self.conn_db()
         query = "update users SET username = ?,password=?,qx=?,memo=? where id=?"
         self.my_cursor.execute(query,[username,password,qx,memo,id])
-        
-        
         if self.my_cursor.rowcount > 0:
             self.my_connector.commit()
             return 1
@@ -113,7 +112,6 @@ class connect_db():
 
     #删除选择的用户       
     def deleteuser(self,id):
-        
         self.conn_db()
         self.id= int(id)
         query = "DELETE FROM users WHERE id = ?"
@@ -130,22 +128,18 @@ class connect_db():
         data = self.my_cursor.fetchall()
         # 关闭数据库连接
         self.conn_close()
-        
         # 设置 table rowCount 和 columnCount
-
         tableWidget.setRowCount(len(data))
         tableWidget.setColumnCount(len(data[0]))
-
         # 将数据填充到 table widget
         for i in range(len(data)):
             for j in range(len(data[0])):
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
 
+    #运单审核表的搜索函数,将搜索条件的结果填入到表中
     def serach_bill_audits(self,tableWidget,query,drivename,startdate,enddate,audits):
         self.conn_db()
-        
-        
         self.my_cursor.execute(query,{'drivename':drivename,'startdate':startdate,'enddate':enddate,'audits':audits})
         data = self.my_cursor.fetchall()
         # 关闭数据库连接
@@ -156,9 +150,7 @@ class connect_db():
             return
         tableWidget.setRowCount(len(data))
         tableWidget.setColumnCount(len(data[0]))
-        # 设置第六列为checkbox
-        
-             
+        # 设置第六列为checkbox   
         # 将数据填充到 table widget
         for i in range(len(data)):
             for j in range(len(data[0])):
@@ -178,19 +170,12 @@ class connect_db():
                     
                     # 将容器窗口设置为单元格小部件
                     tableWidget.setCellWidget(i, 6, container_widget)
+                    tableWidget.setColumnWidth(6, 50)                  
+        tableWidget.setSortingEnabled(1)            
                     
-                    tableWidget.setColumnWidth(6, 50)
-                    
-                    
-
-
-
-                    
-                    
+    #运单编辑表根据条件进行搜索               
     def serachbilldata(self,tableWidget,query,drivename,startdate,enddate):
         self.conn_db()
-        
-        
         self.my_cursor.execute(query,{'drivename':drivename,'startdate':startdate,'enddate':enddate})
         data = self.my_cursor.fetchall()
         # 关闭数据库连接
@@ -198,17 +183,18 @@ class connect_db():
         if data == []:
             messagebox.showerror("查询结果", "没有符合条件的记录")
             return
-        #tablewidget.setRowCount(0)
+        # tableWidget.setRowCount(0)
         # 设置 table rowCount 和 columnCount
         tableWidget.setRowCount(len(data))
         tableWidget.setColumnCount(len(data[0]))
-
         # 将数据填充到 table widget
         for i in range(len(data)):
             for j in range(len(data[0])):
                 item = QTableWidgetItem(str(data[i][j]))
                 tableWidget.setItem(i, j, item)
-
+        tableWidget.setSortingEnabled(1)
+    
+    #运单审核表的保存    
     def update_billaudits(self,data):
         self.conn_db()
         for data_row in data:
@@ -218,7 +204,8 @@ class connect_db():
         messagebox.showinfo("更新", "记录更新成功")
         self.conn_close()
         return 1
-
+    
+    #运单编辑表的保存
     def update_billmount(self,data):
         self.conn_db()
         for data_row in data:

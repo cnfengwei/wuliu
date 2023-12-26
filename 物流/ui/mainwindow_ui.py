@@ -90,6 +90,7 @@ class Ui_MainWindow(object):
         self.table_bill_audits.setFrameShadow(QFrame.Raised)
         self.table_bill_audits.setLineWidth(0)
         self.table_bill_audits.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
+        self.table_bill_audits.setAutoScroll(True)
         self.table_bill_audits.setAutoScrollMargin(16)
         self.table_bill_audits.setDragEnabled(False)
         self.table_bill_audits.setDragDropMode(QAbstractItemView.NoDragDrop)
@@ -154,11 +155,13 @@ class Ui_MainWindow(object):
 
         self.startdate__audits = QDateEdit(self.groupBox_2)
         self.startdate__audits.setObjectName(u"startdate__audits")
+        self.startdate__audits.setAcceptDrops(False)
         self.startdate__audits.setAccelerated(True)
         self.startdate__audits.setCorrectionMode(QAbstractSpinBox.CorrectToPreviousValue)
         self.startdate__audits.setMaximumDate(QDate(2050, 1, 1))
         self.startdate__audits.setMinimumDate(QDate(2020, 8, 1))
-        self.startdate__audits.setCalendarPopup(False)
+        self.startdate__audits.setCurrentSection(QDateTimeEdit.DaySection)
+        self.startdate__audits.setCalendarPopup(True)
         self.startdate__audits.setDate(QDate(2023, 8, 1))
 
         self.verticalLayout_4.addWidget(self.startdate__audits)
@@ -175,9 +178,10 @@ class Ui_MainWindow(object):
 
         self.enddate__audits = QDateEdit(self.groupBox_2)
         self.enddate__audits.setObjectName(u"enddate__audits")
-        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 5), QTime(0, 0, 0)))
+        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 3), QTime(0, 0, 0)))
         self.enddate__audits.setMinimumDate(QDate(2020, 8, 1))
         self.enddate__audits.setCurrentSection(QDateTimeEdit.YearSection)
+        self.enddate__audits.setCalendarPopup(True)
         self.enddate__audits.setTimeSpec(Qt.UTC)
 
         self.verticalLayout_4.addWidget(self.enddate__audits)
@@ -211,7 +215,7 @@ class Ui_MainWindow(object):
 
         self.btn_bill_update__audits = QPushButton(self.groupBox_2)
         self.btn_bill_update__audits.setObjectName(u"btn_bill_update__audits")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.btn_bill_update__audits.sizePolicy().hasHeightForWidth())
@@ -219,6 +223,16 @@ class Ui_MainWindow(object):
         self.btn_bill_update__audits.setFont(font)
 
         self.verticalLayout_5.addWidget(self.btn_bill_update__audits)
+
+        self.label_11 = QLabel(self.groupBox_2)
+        self.label_11.setObjectName(u"label_11")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy4)
+
+        self.verticalLayout_5.addWidget(self.label_11)
 
 
         self.verticalLayout_4.addLayout(self.verticalLayout_5)
@@ -257,17 +271,25 @@ class Ui_MainWindow(object):
         __qtablewidgetitem21 = QTableWidgetItem()
         self.table_bill_edit.setHorizontalHeaderItem(10, __qtablewidgetitem21)
         self.table_bill_edit.setObjectName(u"table_bill_edit")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy4.setHorizontalStretch(200)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.table_bill_edit.sizePolicy().hasHeightForWidth())
-        self.table_bill_edit.setSizePolicy(sizePolicy4)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy5.setHorizontalStretch(200)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.table_bill_edit.sizePolicy().hasHeightForWidth())
+        self.table_bill_edit.setSizePolicy(sizePolicy5)
         self.table_bill_edit.setAcceptDrops(True)
+        self.table_bill_edit.setAutoScroll(True)
+        self.table_bill_edit.setDragEnabled(True)
         self.table_bill_edit.setAlternatingRowColors(True)
         self.table_bill_edit.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.table_bill_edit.setSortingEnabled(True)
+        self.table_bill_edit.setWordWrap(True)
+        self.table_bill_edit.setCornerButtonEnabled(True)
+        self.table_bill_edit.horizontalHeader().setVisible(True)
         self.table_bill_edit.horizontalHeader().setCascadingSectionResizes(False)
         self.table_bill_edit.horizontalHeader().setDefaultSectionSize(120)
+        self.table_bill_edit.horizontalHeader().setHighlightSections(False)
+        self.table_bill_edit.horizontalHeader().setProperty("showSortIndicator", True)
+        self.table_bill_edit.verticalHeader().setVisible(True)
         self.table_bill_edit.verticalHeader().setProperty("showSortIndicator", True)
 
         self.gridLayout_8.addWidget(self.table_bill_edit, 0, 0, 1, 1)
@@ -308,7 +330,7 @@ class Ui_MainWindow(object):
         self.startdate.setCorrectionMode(QAbstractSpinBox.CorrectToPreviousValue)
         self.startdate.setMaximumDate(QDate(2050, 1, 1))
         self.startdate.setMinimumDate(QDate(2020, 8, 1))
-        self.startdate.setCalendarPopup(False)
+        self.startdate.setCalendarPopup(True)
         self.startdate.setDate(QDate(2023, 8, 1))
 
         self.verticalLayout_3.addWidget(self.startdate)
@@ -325,9 +347,10 @@ class Ui_MainWindow(object):
 
         self.enddate = QDateEdit(self.groupBox)
         self.enddate.setObjectName(u"enddate")
-        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 6), QTime(0, 0, 0)))
+        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 4), QTime(0, 0, 0)))
         self.enddate.setMinimumDate(QDate(2020, 8, 1))
         self.enddate.setCurrentSection(QDateTimeEdit.YearSection)
+        self.enddate.setCalendarPopup(True)
         self.enddate.setTimeSpec(Qt.UTC)
 
         self.verticalLayout_3.addWidget(self.enddate)
@@ -368,6 +391,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addLayout(self.verticalLayout_2)
 
+        self.label_2 = QLabel(self.groupBox)
+        self.label_2.setObjectName(u"label_2")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy6)
+
+        self.verticalLayout_3.addWidget(self.label_2)
+
         self.cb_drivename.raise_()
         self.label_3.raise_()
         self.lineEdit.raise_()
@@ -380,6 +413,7 @@ class Ui_MainWindow(object):
         self.checkBox_5.raise_()
         self.label_6.raise_()
         self.label_5.raise_()
+        self.label_2.raise_()
 
         self.gridLayout_8.addWidget(self.groupBox, 0, 1, 1, 1)
 
@@ -432,11 +466,11 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page3_import_data)
         self.page4_users = QWidget()
         self.page4_users.setObjectName(u"page4_users")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy5.setHorizontalStretch(5)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.page4_users.sizePolicy().hasHeightForWidth())
-        self.page4_users.setSizePolicy(sizePolicy5)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy7.setHorizontalStretch(5)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.page4_users.sizePolicy().hasHeightForWidth())
+        self.page4_users.setSizePolicy(sizePolicy7)
         self.page4_users.setSizeIncrement(QSize(0, 0))
         self.gridLayout_5 = QGridLayout(self.page4_users)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
@@ -478,11 +512,11 @@ class Ui_MainWindow(object):
         __qtablewidgetitem36 = QTableWidgetItem()
         self.table_users.setHorizontalHeaderItem(4, __qtablewidgetitem36)
         self.table_users.setObjectName(u"table_users")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.table_users.sizePolicy().hasHeightForWidth())
-        self.table_users.setSizePolicy(sizePolicy6)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.table_users.sizePolicy().hasHeightForWidth())
+        self.table_users.setSizePolicy(sizePolicy8)
         self.table_users.setStyleSheet(u"")
         self.table_users.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.table_users.setAlternatingRowColors(True)
@@ -676,11 +710,11 @@ class Ui_MainWindow(object):
 
         self.line = QFrame(self.daohang)
         self.line.setObjectName(u"line")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(29)
-        sizePolicy7.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
-        self.line.setSizePolicy(sizePolicy7)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(29)
+        sizePolicy9.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
+        self.line.setSizePolicy(sizePolicy9)
         self.line.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "background-color: rgb(255, 255, 255);")
         self.line.setFrameShape(QFrame.HLine)
@@ -715,11 +749,11 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.top)
         self.label.setObjectName(u"label")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy8.setHorizontalStretch(1)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy8)
+        sizePolicy10 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy10.setHorizontalStretch(1)
+        sizePolicy10.setVerticalStretch(0)
+        sizePolicy10.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy10)
         self.label.setStyleSheet(u"font: 12pt \"Microsoft YaHei UI\";\n"
 "color: rgb(255, 255, 255);")
 
@@ -748,7 +782,7 @@ class Ui_MainWindow(object):
         self.bill_audits_btn.toggled.connect(MainWindow.on_bill_audits_btn_toggled)
         self.bill_payedit_btn.toggled.connect(MainWindow.on_bill_payedit_btn_toggled)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(2)
         self.pushButton_8.setDefault(False)
 
 
@@ -792,6 +826,7 @@ class Ui_MainWindow(object):
         self.cb_audits.setText("")
         self.btn_serach_audits.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22", None))
         self.btn_bill_update__audits.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0&\u4fdd\u5b58", None))
+        self.label_11.setText("")
         ___qtablewidgetitem11 = self.table_bill_edit.horizontalHeaderItem(0)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u8f93\u4efb\u52a1\u53f7", None));
         ___qtablewidgetitem12 = self.table_bill_edit.horizontalHeaderItem(1)
@@ -827,6 +862,7 @@ class Ui_MainWindow(object):
         self.checkBox_5.setText("")
         self.btn_serach.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22", None))
         self.btn_bill_update.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0&\u4fdd\u5b58", None))
+        self.label_2.setText("")
         self.import_exceldata_btn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165EXCEL\u6570\u636e", None))
         self.save_btn.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u6570\u636e", None))
         ___qtablewidgetitem22 = self.table_import_exceldata.horizontalHeaderItem(0)

@@ -147,8 +147,10 @@ class MainWindow(QMainWindow):
         self.edituser=edituser(userid=id)
         self.edituser.show()
 
-    # 根据选项设定搜索条件，主要是增加了审核这个选项   
+    # 运单审核表中根据选项设定搜索条件，主要是增加了审核这个选项   
     def btn_serach_audits_clicked(self):
+        self.ui.table_bill_audits.clearContents()
+        self.ui.table_bill_audits.setSortingEnabled(0)
         query = "SELECT \"运输任务号\", \"核实司机\", \"三方司机姓名\" ,\
         \"始发网点\",\"目的网点\", \"金额\", \"审核\",\"备注\",\"任务开始时间\", \"任务结束时间\",\"三方单号\" FROM bill_view where \
         CASE WHEN :drivename <> '' THEN  核实司机= :drivename ELSE 1=1 END \
@@ -175,7 +177,9 @@ class MainWindow(QMainWindow):
         self.mydb.serach_bill_audits(self.ui.table_bill_audits,query,drivename,startdate,enddate,audits)
     
     #在运单编辑表中填充搜索结果
-    def btn_serach_clicked(self):     
+    def btn_serach_clicked(self):    
+        self.ui.table_bill_edit.clearContents()
+        self.ui.table_bill_edit.setSortingEnabled(False)
         query = "SELECT \"运输任务号\", \"核实司机\", \"三方司机姓名\" ,\"车牌号\",\
         \"始发网点\",\"目的网点\", \"金额\", \"任务开始时间\", \"任务结束时间\",\"三方单号\", \"备注\" FROM bill_view where \
         CASE WHEN :drivename <> '' THEN  核实司机= :drivename ELSE 1=1 END \
@@ -188,10 +192,12 @@ class MainWindow(QMainWindow):
             drivename=""
         if self.ui.cb_startdate.isChecked():
             startdate = self.ui.startdate.text()
+            print(startdate)
         else:
             startdate=""
         if self.ui.cb_enddate.isChecked():
             enddate= self.ui.enddate.text()
+            print(enddate)
         else:
             enddate=""       
         self.mydb.serachbilldata(self.ui.table_bill_edit,query,drivename,startdate,enddate)

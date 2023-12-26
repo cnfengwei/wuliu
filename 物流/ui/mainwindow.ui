@@ -39,7 +39,7 @@
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page_4">
           <layout class="QGridLayout" name="gridLayout_9"/>
@@ -71,6 +71,9 @@
              </property>
              <property name="sizeAdjustPolicy">
               <enum>QAbstractScrollArea::AdjustIgnored</enum>
+             </property>
+             <property name="autoScroll">
+              <bool>true</bool>
              </property>
              <property name="autoScrollMargin">
               <number>16</number>
@@ -249,6 +252,9 @@
               </item>
               <item>
                <widget class="QDateEdit" name="startdate__audits">
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
                 <property name="accelerated">
                  <bool>true</bool>
                 </property>
@@ -269,11 +275,14 @@
                   <day>1</day>
                  </date>
                 </property>
+                <property name="currentSection">
+                 <enum>QDateTimeEdit::DaySection</enum>
+                </property>
                 <property name="displayFormat">
                  <string>yyyy-MM-dd</string>
                 </property>
                 <property name="calendarPopup">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="date">
                  <date>
@@ -307,7 +316,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>5</day>
+                  <day>3</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -322,6 +331,9 @@
                 </property>
                 <property name="displayFormat">
                  <string>yyyy-MM-dd</string>
+                </property>
+                <property name="calendarPopup">
+                 <bool>true</bool>
                 </property>
                 <property name="timeSpec">
                  <enum>Qt::UTC</enum>
@@ -371,7 +383,7 @@
                 <item>
                  <widget class="QPushButton" name="btn_bill_update__audits">
                   <property name="sizePolicy">
-                   <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
@@ -383,6 +395,19 @@
                   </property>
                   <property name="text">
                    <string>更新&amp;保存</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_11">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="text">
+                   <string/>
                   </property>
                  </widget>
                 </item>
@@ -406,6 +431,12 @@
              <property name="acceptDrops">
               <bool>true</bool>
              </property>
+             <property name="autoScroll">
+              <bool>true</bool>
+             </property>
+             <property name="dragEnabled">
+              <bool>true</bool>
+             </property>
              <property name="alternatingRowColors">
               <bool>true</bool>
              </property>
@@ -415,11 +446,29 @@
              <property name="sortingEnabled">
               <bool>true</bool>
              </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="cornerButtonEnabled">
+              <bool>true</bool>
+             </property>
+             <attribute name="horizontalHeaderVisible">
+              <bool>true</bool>
+             </attribute>
              <attribute name="horizontalHeaderCascadingSectionResizes">
               <bool>false</bool>
              </attribute>
              <attribute name="horizontalHeaderDefaultSectionSize">
               <number>120</number>
+             </attribute>
+             <attribute name="horizontalHeaderHighlightSections">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="verticalHeaderVisible">
+              <bool>true</bool>
              </attribute>
              <attribute name="verticalHeaderShowSortIndicator" stdset="0">
               <bool>true</bool>
@@ -547,7 +596,7 @@
                  <string>yyyy-MM-dd</string>
                 </property>
                 <property name="calendarPopup">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="date">
                  <date>
@@ -581,7 +630,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>6</day>
+                  <day>4</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -596,6 +645,9 @@
                 </property>
                 <property name="displayFormat">
                  <string>yyyy-MM-dd</string>
+                </property>
+                <property name="calendarPopup">
+                 <bool>true</bool>
                 </property>
                 <property name="timeSpec">
                  <enum>Qt::UTC</enum>
@@ -642,7 +694,7 @@
                 <item>
                  <widget class="QPushButton" name="btn_bill_update">
                   <property name="sizePolicy">
-                   <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
@@ -659,6 +711,19 @@
                 </item>
                </layout>
               </item>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
              </layout>
              <zorder>cb_drivename</zorder>
              <zorder>label_3</zorder>
@@ -672,6 +737,7 @@
              <zorder>checkBox_5</zorder>
              <zorder>label_6</zorder>
              <zorder>label_5</zorder>
+             <zorder>label_2</zorder>
             </widget>
            </item>
           </layout>
