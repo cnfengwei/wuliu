@@ -160,7 +160,7 @@ class Ui_MainWindow(object):
         self.startdate__audits.setCorrectionMode(QAbstractSpinBox.CorrectToPreviousValue)
         self.startdate__audits.setMaximumDate(QDate(2050, 1, 1))
         self.startdate__audits.setMinimumDate(QDate(2020, 8, 1))
-        self.startdate__audits.setCurrentSection(QDateTimeEdit.DaySection)
+        self.startdate__audits.setCurrentSection(QDateTimeEdit.YearSection)
         self.startdate__audits.setCalendarPopup(True)
         self.startdate__audits.setDate(QDate(2023, 8, 1))
 
@@ -178,7 +178,7 @@ class Ui_MainWindow(object):
 
         self.enddate__audits = QDateEdit(self.groupBox_2)
         self.enddate__audits.setObjectName(u"enddate__audits")
-        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 3), QTime(0, 0, 0)))
+        self.enddate__audits.setDateTime(QDateTime(QDate(2023, 8, 2), QTime(0, 0, 0)))
         self.enddate__audits.setMinimumDate(QDate(2020, 8, 1))
         self.enddate__audits.setCurrentSection(QDateTimeEdit.YearSection)
         self.enddate__audits.setCalendarPopup(True)
@@ -198,15 +198,28 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.cb_audits)
 
+        self.label_11 = QLabel(self.groupBox_2)
+        self.label_11.setObjectName(u"label_11")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy2)
+        self.label_11.setStyleSheet(u"color: rgb(255, 32, 91);\n"
+"font: 11pt \"Microsoft YaHei UI\";")
+        self.label_11.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_4.addWidget(self.label_11)
+
         self.verticalLayout_5 = QVBoxLayout()
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.btn_serach_audits = QPushButton(self.groupBox_2)
         self.btn_serach_audits.setObjectName(u"btn_serach_audits")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Maximum)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.btn_serach_audits.sizePolicy().hasHeightForWidth())
-        self.btn_serach_audits.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Maximum)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.btn_serach_audits.sizePolicy().hasHeightForWidth())
+        self.btn_serach_audits.setSizePolicy(sizePolicy3)
         font = QFont()
         font.setPointSize(12)
         self.btn_serach_audits.setFont(font)
@@ -215,24 +228,14 @@ class Ui_MainWindow(object):
 
         self.btn_bill_update__audits = QPushButton(self.groupBox_2)
         self.btn_bill_update__audits.setObjectName(u"btn_bill_update__audits")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.btn_bill_update__audits.sizePolicy().hasHeightForWidth())
-        self.btn_bill_update__audits.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.btn_bill_update__audits.sizePolicy().hasHeightForWidth())
+        self.btn_bill_update__audits.setSizePolicy(sizePolicy4)
         self.btn_bill_update__audits.setFont(font)
 
         self.verticalLayout_5.addWidget(self.btn_bill_update__audits)
-
-        self.label_11 = QLabel(self.groupBox_2)
-        self.label_11.setObjectName(u"label_11")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
-        self.label_11.setSizePolicy(sizePolicy4)
-
-        self.verticalLayout_5.addWidget(self.label_11)
 
 
         self.verticalLayout_4.addLayout(self.verticalLayout_5)
@@ -347,7 +350,7 @@ class Ui_MainWindow(object):
 
         self.enddate = QDateEdit(self.groupBox)
         self.enddate.setObjectName(u"enddate")
-        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 4), QTime(0, 0, 0)))
+        self.enddate.setDateTime(QDateTime(QDate(2023, 8, 3), QTime(0, 0, 0)))
         self.enddate.setMinimumDate(QDate(2020, 8, 1))
         self.enddate.setCurrentSection(QDateTimeEdit.YearSection)
         self.enddate.setCalendarPopup(True)
@@ -370,27 +373,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.lineEdit)
 
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.btn_serach = QPushButton(self.groupBox)
-        self.btn_serach.setObjectName(u"btn_serach")
-        sizePolicy2.setHeightForWidth(self.btn_serach.sizePolicy().hasHeightForWidth())
-        self.btn_serach.setSizePolicy(sizePolicy2)
-        self.btn_serach.setFont(font)
-
-        self.verticalLayout_2.addWidget(self.btn_serach)
-
-        self.btn_bill_update = QPushButton(self.groupBox)
-        self.btn_bill_update.setObjectName(u"btn_bill_update")
-        sizePolicy3.setHeightForWidth(self.btn_bill_update.sizePolicy().hasHeightForWidth())
-        self.btn_bill_update.setSizePolicy(sizePolicy3)
-        self.btn_bill_update.setFont(font)
-
-        self.verticalLayout_2.addWidget(self.btn_bill_update)
-
-
-        self.verticalLayout_3.addLayout(self.verticalLayout_2)
-
         self.label_2 = QLabel(self.groupBox)
         self.label_2.setObjectName(u"label_2")
         sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
@@ -398,8 +380,33 @@ class Ui_MainWindow(object):
         sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
         self.label_2.setSizePolicy(sizePolicy6)
+        self.label_2.setStyleSheet(u"color: rgb(255, 32, 91);\n"
+"font: 11pt \"Microsoft YaHei UI\";")
+        self.label_2.setTextFormat(Qt.AutoText)
+        self.label_2.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.label_2)
+
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.btn_serach = QPushButton(self.groupBox)
+        self.btn_serach.setObjectName(u"btn_serach")
+        sizePolicy3.setHeightForWidth(self.btn_serach.sizePolicy().hasHeightForWidth())
+        self.btn_serach.setSizePolicy(sizePolicy3)
+        self.btn_serach.setFont(font)
+
+        self.verticalLayout_2.addWidget(self.btn_serach)
+
+        self.btn_bill_update = QPushButton(self.groupBox)
+        self.btn_bill_update.setObjectName(u"btn_bill_update")
+        sizePolicy4.setHeightForWidth(self.btn_bill_update.sizePolicy().hasHeightForWidth())
+        self.btn_bill_update.setSizePolicy(sizePolicy4)
+        self.btn_bill_update.setFont(font)
+
+        self.verticalLayout_2.addWidget(self.btn_bill_update)
+
+
+        self.verticalLayout_3.addLayout(self.verticalLayout_2)
 
         self.cb_drivename.raise_()
         self.label_3.raise_()
@@ -782,7 +789,7 @@ class Ui_MainWindow(object):
         self.bill_audits_btn.toggled.connect(MainWindow.on_bill_audits_btn_toggled)
         self.bill_payedit_btn.toggled.connect(MainWindow.on_bill_payedit_btn_toggled)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
         self.pushButton_8.setDefault(False)
 
 
@@ -824,9 +831,11 @@ class Ui_MainWindow(object):
         self.enddate__audits.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy-MM-dd", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u5ba1\u6838", None))
         self.cb_audits.setText("")
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22\u65e5\u671f\u4ee5\n"
+"\u4efb\u52a1\u5f00\u59cb\u65f6\u95f4\n"
+"\u4e3a\u641c\u7d22\u6761\u4ef6", None))
         self.btn_serach_audits.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22", None))
         self.btn_bill_update__audits.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0&\u4fdd\u5b58", None))
-        self.label_11.setText("")
         ___qtablewidgetitem11 = self.table_bill_edit.horizontalHeaderItem(0)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"\u8fd0\u8f93\u4efb\u52a1\u53f7", None));
         ___qtablewidgetitem12 = self.table_bill_edit.horizontalHeaderItem(1)
@@ -852,17 +861,19 @@ class Ui_MainWindow(object):
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u67e5\u8be2\u641c\u7d22", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"\u53f8\u673a\u59d3\u540d", None))
         self.cb_drivename.setText("")
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u59cb\u65e5\u671f", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u59cb\u65e5\u671f(\u5927\u4e8e\u7b49\u4e8e)", None))
         self.cb_startdate.setText("")
         self.startdate.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy-MM-dd", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u7ed3\u675f\u65e5\u671f", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u7ed3\u675f\u65e5\u671f(\u5c0f\u4e8e\u7b49\u4e8e)", None))
         self.cb_enddate.setText("")
         self.enddate.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy-MM-dd", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u4e09\u65b9\u5355\u53f7\uff08\u672a\u4f7f\u7528\uff09", None))
         self.checkBox_5.setText("")
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22\u65e5\u671f\u4ee5\n"
+"\u4efb\u52a1\u5f00\u59cb\u65f6\u95f4\n"
+"\u4e3a\u641c\u7d22\u6761\u4ef6", None))
         self.btn_serach.setText(QCoreApplication.translate("MainWindow", u"\u641c\u7d22", None))
         self.btn_bill_update.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0&\u4fdd\u5b58", None))
-        self.label_2.setText("")
         self.import_exceldata_btn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165EXCEL\u6570\u636e", None))
         self.save_btn.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u6570\u636e", None))
         ___qtablewidgetitem22 = self.table_import_exceldata.horizontalHeaderItem(0)

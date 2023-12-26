@@ -39,7 +39,7 @@
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page_4">
           <layout class="QGridLayout" name="gridLayout_9"/>
@@ -276,7 +276,7 @@
                  </date>
                 </property>
                 <property name="currentSection">
-                 <enum>QDateTimeEdit::DaySection</enum>
+                 <enum>QDateTimeEdit::YearSection</enum>
                 </property>
                 <property name="displayFormat">
                  <string>yyyy-MM-dd</string>
@@ -316,7 +316,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>3</day>
+                  <day>2</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -361,6 +361,28 @@
                </widget>
               </item>
               <item>
+               <widget class="QLabel" name="label_11">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 32, 91);
+font: 11pt &quot;Microsoft YaHei UI&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>搜索日期以
+任务开始时间
+为搜索条件</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
                <layout class="QVBoxLayout" name="verticalLayout_5">
                 <item>
                  <widget class="QPushButton" name="btn_serach_audits">
@@ -395,19 +417,6 @@
                   </property>
                   <property name="text">
                    <string>更新&amp;保存</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="label_11">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string/>
                   </property>
                  </widget>
                 </item>
@@ -559,7 +568,7 @@
               <item>
                <widget class="QLabel" name="label_5">
                 <property name="text">
-                 <string>开始日期</string>
+                 <string>开始日期(大于等于)</string>
                 </property>
                </widget>
               </item>
@@ -610,7 +619,7 @@
               <item>
                <widget class="QLabel" name="label_3">
                 <property name="text">
-                 <string>结束日期</string>
+                 <string>结束日期(小于等于)</string>
                 </property>
                </widget>
               </item>
@@ -630,7 +639,7 @@
                   <second>0</second>
                   <year>2023</year>
                   <month>8</month>
-                  <day>4</day>
+                  <day>3</day>
                  </datetime>
                 </property>
                 <property name="minimumDate">
@@ -672,6 +681,31 @@
                <widget class="QLineEdit" name="lineEdit"/>
               </item>
               <item>
+               <widget class="QLabel" name="label_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 32, 91);
+font: 11pt &quot;Microsoft YaHei UI&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>搜索日期以
+任务开始时间
+为搜索条件</string>
+                </property>
+                <property name="textFormat">
+                 <enum>Qt::AutoText</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
                <layout class="QVBoxLayout" name="verticalLayout_2">
                 <item>
                  <widget class="QPushButton" name="btn_serach">
@@ -710,19 +744,6 @@
                  </widget>
                 </item>
                </layout>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
               </item>
              </layout>
              <zorder>cb_drivename</zorder>

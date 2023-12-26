@@ -154,8 +154,8 @@ class MainWindow(QMainWindow):
         query = "SELECT \"运输任务号\", \"核实司机\", \"三方司机姓名\" ,\
         \"始发网点\",\"目的网点\", \"金额\", \"审核\",\"备注\",\"任务开始时间\", \"任务结束时间\",\"三方单号\" FROM bill_view where \
         CASE WHEN :drivename <> '' THEN  核实司机= :drivename ELSE 1=1 END \
-         AND CASE WHEN :startdate <> '' THEN 任务开始时间 >= :startdate ELSE 1=1 END \
-          AND CASE WHEN :enddate <> '' THEN 任务开始时间 <= :enddate ELSE 1=1 END \
+         AND CASE WHEN :startdate <> '' THEN date(任务开始时间) >= :startdate ELSE 1=1 END \
+          AND CASE WHEN :enddate <> '' THEN date(任务开始时间) <= :enddate ELSE 1=1 END \
           AND CASE WHEN :audits <> '' THEN 审核 = :audits ELSE 1=1 END "
         # ******日期格式必须为yyyy-mm-dd，yyyy-m-d和yyyy/m/d数据库搜索不到记录******
         if self.ui.cb_drivename_audits.isChecked():
@@ -167,7 +167,7 @@ class MainWindow(QMainWindow):
         else:
             startdate=""
         if self.ui.cb_enddate__audits.isChecked():
-            enddate= self.ui.enddate__audits.text() + ' 23:59:59'
+            enddate= self.ui.enddate__audits.text()
         else:
             enddate=""       
         if self.ui.cb_audits.isChecked() :
@@ -183,8 +183,8 @@ class MainWindow(QMainWindow):
         query = "SELECT \"运输任务号\", \"核实司机\", \"三方司机姓名\" ,\"车牌号\",\
         \"始发网点\",\"目的网点\", \"金额\", \"任务开始时间\", \"任务结束时间\",\"三方单号\", \"备注\" FROM bill_view where \
         CASE WHEN :drivename <> '' THEN  核实司机= :drivename ELSE 1=1 END \
-         AND CASE WHEN :startdate <> '' THEN 任务开始时间 >= :startdate ELSE 1=1 END \
-          AND CASE WHEN :enddate <> '' THEN 任务开始时间 <= :enddate ELSE 1=1 END  "
+         AND CASE WHEN :startdate <> '' THEN date(任务开始时间) >= :startdate ELSE 1=1 END \
+          AND CASE WHEN :enddate <> '' THEN date(任务开始时间) <= :enddate ELSE 1=1 END  "
         # ******日期格式必须为yyyy-mm-dd，yyyy-m-d和yyyy/m/d数据库搜索不到记录******
         if self.ui.cb_drivename.isChecked():
             drivename = self.ui.drivename.text()
@@ -196,7 +196,7 @@ class MainWindow(QMainWindow):
         else:
             startdate=""
         if self.ui.cb_enddate.isChecked():
-            enddate= self.ui.enddate.text() + ' 23:59:59'
+            enddate= self.ui.enddate.text()
             print(enddate)
         else:
             enddate=""       
