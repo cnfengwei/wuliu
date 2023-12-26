@@ -167,7 +167,7 @@ class MainWindow(QMainWindow):
         else:
             startdate=""
         if self.ui.cb_enddate__audits.isChecked():
-            enddate= self.ui.enddate__audits.text()
+            enddate= self.ui.enddate__audits.text() + ' 23:59:59'
         else:
             enddate=""       
         if self.ui.cb_audits.isChecked() :
@@ -196,7 +196,7 @@ class MainWindow(QMainWindow):
         else:
             startdate=""
         if self.ui.cb_enddate.isChecked():
-            enddate= self.ui.enddate.text()
+            enddate= self.ui.enddate.text() + ' 23:59:59'
             print(enddate)
         else:
             enddate=""       
