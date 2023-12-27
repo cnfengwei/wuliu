@@ -4,9 +4,10 @@ import sys
 from PySide6.QtWidgets import QMessageBox,QTableWidgetItem,QTableWidget,QCheckBox,QWidget,QHBoxLayout
 from PySide6.QtCore import Qt
 from tkinter import messagebox
-
+import os
 #数据库连接的模块，用于数据库的连接和数据查询，更新和删除等sql语句执行
 class connect_db():
+    
     def __init__(self):
         self.host = "127.0.0.1"
         self.user = "test_user"
@@ -17,14 +18,13 @@ class connect_db():
         self.my_cursor = None
     
     def conn_db (self):
-        try:
-            self.my_connector = sqlite3.connect('wuliu.db')
-            
-        except Exception as e:
-            messagebox.showerror(title="数据库链接失败", message=str(e))
-            print(str(e))
+        database_file = 'wuliu.db'
+        if os.path.exists(database_file):
+            self.my_connector = sqlite3.connect(database_file)
+            # 连接数据库后的操作
+        else:
+            messagebox.showerror(title="数据库链接失败", message="数据库不存在，请将数据库放置到和程序同一目录下！")
             sys.exit()
-
         self.my_cursor = self.my_connector.cursor()
         
 
