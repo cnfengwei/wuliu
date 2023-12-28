@@ -15,7 +15,6 @@ class MainWindow(QMainWindow):
         self.mydb = connect_db()
         self.adduser = adduser()
         
-
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.import_exceldata_btn.clicked.connect(self.import_exceldata_btn_toggled)
         self.ui.add_user_btn.clicked.connect(self.add_user_btn_clicked)
